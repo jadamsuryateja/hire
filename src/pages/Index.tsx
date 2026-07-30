@@ -324,8 +324,16 @@ function TestimonialSection() {
 /* ---------------- CTA ---------------- */
 function CTASection() {
   return (
-    <section className="w-full bg-navy py-20 text-navy-foreground">
-      <div className="mx-auto max-w-5xl px-6 text-center sm:px-12 lg:px-20">
+    <section className="relative w-full bg-navy py-20 text-navy-foreground overflow-hidden">
+      {/* Grid Background */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-20" 
+        style={{
+          backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)',
+          backgroundSize: '40px 40px'
+        }}
+      />
+      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center sm:px-12 lg:px-20">
         <h2 className="text-[32px] font-extrabold tracking-tight sm:text-[40px] md:text-[48px]">Ready to Make Your Leap?</h2>
         <p className="mx-auto mt-6 max-w-[600px] text-[15px] leading-relaxed text-navy-foreground/80 sm:text-[16px]">
           Join thousands of professionals who have transformed their careers with our AI-driven insights and expert guidance. 
