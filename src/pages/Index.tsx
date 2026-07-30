@@ -92,10 +92,8 @@ function Hero() {
           alt="Professional gazing at a sunset city skyline"
           width={1408}
           height={1008}
-          className="h-full min-h-[280px] w-full object-cover sm:min-h-[420px] lg:min-h-[540px] lg:[mask-image:linear-gradient(to_right,transparent_0%,black_18%,black_100%)] lg:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_18%,black_100%)]"
+          className="h-full min-h-[280px] w-full object-cover sm:min-h-[420px] lg:min-h-[540px] lg:[mask-image:linear-gradient(to_right,transparent_0%,black_5%,black_100%)] lg:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_5%,black_100%)]"
         />
-        {/* Extra soft fade into background on the left edge (desktop only) */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 hidden w-1/3 bg-gradient-to-r from-background via-background/60 to-transparent lg:block" />
       </div>
     </section>
   );
