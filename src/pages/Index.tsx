@@ -324,8 +324,8 @@ function TestimonialSection() {
 /* ---------------- CTA ---------------- */
 function CTASection() {
   return (
-    <section className="w-full px-6 py-20 lg:px-10">
-      <div className="mx-auto max-w-5xl rounded-3xl bg-navy px-6 py-14 text-center text-navy-foreground shadow-xl sm:px-12 md:py-20 lg:px-20">
+    <section className="w-full bg-navy py-20 text-navy-foreground">
+      <div className="mx-auto max-w-5xl px-6 text-center sm:px-12 lg:px-20">
         <h2 className="text-[32px] font-extrabold tracking-tight sm:text-[40px] md:text-[48px]">Ready to Make Your Leap?</h2>
         <p className="mx-auto mt-6 max-w-[600px] text-[15px] leading-relaxed text-navy-foreground/80 sm:text-[16px]">
           Join thousands of professionals who have transformed their careers with our AI-driven insights and expert guidance. 
