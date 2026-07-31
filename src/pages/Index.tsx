@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { PageShell } from "@/components/PageShell";
+import { VideoModal } from "@/components/VideoModal";
 import heroImg from "@/assets/hero-career.jpg";
 import infinityLoopAsset from "@/assets/infinity-loop.png";
 import {
   Sparkles,
   Play,
   HelpCircle,
-  ArrowLeftRight,
-  UserRound,
+  Move,
+  User,
   TrendingUp,
   Target,
   Compass,
@@ -40,7 +41,7 @@ export default function Home() {
 /* ---------------- HERO ---------------- */
 function Hero() {
   return (
-    <section className="grid w-full items-center gap-8 lg:grid-cols-[1fr_1.3fr] lg:gap-10">
+    <section className="grid w-full items-center gap-8 lg:grid-cols-[3fr_7fr] lg:gap-10">
       <div className="px-5 py-8 sm:px-6 sm:py-10 lg:py-14 lg:pl-10">
 
         <h1 className="text-[32px] font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-[42px] md:text-[52px]">
@@ -66,22 +67,24 @@ function Hero() {
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
-            to="/"
+            to="#plan"
             onClick={() => console.log('Analytics Event: Primary CTA Clicked - Plan Your Next Leap')}
             className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3.5 text-[14px] font-semibold text-primary-foreground shadow-soft transition-all hover:brightness-110 sm:text-[15px]"
           >
             Plan Your Next Leap <span aria-hidden>→</span>
           </Link>
-          <button 
-            onClick={() => console.log('Analytics Event: Secondary CTA Clicked - Explore How It Works Video')}
-            aria-label="Play introductory video"
-            className="inline-flex items-center gap-2.5 rounded-lg border border-border bg-background px-5 py-3.5 text-[14px] font-semibold text-foreground transition-colors hover:border-primary sm:text-[15px]"
-          >
-            <span className="grid h-6 w-6 place-items-center rounded-full bg-primary text-primary-foreground">
-              <Play className="h-3 w-3 fill-current" />
-            </span>
-            Explore How It Works
-          </button>
+          <VideoModal>
+            <button 
+              onClick={() => console.log('Analytics Event: Secondary CTA Clicked - Explore How It Works Video')}
+              aria-label="Play introductory video"
+              className="inline-flex items-center gap-2.5 rounded-lg border border-border bg-background px-5 py-3.5 text-[14px] font-semibold text-foreground transition-colors hover:border-primary sm:text-[15px]"
+            >
+              <span className="grid h-6 w-6 place-items-center rounded-full bg-primary text-primary-foreground">
+                <Play className="h-3 w-3 fill-current" />
+              </span>
+              Explore How It Works
+            </button>
+          </VideoModal>
         </div>
       </div>
 
@@ -92,7 +95,7 @@ function Hero() {
           alt="Professional gazing at a sunset city skyline"
           width={1408}
           height={1008}
-          className="h-full min-h-[280px] w-full object-cover sm:min-h-[420px] lg:min-h-[540px] lg:[mask-image:linear-gradient(to_right,transparent_0%,black_5%,black_100%)] lg:[-webkit-mask-image:linear-gradient(to_right,transparent_0%,black_5%,black_100%)]"
+          className="h-full min-h-[280px] w-full object-cover sm:min-h-[420px] lg:min-h-[540px] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_70%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_70%)]"
         />
       </div>
     </section>
@@ -103,8 +106,8 @@ function Hero() {
 function SoundFamiliar() {
   const items = [
     { icon: <HelpCircle className="h-5 w-5" />, tint: "bg-danger/10 text-danger", title: "Not sure if", desc: "you're on the right career path?" },
-    { icon: <ArrowLeftRight className="h-5 w-5" />, tint: "bg-warning/10 text-warning", title: "Confused about", desc: "your next move or transition?" },
-    { icon: <UserRound className="h-5 w-5" />, tint: "bg-[oklch(0.75_0.15_75)]/10 text-[oklch(0.65_0.15_75)]", title: "Wondering how", desc: "to grow or pivot with confidence?" },
+    { icon: <Move className="h-5 w-5" />, tint: "bg-warning/10 text-warning", title: "Confused about", desc: "your next move or transition?" },
+    { icon: <User className="h-5 w-5" />, tint: "bg-[oklch(0.75_0.15_75)]/10 text-[oklch(0.65_0.15_75)]", title: "Wondering how", desc: "to grow or pivot with confidence?" },
     { icon: <TrendingUp className="h-5 w-5" />, tint: "bg-success/10 text-success", title: "Overwhelmed by", desc: "too many options and advice?" },
     { icon: <Target className="h-5 w-5" />, tint: "bg-violet/10 text-violet", title: "Looking for clarity", desc: "and a clear plan for your future?" },
   ];
@@ -247,7 +250,17 @@ function MethodSection() {
 
 /* ---------------- LOGOS ---------------- */
 function LogosStrip() {
-  const logos = ["Google", "Microsoft", "amazon", "Deloitte.", "JPMorgan Chase & Co.", "accenture", "IBM", "Adobe", "and many more..."];
+  const logos = [
+    { name: "Google", url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/google.svg" },
+    { name: "Microsoft", url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/microsoft.svg" },
+    { name: "Amazon", url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/amazon.svg", customClass: "scale-110" },
+    { name: "Deloitte", url: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_of_Deloitte.svg" },
+    { name: "JPMorgan Chase & Co.", url: "https://upload.wikimedia.org/wikipedia/commons/0/07/J_P_Morgan_Chase_Logo_2008_1.svg" },
+    { name: "Accenture", url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/accenture.svg" },
+    { name: "IBM", url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/ibm.svg", customClass: "scale-[1.7]" },
+    { name: "Adobe", url: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobe.svg" },
+  ];
+  
   return (
     <section className="w-full px-6 pb-2 pt-10 text-center lg:px-10">
       <style>{`
@@ -268,9 +281,17 @@ function LogosStrip() {
         TRUSTED BY PROFESSIONALS FROM LEADING COMPANIES
       </div>
       <div className="group relative flex overflow-hidden w-full max-w-full">
-        <div className="flex animate-marquee items-center gap-x-12 gap-y-4 text-[18px] font-bold text-muted-foreground/80 group-hover:[animation-play-state:paused] motion-reduce:animate-none pr-12">
+        <div className="flex animate-marquee items-center gap-x-14 gap-y-4 text-[18px] font-bold text-muted-foreground/80 group-hover:[animation-play-state:paused] motion-reduce:animate-none pr-14">
           {[...logos, ...logos, ...logos].map((l, i) => (
-            <span key={`${l}-${i}`} className="whitespace-nowrap">{l}</span>
+            <div key={`${l.name}-${i}`} className="flex items-center justify-center shrink-0">
+              <img 
+                src={l.url} 
+                alt={`${l.name} logo`} 
+                title={l.name}
+                className={`h-7 w-auto object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 ${l.customClass || ""}`}
+                loading="lazy"
+              />
+            </div>
           ))}
         </div>
       </div>
@@ -332,7 +353,7 @@ function CTASection() {
         }}
       />
       <div className="relative z-10 mx-auto max-w-5xl px-6 text-center sm:px-12 lg:px-20">
-        <h2 className="text-[32px] font-extrabold tracking-tight sm:text-[40px] md:text-[48px]">Ready to Make Your Leap?</h2>
+        <h2 className="text-[32px] font-extrabold tracking-tight sm:text-[40px] md:text-[48px]">Ready for your next leap?</h2>
         <p className="mx-auto mt-6 max-w-[600px] text-[15px] leading-relaxed text-navy-foreground/80 sm:text-[16px]">
           Join thousands of professionals who have transformed their careers with our AI-driven insights and expert guidance. 
           Your next big opportunity is waiting.
