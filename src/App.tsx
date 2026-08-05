@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { MainLayout, NotFoundComponent } from "./layouts/MainLayout";
 import Index from "./pages/Index";
+import CareerJourneys from "./pages/CareerJourneys";
 import WhyWeExist from "./pages/WhyWeExist";
 
 const queryClient = new QueryClient();
@@ -39,6 +40,7 @@ function App() {
         <MainLayout>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/career-journeys" element={<CareerJourneys />} />
             <Route path="/why-we-exist" element={<WhyWeExist />} />
             <Route path="*" element={<NotFoundComponent />} />
           </Routes>

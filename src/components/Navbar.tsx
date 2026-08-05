@@ -6,6 +6,7 @@ type NavItem = { to: string; label: string; hasCaret?: boolean };
 const links: NavItem[] = [
   { to: "/", label: "Home" },
   { to: "/why-we-exist", label: "Why We Exist" },
+  { to: "/career-journeys", label: "Career Journeys" },
 ];
 
 export function Navbar() {
