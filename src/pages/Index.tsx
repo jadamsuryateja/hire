@@ -33,7 +33,6 @@ export default function Home() {
       <MethodSection />
       <LogosStrip />
       <TestimonialSection />
-      <CTASection />
     </PageShell>
   );
 }
@@ -41,10 +40,10 @@ export default function Home() {
 /* ---------------- HERO ---------------- */
 function Hero() {
   return (
-    <section className="grid w-full items-center gap-8 lg:grid-cols-[4fr_6fr] 2xl:grid-cols-[3fr_7fr] lg:gap-10">
+    <section className="grid w-full items-center gap-8 lg:grid-cols-[3fr_7fr] lg:gap-10">
       <div className="px-5 py-8 sm:px-6 sm:py-10 lg:py-14 lg:pl-10">
 
-        <h1 className="text-[36px] font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-[48px] lg:text-[42px] xl:text-[52px]">
+        <h1 className="text-[36px] font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-[48px] lg:text-[24px] xl:text-[30px] 2xl:text-[40px] min-[1920px]:text-[52px]">
           Every career has<br />defining moments.
           <br />
           <span className="text-primary">
@@ -89,13 +88,13 @@ function Hero() {
       </div>
 
       {/* Visual */}
-      <div className="relative self-stretch overflow-hidden">
+      <div className="relative self-stretch overflow-hidden min-h-[280px] sm:min-h-[420px]">
         <img
           src={heroImg}
           alt="Professional gazing at a sunset city skyline"
           width={1408}
           height={1008}
-          className="h-full min-h-[280px] w-full object-cover object-[75%_center] sm:min-h-[420px] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)]"
+          className="absolute inset-0 h-full w-full object-cover object-[75%_center] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)]"
         />
       </div>
     </section>
@@ -334,45 +333,6 @@ function TestimonialSection() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- CTA ---------------- */
-function CTASection() {
-  return (
-    <section className="relative w-full bg-navy py-20 text-navy-foreground overflow-hidden">
-      {/* Grid Background */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-20" 
-        style={{
-          backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px)',
-          backgroundSize: '40px 40px'
-        }}
-      />
-      <div className="relative z-10 mx-auto max-w-5xl px-6 text-center sm:px-12 lg:px-20">
-        <h2 className="text-[32px] font-extrabold tracking-tight sm:text-[40px] md:text-[48px]">Ready for your next leap?</h2>
-        <p className="mx-auto mt-6 max-w-[600px] text-[15px] leading-relaxed text-navy-foreground/80 sm:text-[16px]">
-          Join thousands of professionals who have transformed their careers with our AI-driven insights and expert guidance. 
-          Your next big opportunity is waiting.
-        </p>
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Link
-            to="/"
-            onClick={() => console.log('Analytics Event: Bottom CTA Primary Clicked')}
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-8 text-[14px] font-bold text-primary-foreground transition-all hover:bg-primary/90 hover:scale-105 active:scale-95 sm:w-auto"
-          >
-            Start Your Journey <ChevronRight className="h-4 w-4" />
-          </Link>
-          <Link
-            to="/"
-            onClick={() => console.log('Analytics Event: Bottom CTA Secondary Clicked')}
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-transparent px-8 text-[14px] font-bold text-white transition-all hover:bg-white/10 sm:w-auto"
-          >
-            Learn More
-          </Link>
         </div>
       </div>
     </section>

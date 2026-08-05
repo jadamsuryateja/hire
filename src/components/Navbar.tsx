@@ -5,6 +5,7 @@ import { useState } from "react";
 type NavItem = { to: string; label: string; hasCaret?: boolean };
 const links: NavItem[] = [
   { to: "/", label: "Home" },
+  { to: "/why-we-exist", label: "Why We Exist" },
 ];
 
 export function Navbar() {
