@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { PageShell } from "../components/PageShell";
-import { Cpu, Users, Layers, Sprout, TrendingUp, Compass, Globe, Heart, Mountain, Star, ArrowRight } from "lucide-react";
+import { Cpu, Users, Layers, Sprout, TrendingUp, Compass, Globe, Heart, Mountain, Star, ArrowRight, ShieldCheck, UserCheck, Quote } from "lucide-react";
 import heroImg from "@/assets/career_journeys_hero.png"; 
 
 export default function CareerJourneys() {
@@ -12,6 +13,7 @@ export default function CareerJourneys() {
       </Helmet>
       <Hero />
       <JourneysList />
+      <CareerJourneysCTA />
     </PageShell>
   );
 }
@@ -25,12 +27,7 @@ function Hero() {
           CAREER JOURNEYS
         </div>
         <h1 className="text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#0A102A] sm:text-[48px] lg:text-[42px] xl:text-[52px]">
-          Every career
-          <br />
-          journey begins with
-          <br />
-          a different{" "}
-          <span className="font-serif italic text-primary font-medium tracking-normal">question.</span>
+          Every career journey begins with a different question.
         </h1>
         
         <p className="mt-8 text-[16px] leading-relaxed text-gray-700 max-w-[480px]">
@@ -40,7 +37,7 @@ function Hero() {
         <div className="mt-12 flex flex-wrap items-center gap-6 text-[13px] font-semibold text-gray-600">
           <div className="flex items-center gap-2">
             <Cpu className="h-4 w-4 text-primary" />
-            AI-Powered Guidance
+            AI-Powered Expert Guidance
           </div>
           <div className="flex items-center gap-2">
             <Users className="h-4 w-4 text-primary" />
@@ -142,28 +139,27 @@ const journeys = [
 
 function JourneysList() {
   return (
-    <section className="pt-8 pb-16 sm:pt-12 sm:pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-      <div className="text-center mb-10">
+    <section className="pt-8 pb-16 sm:pt-12 sm:pb-20 w-full max-w-full">
+      <div className="text-center mb-10 px-5 sm:px-6 lg:px-8">
         <div className="mb-4 text-[12px] font-bold uppercase tracking-widest text-[#4f3bc4]">
           WHERE ARE YOU TODAY?
         </div>
         <h2 className="text-[28px] sm:text-[36px] font-medium font-serif text-[#0A102A]">
-          Choose the journey that matches where <span className="italic border-b-2 border-[#4f3bc4]/40 pb-1">you</span> are right now.
+          Choose the journey that matches where{" "}
+          <span className="relative inline-block">
+            you
+            <svg className="absolute -bottom-[0.2em] left-0 w-full h-[0.35em] text-[#4f3bc4]" viewBox="0 0 100 20" preserveAspectRatio="none">
+              <path d="M 15,18 Q 50,10 85,18" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+            </svg>
+          </span>{" "}
+          are right now.
         </h2>
       </div>
 
-      <div className="flex flex-col gap-6 lg:pl-12 relative">
-        {/* Vertical Timeline Line */}
-        <div className="hidden lg:block absolute left-4 top-10 bottom-10 w-px bg-gray-200"></div>
+      <div className="flex flex-col gap-6 relative px-4 sm:px-6 lg:px-12 xl:px-20">
 
         {journeys.map((journey, idx) => (
           <div key={idx} className="relative flex items-center group cursor-pointer">
-            {/* Number Indicator (Timeline) */}
-            <div className="hidden lg:flex absolute -left-16 flex-row items-center gap-3">
-              <span className="text-[20px] font-semibold text-[#5b45c2] font-serif">{journey.number}</span>
-              <div className="w-2 h-2 rounded-full bg-[#5b45c2]"></div>
-            </div>
-
             {/* Journey Card */}
             <div className="flex-1 rounded-2xl border border-gray-200 bg-white overflow-hidden shadow-sm transition-shadow hover:shadow-md flex flex-col md:flex-row relative">
               
@@ -201,7 +197,7 @@ function JourneysList() {
                     {journey.question}
                   </p>
                   <div className="flex items-center gap-1.5 text-[13px] font-bold" style={{ color: journey.color }}>
-                    Explore this journey <ArrowRight className="w-4 h-4" />
+                    The HireLeap Method™
                   </div>
                 </div>
               </div>
@@ -218,6 +214,135 @@ function JourneysList() {
             </div>
           </div>
         ))}
+      </div>
+    </section>
+  );
+}
+
+function CareerJourneysCTA() {
+  return (
+    <section className="relative w-full bg-white pb-12 pt-10 sm:pb-16 sm:pt-14">
+      {/* Background Mountain Path (Left Side) */}
+      <div className="absolute left-0 top-0 h-full w-[40%] opacity-50 pointer-events-none hidden lg:block overflow-hidden">
+        <img 
+          src="https://images.unsplash.com/photo-1542224566-6e85f2e6772f?auto=format&fit=crop&w=1200&q=80" 
+          alt="Path in the mountains"
+          className="h-full w-full object-cover [mask-image:linear-gradient(to_right,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_100%)] [-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_100%)]"
+        />
+      </div>
+
+      <div className="mx-auto w-full max-w-[1400px] px-5 sm:px-6 relative z-10">
+        
+        {/* Main CTA Content */}
+        <div className="mx-auto max-w-3xl text-center mb-12 lg:mb-14">
+          <h2 className="mb-4 font-serif text-[32px] sm:text-[40px] md:text-[48px] font-medium leading-[1.1] text-[#0A102A]">
+            Your career journey is uniquely yours.
+          </h2>
+          
+          <p className="mb-5 text-[15px] sm:text-[16px] leading-relaxed text-gray-600 font-medium">
+            Somewhere today, another aspirant is asking the same questions you once asked.<br className="hidden md:block" />
+            If this experience helped you see your next step more clearly,<br className="hidden md:block" />
+            we hope it helps someone else find theirs too.
+          </p>
+
+          <p className="mb-6 text-[16px] sm:text-[18px] font-bold text-[#4f3bc4]">
+            Because better careers begin with better decisions.
+          </p>
+
+          <div className="flex flex-col items-center justify-center space-y-4">
+            <Link to="/contact" className="inline-flex items-center justify-center space-x-2 rounded-full bg-[#1a0b99] px-8 py-3.5 font-bold text-white transition-transform hover:scale-105 hover:shadow-lg">
+              <span className="text-[16px]">Start Your Career Journey</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <div className="flex items-center text-[13px] font-semibold text-gray-500">
+              <ShieldCheck className="h-4 w-4 mr-1.5 text-gray-400" />
+              No commitment. Just clarity.
+            </div>
+          </div>
+          
+          {/* Right side handwritten note */}
+          <div className="hidden xl:block absolute right-[5%] top-[10%] rotate-[-4deg]">
+            <div className="flex flex-col items-center">
+              <span className="font-['Caveat',_cursive] text-[26px] text-gray-700 whitespace-nowrap">
+                One conversation
+              </span>
+              <div className="flex items-center gap-2 -mt-1">
+                <span className="font-['Caveat',_cursive] text-[26px] text-gray-700 whitespace-nowrap">
+                  can change everything.
+                </span>
+                <Heart className="w-5 h-5 text-[#b6a9ef] stroke-[2]" />
+              </div>
+              <svg className="w-[200px] h-6 mt-1 text-[#b6a9ef] opacity-80" viewBox="0 0 200 20" fill="none">
+                <path d="M 5,15 Q 80,0 195,15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Stats Bar */}
+        <div className="w-full rounded-2xl border border-gray-100 bg-white p-4 sm:p-6 lg:p-8 shadow-[0_4px_30px_-10px_rgba(0,0,0,0.05)]">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-4">
+            
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 lg:w-3/4">
+              {/* Stat 1 */}
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f4f2fc] text-[#4f3bc4]">
+                  <UserCheck className="h-5 w-5 stroke-[1.5]" />
+                </div>
+                <div className="flex flex-col">
+                  <div className="text-[18px] sm:text-[20px] font-bold text-[#0A102A] leading-none mb-1">25,000+</div>
+                  <div className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Aspirants guided</div>
+                </div>
+              </div>
+              {/* Stat 2 */}
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f4f2fc] text-[#4f3bc4]">
+                  <Users className="h-5 w-5 stroke-[1.5]" />
+                </div>
+                <div className="flex flex-col">
+                  <div className="text-[18px] sm:text-[20px] font-bold text-[#0A102A] leading-none mb-1">50+</div>
+                  <div className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Career experts</div>
+                </div>
+              </div>
+              {/* Stat 3 */}
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f4f2fc] text-[#4f3bc4]">
+                  <ShieldCheck className="h-5 w-5 stroke-[1.5]" />
+                </div>
+                <div className="flex flex-col">
+                  <div className="text-[18px] sm:text-[20px] font-bold text-[#0A102A] leading-none mb-1">98%</div>
+                  <div className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Satisfaction rate</div>
+                </div>
+              </div>
+              {/* Stat 4 */}
+              <div className="flex items-center gap-3">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#f4f2fc] text-[#4f3bc4]">
+                  <Globe className="h-5 w-5 stroke-[1.5]" />
+                </div>
+                <div className="flex flex-col">
+                  <div className="text-[18px] sm:text-[20px] font-bold text-[#0A102A] leading-none mb-1">150+</div>
+                  <div className="text-[11px] font-semibold text-gray-500 uppercase tracking-wider">Countries served</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Testimonial Snippet */}
+            <div className="lg:w-1/4 lg:border-l lg:border-gray-100 lg:pl-8 flex gap-3">
+              <Quote className="h-6 w-6 shrink-0 text-[#b6a9ef]" />
+              <div>
+                <p className="text-[13px] font-medium leading-relaxed text-gray-600 mb-2">
+                  "HireLeap helped me see what was possible — and gave me the confidence to go for it."
+                </p>
+                <div className="text-[11.5px] font-bold tracking-wider text-gray-800">
+                  - Software Engineer, H-1B Professional
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
   );

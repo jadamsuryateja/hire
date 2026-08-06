@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import { PageShell } from "../components/PageShell";
 import { CloudRain, Briefcase, CalendarClock, Cpu, Users, CircleDollarSign, Compass, Quote, Ear, Search, FileText, Target, Rocket, Check, Sparkles, ShieldCheck, Shield, FileCheck, Award, Lightbulb, Eye, Heart, ArrowRight, Headset } from "lucide-react";
 
@@ -11,7 +12,7 @@ export default function WhyWeExist() {
       </Helmet>
       <Hero />
       <TheReality />
-      <OurRelief />
+      <OurBelief />
       <WhatMakesUsDifferent />
       <ThePromise />
       <MissionVision />
@@ -35,14 +36,19 @@ function Hero() {
           <span className="text-primary block">
             HireLeap exists for those{" "}
             <span className="relative inline-block">
-              moments
-              <svg className="absolute -bottom-[0.12em] left-0 w-full h-[0.3em] text-primary" viewBox="0 0 100 20" preserveAspectRatio="none">
-                <path d="M 2,17 Q 50,-2 98,17" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+              moments.
+              <svg className="absolute -bottom-[0.2em] left-0 w-full h-[0.35em] text-primary" viewBox="0 0 100 20" preserveAspectRatio="none">
+                <path d="M 15,18 Q 50,10 85,18" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
               </svg>
             </span>
-            .
           </span>
         </h1>
+        <div className="mt-8">
+          <Link to="/career-journeys" className="inline-flex items-center justify-center space-x-2 rounded-full bg-primary px-6 py-2.5 font-bold text-white transition-transform hover:scale-105 hover:shadow-lg">
+            <span className="text-[15px]">Career Journeys</span>
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
       </div>
 
       {/* Visual */}
@@ -72,11 +78,10 @@ function TheReality() {
 
   return (
     <section className="w-full bg-[#F8FAFC] py-4">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-5 sm:px-6 lg:flex-row lg:items-center">
+      <div className="mx-auto flex w-full max-w-full flex-col gap-8 lg:flex-row lg:items-center">
         {/* Left Column */}
-        <div className="w-full lg:w-[35%] lg:border-r lg:border-border/50 lg:pr-12">
-          <div className="mb-2 text-[14px] font-bold text-primary">01</div>
-          <h2 className="mb-6 font-serif text-[32px] font-bold text-foreground sm:text-[40px]">
+        <div className="w-full lg:w-[22%] xl:w-[18%] flex-shrink-0 lg:border-r lg:border-border/50 pl-5 sm:pl-6 lg:pl-8 lg:pr-8">
+          <h2 className="mb-6 whitespace-nowrap font-serif text-[32px] font-bold text-foreground sm:text-[40px]">
             The Reality
           </h2>
           <p className="mb-4 text-[16px] font-bold leading-snug text-foreground sm:text-[18px]">
@@ -88,13 +93,13 @@ function TheReality() {
         </div>
 
         {/* Right Column */}
-        <div className="flex w-full flex-col lg:w-[65%] lg:pl-6">
+        <div className="flex w-full flex-col lg:w-[78%] xl:w-[82%] lg:pl-6">
           {/* Icons Row */}
-          <div className="mb-6 flex flex-wrap justify-center gap-y-10 sm:grid sm:grid-cols-4 lg:flex lg:flex-nowrap lg:justify-between">
+          <div className="mb-6 flex overflow-x-auto snap-x snap-mandatory flex-nowrap hide-scrollbar gap-4 pb-4 sm:grid sm:grid-cols-4 lg:flex lg:justify-between w-full">
             {painPoints.map((item, idx) => (
               <div 
                 key={idx} 
-                className={`flex flex-1 flex-col items-center px-1 text-center sm:px-2 ${idx !== painPoints.length - 1 ? 'lg:border-r lg:border-border/50' : ''}`}
+                className={`flex shrink-0 w-[120px] sm:w-auto flex-col px-1 sm:px-2 snap-center lg:flex-1 items-center text-center ${idx !== painPoints.length - 1 ? 'lg:border-r lg:border-border/50' : 'lg:items-end lg:text-right'}`}
               >
                 <item.icon className="mb-4 h-7 w-7 text-primary" strokeWidth={1.5} />
                 <div className="whitespace-pre-line text-[11px] font-semibold leading-tight text-foreground sm:text-[12px]">
@@ -117,21 +122,20 @@ function TheReality() {
   );
 }
 
-function OurRelief() {
+function OurBelief() {
   return (
     <section className="w-full bg-[#F8FAFC] py-4">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-5 sm:px-6 lg:flex-row lg:items-center">
+      <div className="mx-auto flex w-full max-w-full flex-col gap-8 lg:flex-row lg:items-center">
         {/* Left Column */}
-        <div className="w-full lg:w-[35%] lg:border-r lg:border-border/50 lg:pr-12">
-          <div className="mb-2 text-[14px] font-bold text-primary">02</div>
-          <h2 className="mb-6 font-serif text-[32px] font-bold text-foreground sm:text-[40px]">
-            Our Relief
+        <div className="w-full lg:w-[22%] xl:w-[18%] flex-shrink-0 lg:border-r lg:border-border/50 pl-5 sm:pl-6 lg:pl-8 lg:pr-8">
+          <h2 className="mb-6 whitespace-nowrap font-serif text-[32px] font-bold text-foreground sm:text-[40px]">
+            Our Belief
           </h2>
           <Quote className="h-16 w-16 fill-[#E0E7FF] text-[#E0E7FF]" />
         </div>
 
         {/* Right Column */}
-        <div className="flex w-full flex-col gap-3 lg:w-[65%] lg:pl-6">
+        <div className="flex w-full flex-col gap-3 lg:w-[78%] xl:w-[82%] lg:pl-6">
           <p className="font-serif text-[28px] font-medium leading-tight text-foreground lg:text-[34px]">
             We don't believe better careers<br className="hidden lg:block" /> begin with better resumes.
           </p>
@@ -192,12 +196,11 @@ function WhatMakesUsDifferent() {
 
   return (
     <section className="w-full bg-white py-12 sm:py-20">
-      <div className="mx-auto w-full max-w-full px-5 sm:px-6 lg:px-8 xl:px-12 2xl:px-24">
+      <div className="mx-auto w-full max-w-full">
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
           
           {/* Left Column */}
-          <div className="w-full lg:w-[22%] xl:w-[18%] flex-shrink-0">
-            <div className="mb-2 text-[14px] font-bold text-primary">03</div>
+          <div className="w-full lg:w-[22%] xl:w-[18%] flex-shrink-0 pl-5 sm:pl-6 lg:pl-8">
             <h2 className="mb-8 font-serif text-[32px] font-bold leading-[1.1] text-foreground sm:text-[36px] xl:text-[30px]">
               What Makes<br />
               HireLeap<br />
@@ -215,9 +218,9 @@ function WhatMakesUsDifferent() {
             {/* The actual horizontal line connecting circles, hidden on smaller screens where they wrap to avoid broken lines */}
             <div className="absolute left-8 right-8 top-6 hidden h-[1px] bg-[#E0E7FF] xl:block" />
             
-            <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 xl:gap-2">
+            <div className="flex overflow-x-auto snap-x snap-mandatory flex-nowrap hide-scrollbar gap-4 pb-4 w-full sm:grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 xl:gap-2">
               {steps.map((step, idx) => (
-                <div key={idx} className="relative flex flex-col items-center">
+                <div key={idx} className="relative flex shrink-0 w-[260px] sm:w-auto flex-col items-center snap-center">
                   
                   {/* Icon Circle */}
                   <div className="relative z-10 mb-4 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-md">
@@ -277,7 +280,6 @@ function ThePromise() {
         
         {/* Left Column */}
         <div className="flex w-full flex-col xl:w-[20%] xl:pr-8">
-          <div className="mb-1 text-[12px] font-bold text-primary">04</div>
           <h2 className="mb-4 font-serif text-[28px] font-bold leading-[1.1] text-white sm:text-[32px] xl:text-[28px]">
             The HireLeap<br className="hidden sm:block" /> Promise
           </h2>
@@ -354,7 +356,6 @@ function MissionVision() {
 
             <div className="relative z-20 w-full sm:w-[85%] lg:w-[80%] ml-auto py-8 px-6 sm:py-10 sm:px-10 lg:pl-4 lg:pr-12">
               <div className="mb-2 flex items-center space-x-3">
-                <span className="text-[14px] font-bold text-primary">05</span>
                 <span className="text-[12px] font-bold text-primary tracking-wide uppercase">OUR MISSION</span>
               </div>
               <h2 className="mb-2 font-serif text-[24px] font-bold leading-[1.15] text-navy sm:text-[28px]">
@@ -385,7 +386,6 @@ function MissionVision() {
             
             <div className="relative z-20 w-full sm:w-[85%] lg:w-[80%] mr-auto py-8 px-6 sm:py-10 sm:px-10 lg:pr-4 lg:pl-12">
               <div className="mb-2 flex items-center space-x-3">
-                <span className="text-[14px] font-bold text-primary">06</span>
                 <span className="text-[12px] font-bold text-primary tracking-wide uppercase">OUR VISION</span>
               </div>
               <h2 className="mb-2 font-serif text-[24px] font-bold leading-[1.15] text-navy sm:text-[28px]">
@@ -441,7 +441,6 @@ function CorePrinciples() {
     <section className="w-full bg-[#EEF2FC] pt-8 sm:pt-10 pb-8 sm:pb-10">
       <div className="mx-auto w-full max-w-[1400px] px-5 sm:px-6">
         <div className="mb-6 flex items-center space-x-4">
-          <span className="text-[14px] font-bold text-primary">07</span>
           <h2 className="text-[20px] font-bold text-navy sm:text-[24px]">
             Our Core Principles
           </h2>
@@ -499,15 +498,10 @@ function FinalCTA() {
                 Not pressure. Not guesswork. Not luck. <span className="text-primary font-bold">Start with understanding.</span>
               </p>
               
-              <button className="flex items-center justify-center space-x-2 rounded-full bg-white px-6 py-2.5 font-bold text-primary transition-transform hover:scale-105 hover:shadow-lg">
-                <span className="text-[15px]">Start Your Career Journey</span>
+              <Link to="/consultation" className="flex items-center justify-center space-x-2 rounded-full bg-white px-6 py-2.5 font-bold text-primary transition-transform hover:scale-105 hover:shadow-lg">
+                <span className="text-[15px]">Book a Consultation</span>
                 <ArrowRight className="h-4 w-4" />
-              </button>
-              
-              <div className="mt-4 flex items-center space-x-2 text-white/80 hover:text-white transition-colors cursor-pointer">
-                <Headset className="h-3.5 w-3.5" />
-                <span className="text-[13px] font-semibold border-b border-white/30 pb-0.5">Talk to a Career Expert</span>
-              </div>
+              </Link>
             </div>
             
           </div>
