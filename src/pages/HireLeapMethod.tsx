@@ -95,7 +95,7 @@ function Hero() {
           The HireLeap Method™ is our career operating system that adapts to your journey—giving you clarity, the right opportunities, expert guidance, and the execution support you need to succeed and grow.
         </p>
 
-        <div className="mt-12 flex justify-start sm:justify-between items-center gap-4 lg:gap-6 text-[13px] font-semibold text-gray-600 w-full overflow-visible">
+        <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:flex sm:flex-row justify-start sm:justify-between items-start sm:items-center gap-6 sm:gap-4 lg:gap-6 text-[13px] font-semibold text-gray-600 w-full overflow-hidden sm:overflow-visible">
           <div className="flex items-start gap-2 lg:gap-3 whitespace-nowrap">
             <ShieldCheck className="h-5 w-5 text-primary shrink-0" />
             <div className="flex flex-col">
@@ -217,15 +217,11 @@ function FrameworkSection() {
                 
                 {/* Arrow to next step (hidden on last step and mobile) */}
                 {index !== steps.length - 1 && (
-                  <>
-                    <div className="hidden md:block absolute top-1/2 left-[60%] w-[80%] h-[2px] -translate-y-1/2 z-0">
-                      <div className={`w-full h-full border-t-2 border-dashed ${step.color.replace('text-', 'border-').replace('600', '300')} opacity-50 relative`}>
-                        <div className={`absolute right-0 top-[calc(50%-4px)] w-2 h-2 border-t-2 border-r-2 ${step.color.replace('text-', 'border-').replace('600', '300')} transform rotate-45`}></div>
-                      </div>
+                  <div className="hidden md:block absolute top-1/2 left-[calc(50%+60px)] w-[calc(100%-120px)] h-[2px] -translate-y-1/2 z-0">
+                    <div className={`w-full h-full border-t-2 border-dashed ${step.color.replace('text-', 'border-').replace('600', '300')} opacity-50 relative`}>
+                      <div className={`absolute right-0 top-[calc(50%-4px)] w-2 h-2 border-t-2 border-r-2 ${step.color.replace('text-', 'border-').replace('600', '300')} transform rotate-45`}></div>
                     </div>
-                    {/* Vertical timeline line on mobile */}
-                    <div className="md:hidden absolute top-[96px] left-1/2 -translate-x-1/2 h-[calc(100%+32px)] w-[2px] border-l-2 border-dashed border-gray-200 z-0"></div>
-                  </>
+                  </div>
                 )}
                 
                 {/* The Step Number Circle (small) */}
@@ -404,19 +400,15 @@ function SuccessLooksLikeSection() {
             </h2>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-start relative max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:flex md:flex-row justify-between items-start relative max-w-6xl mx-auto gap-y-8 md:gap-y-0">
             {/* Hidden dotted line connecting circles on desktop */}
             <div className="hidden md:block absolute top-[36px] left-[10%] right-[10%] h-[2px] border-t-2 border-dashed border-gray-200 z-0"></div>
             
             {steps.map((step, index) => (
-              <div key={index} className="flex flex-col items-center text-center w-full md:w-1/5 relative z-10 mb-6 md:mb-0 px-2">
+              <div key={index} className={`flex flex-col items-center text-center w-full md:w-1/5 relative z-10 px-2 ${index === steps.length - 1 ? 'col-span-2 md:col-span-1' : ''}`}>
                 <div className={`w-[72px] h-[72px] bg-white rounded-full border-2 ${step.borderColor} flex items-center justify-center mb-4 shadow-sm`}>
                   <step.icon className={`w-8 h-8 ${step.color}`} strokeWidth={1.5} />
                 </div>
-                {/* Arrow connecting on mobile */}
-                {index < steps.length - 1 && (
-                  <div className="md:hidden w-[2px] h-[30px] border-l-2 border-dashed border-gray-200 my-2"></div>
-                )}
                 <h4 className="text-[14px] font-bold text-[#0A102A] mb-1">{step.title}</h4>
                 <p className="text-[12px] text-gray-600 leading-snug font-medium max-w-[160px]">
                   {step.desc}

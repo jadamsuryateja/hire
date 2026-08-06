@@ -207,8 +207,8 @@ function WhatMakesUsDifferent() {
               Different
             </h2>
             <div className="text-[16px] font-medium leading-relaxed text-foreground/80 xl:text-[14px]">
-              A clear journey.<br />
-              Real partnership.<br />
+              A clear journey. <span className="hidden sm:inline"><br /></span>
+              Real partnership. <span className="hidden sm:inline"><br /></span>
               Measurable impact.
             </div>
           </div>
