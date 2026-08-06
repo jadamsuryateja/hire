@@ -6,6 +6,7 @@ import { MainLayout, NotFoundComponent } from "./layouts/MainLayout";
 import Index from "./pages/Index";
 import CareerJourneys from "./pages/CareerJourneys";
 import WhyWeExist from "./pages/WhyWeExist";
+import HireLeapMethod from "./pages/HireLeapMethod";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +43,7 @@ function App() {
             <Route path="/" element={<Index />} />
             <Route path="/career-journeys" element={<CareerJourneys />} />
             <Route path="/why-we-exist" element={<WhyWeExist />} />
+            <Route path="/the-hireleap-method" element={<HireLeapMethod />} />
             <Route path="*" element={<NotFoundComponent />} />
           </Routes>
         </MainLayout>

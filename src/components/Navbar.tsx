@@ -7,6 +7,7 @@ const links: NavItem[] = [
   { to: "/", label: "Home" },
   { to: "/why-we-exist", label: "Why We Exist" },
   { to: "/career-journeys", label: "Career Journeys" },
+  { to: "/the-hireleap-method", label: "The HireLeap Method™" },
 ];
 
 export function Navbar() {
