@@ -26,7 +26,7 @@ function Hero() {
         <div className="mb-5 text-[12px] font-bold uppercase tracking-widest text-primary">
           CAREER JOURNEYS
         </div>
-        <h1 className="text-[40px] font-extrabold leading-[1.08] tracking-tight text-[#0A102A] sm:text-[48px] lg:text-[42px] xl:text-[52px]">
+        <h1 className="text-[40px] font-normal leading-[1.08] tracking-tight text-[#0A102A] sm:text-[48px] lg:text-[42px] xl:text-[52px]">
           Every career journey begins with a different question.
         </h1>
         

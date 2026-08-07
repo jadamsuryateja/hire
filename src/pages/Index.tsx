@@ -43,7 +43,7 @@ function Hero() {
     <section className="grid w-full items-center gap-8 lg:grid-cols-[3fr_7fr] lg:gap-10">
       <div className="px-5 py-8 sm:px-6 sm:py-10 lg:py-14 lg:pl-10">
 
-        <h1 className="text-[36px] font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-[48px] lg:text-[24px] xl:text-[30px] 2xl:text-[40px] min-[1920px]:text-[52px]">
+        <h1 className="text-[36px] font-normal leading-[1.08] tracking-tight text-foreground sm:text-[48px] lg:text-[24px] xl:text-[30px] 2xl:text-[40px] min-[1920px]:text-[52px]">
           Every career has<br />defining moments.
           <br />
           <span className="text-primary">

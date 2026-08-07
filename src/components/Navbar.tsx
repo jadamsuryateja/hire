@@ -8,6 +8,8 @@ const links: NavItem[] = [
   { to: "/why-we-exist", label: "Why We Exist" },
   { to: "/career-journeys", label: "Career Journeys" },
   { to: "/the-hireleap-method", label: "The HireLeap Method™" },
+  { to: "/career-intelligence", label: "Career Intelligence" },
+  { to: "/career-hub", label: "Career Hub" },
 ];
 
 export function Navbar() {

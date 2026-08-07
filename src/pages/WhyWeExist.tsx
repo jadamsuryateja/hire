@@ -29,7 +29,7 @@ function Hero() {
         <div className="mb-5 text-[12px] font-bold uppercase tracking-widest text-primary">
           Why We Exist
         </div>
-        <h1 className="text-[36px] font-extrabold leading-[1.08] tracking-tight text-foreground sm:text-[48px] lg:text-[24px] xl:text-[30px] 2xl:text-[40px] min-[1920px]:text-[52px]">
+        <h1 className="text-[36px] font-normal leading-[1.08] tracking-tight text-foreground sm:text-[48px] lg:text-[24px] xl:text-[30px] 2xl:text-[40px] min-[1920px]:text-[52px]">
           Every career reaches moments where the next decision matters more than the next opportunity.
           <br />
           <br />
