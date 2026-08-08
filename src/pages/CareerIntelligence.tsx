@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { PageShell } from "../components/PageShell";
 import { VideoModal } from "../components/VideoModal";
 import { Play, Target, Users, Compass, ArrowRight, PlayCircle, User, FileText, Briefcase, XCircle, CheckCircle2, Quote, TrendingUp, Search, Send, MessageSquare, BrainCircuit, Globe, ClipboardList, MapPin, LineChart, Bell, UserCheck, Heart } from "lucide-react";
+import careerIntelligenceImg from "../assets/careerintelligence.png";
 
 export default function CareerIntelligence() {
   return (
@@ -94,7 +95,7 @@ function Hero() {
       {/* Visual */}
       <div className="relative self-stretch overflow-hidden min-h-[280px] sm:min-h-[420px] bg-[#0A102A]">
         <img
-          src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80"
+          src={careerIntelligenceImg}
           alt="Team collaborating on career strategy with dashboards"
           width={1408}
           height={1008}

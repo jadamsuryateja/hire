@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { PageShell } from "../components/PageShell";
 import { ShieldCheck, UserCheck, Target, Briefcase, Phone, UserPlus, TrendingUp, CircleDollarSign, Globe, RefreshCcw, MapPin, User, Mountain, Search, Split, CheckCircle2, GraduationCap, ArrowRight, Lightbulb, Compass, Trophy, LineChart, Smile, Users, BarChart2 } from "lucide-react";
+import heroImg from "../assets/hireleapmethod.png";
 
 export default function HireLeapMethod() {
   return (
@@ -123,7 +124,7 @@ function Hero() {
       {/* Visual */}
       <div className="relative self-stretch overflow-hidden min-h-[350px] sm:min-h-[500px]">
         <img
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+          src={heroImg}
           alt="Two professionals discussing a career roadmap on a laptop"
           width={1408}
           height={1008}

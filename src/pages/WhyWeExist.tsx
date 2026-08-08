@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { PageShell } from "../components/PageShell";
 import { CloudRain, Briefcase, CalendarClock, Cpu, Users, CircleDollarSign, Compass, Quote, Ear, Search, FileText, Target, Rocket, Check, Sparkles, ShieldCheck, Shield, FileCheck, Award, Lightbulb, Eye, Heart, ArrowRight, Headset } from "lucide-react";
+import whyWeExistImg from "../assets/whyweexist.png";
 
 export default function WhyWeExist() {
   return (
@@ -54,7 +55,7 @@ function Hero() {
       {/* Visual */}
       <div className="relative self-stretch overflow-hidden min-h-[280px] sm:min-h-[420px]">
         <img
-          src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1400&q=80"
+          src={whyWeExistImg}
           alt="Professional working at desk with laptop and notes"
           width={1408}
           height={1008}

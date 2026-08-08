@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { PageShell } from "../components/PageShell";
 import { ArrowRight, BookOpen, Users, Sparkles, Heart, Calendar, Clock, Wifi, Share2, Briefcase, Trophy, TrendingUp, HeartHandshake, Lightbulb, ChevronRight, User, GraduationCap, Search, X, Filter, Lock } from "lucide-react";
 import { mockResources } from "../data/mockResources";
+import careerHubImg from "../assets/careerhub.png";
 
 export default function CareerHub() {
   return (
@@ -84,7 +85,7 @@ export default function CareerHub() {
           <div className="relative w-full h-[350px] lg:h-full lg:absolute lg:top-0 lg:right-0 lg:w-[60%]">
             <div className="absolute inset-0 overflow-hidden lg:overflow-visible">
                <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=80"
+                src={careerHubImg}
                 alt="Professionals collaborating at a table"
                 className="absolute inset-0 h-full w-full object-cover object-center lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_30%,rgba(0,0,0,1)_100%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_30%,rgba(0,0,0,1)_100%)]"
               />
