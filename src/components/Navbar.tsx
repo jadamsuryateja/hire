@@ -11,6 +11,7 @@ const links: NavItem[] = [
   { to: "/career-intelligence", label: "Career Intelligence" },
   { to: "/career-hub", label: "Career Hub" },
   { to: "/success-stories", label: "Success Stories" },
+  { to: "/career-investment", label: "Career Investment" },
 ];
 
 export function Navbar() {
