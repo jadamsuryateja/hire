@@ -13,30 +13,35 @@ const links: NavItem[] = [
   { to: "/success-stories", label: "Success Stories" },
   { to: "/career-investment", label: "Career Investment" },
   { to: "/about-us", label: "About Us" },
+  { to: "/plan-your-next-leap", label: "Plan Your Next Leap" },
 ];
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
-      <div className="relative mx-auto flex min-h-24 items-center justify-between gap-4 px-4 py-6 sm:px-6 lg:px-10 xl:justify-center">
-        <Link to="/" className="flex items-center gap-2.5 xl:absolute xl:left-10" onClick={() => setOpen(false)}>
+      <div className="mx-auto flex min-h-24 max-w-[1920px] items-center justify-between gap-4 px-4 py-6 sm:px-6 lg:px-10">
+        <Link to="/" className="flex items-center gap-2.5 shrink-0" onClick={() => setOpen(false)}>
           <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-gradient-to-br from-primary to-[oklch(0.42_0.24_265)] text-primary-foreground shadow-soft sm:h-10 sm:w-10">
             <span className="text-lg font-black">H</span>
           </div>
           <div className="leading-tight">
-            <div className="text-[17px] font-extrabold tracking-tight text-foreground sm:text-[19px]">HireLeap</div>
-            <div className="text-[10px] text-muted-foreground sm:text-[10.5px]">Better Decisions. Better Careers.</div>
+            <div className="text-[17px] font-extrabold tracking-tight text-foreground sm:text-[19px]">
+              HireLeap
+            </div>
+            <div className="text-[10px] text-muted-foreground sm:text-[10.5px]">
+              Better Decisions. Better Careers.
+            </div>
           </div>
         </Link>
 
-        <nav className="hidden items-center gap-7 xl:flex">
+        <nav className="hidden items-center justify-end gap-3 2xl:flex 2xl:gap-5 whitespace-nowrap">
           {links.map((l) => (
             <NavLink
               key={l.to}
               to={l.to as string}
               className={({ isActive }) =>
-                `flex items-center gap-1 text-[14px] font-medium transition-colors hover:text-primary ${
+                `flex items-center gap-1 text-[13px] 2xl:text-[14px] font-medium transition-colors hover:text-primary ${
                   isActive ? "text-primary font-bold" : "text-foreground/85"
                 }`
               }
@@ -51,14 +56,14 @@ export function Navbar() {
           type="button"
           aria-label="Toggle menu"
           onClick={() => setOpen((o) => !o)}
-          className="grid h-10 w-10 place-items-center rounded-lg border border-border text-foreground xl:hidden"
+          className="grid h-10 w-10 place-items-center rounded-lg border border-border text-foreground 2xl:hidden shrink-0"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {open && (
-        <nav className="border-t border-border bg-background xl:hidden">
+        <nav className="border-t border-border bg-background 2xl:hidden">
           <div className="flex flex-col px-4 py-2 sm:px-6">
             {links.map((l) => (
               <NavLink

@@ -12,6 +12,7 @@ import CareerHub from "./pages/CareerHub";
 import SuccessStories from "./pages/SuccessStories";
 import CareerInvestment from "./pages/CareerInvestment";
 import AboutUs from "./pages/AboutUs";
+import PlanYourNextLeap from "./pages/PlanYourNextLeap";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +55,7 @@ function App() {
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/career-investment" element={<CareerInvestment />} />
             <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/plan-your-next-leap" element={<PlanYourNextLeap />} />
             <Route path="*" element={<NotFoundComponent />} />
           </Routes>
         </MainLayout>
