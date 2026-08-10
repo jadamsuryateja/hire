@@ -94,13 +94,13 @@ function TheReality() {
         </div>
 
         {/* Right Column */}
-        <div className="flex w-full flex-col lg:w-[78%] xl:w-[82%] lg:pl-6">
+        <div className="flex w-full flex-col lg:w-[78%] xl:w-[82%] lg:pl-6 pr-5 sm:pr-6 lg:pr-8">
           {/* Icons Row */}
           <div className="mb-6 flex overflow-x-auto snap-x snap-mandatory flex-nowrap hide-scrollbar gap-4 pb-4 sm:grid sm:grid-cols-4 lg:flex lg:justify-between w-full">
             {painPoints.map((item, idx) => (
               <div 
                 key={idx} 
-                className={`flex shrink-0 w-[120px] sm:w-auto flex-col px-1 sm:px-2 snap-center lg:flex-1 items-center text-center ${idx !== painPoints.length - 1 ? 'lg:border-r lg:border-border/50' : 'lg:items-end lg:text-right'}`}
+                className={`flex shrink-0 w-[120px] sm:w-auto flex-col px-1 sm:px-2 snap-center lg:flex-1 items-center text-center ${idx !== painPoints.length - 1 ? 'lg:border-r lg:border-border/50' : ''}`}
               >
                 <item.icon className="mb-4 h-7 w-7 text-primary" strokeWidth={1.5} />
                 <div className="whitespace-pre-line text-[11px] font-semibold leading-tight text-foreground sm:text-[12px]">

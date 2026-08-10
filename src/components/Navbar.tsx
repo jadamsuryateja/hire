@@ -35,13 +35,13 @@ export function Navbar() {
           </div>
         </Link>
 
-        <nav className="hidden items-center justify-end gap-3 2xl:flex 2xl:gap-5 whitespace-nowrap">
+        <nav className="hidden items-center justify-end gap-2 xl:flex xl:gap-3 whitespace-nowrap">
           {links.map((l) => (
             <NavLink
               key={l.to}
               to={l.to as string}
               className={({ isActive }) =>
-                `flex items-center gap-1 text-[13px] 2xl:text-[14px] font-medium transition-colors hover:text-primary ${
+                `flex items-center gap-1 text-[12px] 2xl:text-[13px] font-medium transition-colors hover:text-primary ${
                   isActive ? "text-primary font-bold" : "text-foreground/85"
                 }`
               }
@@ -56,14 +56,14 @@ export function Navbar() {
           type="button"
           aria-label="Toggle menu"
           onClick={() => setOpen((o) => !o)}
-          className="grid h-10 w-10 place-items-center rounded-lg border border-border text-foreground 2xl:hidden shrink-0"
+          className="grid h-10 w-10 place-items-center rounded-lg border border-border text-foreground xl:hidden shrink-0"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {open && (
-        <nav className="border-t border-border bg-background 2xl:hidden">
+        <nav className="border-t border-border bg-background xl:hidden">
           <div className="flex flex-col px-4 py-2 sm:px-6">
             {links.map((l) => (
               <NavLink
