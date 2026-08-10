@@ -9,6 +9,7 @@ import WhyWeExist from "./pages/WhyWeExist";
 import HireLeapMethod from "./pages/HireLeapMethod";
 import CareerIntelligence from "./pages/CareerIntelligence";
 import CareerHub from "./pages/CareerHub";
+import SuccessStories from "./pages/SuccessStories";
 
 const queryClient = new QueryClient();
 
@@ -48,6 +49,7 @@ function App() {
             <Route path="/the-hireleap-method" element={<HireLeapMethod />} />
             <Route path="/career-intelligence" element={<CareerIntelligence />} />
             <Route path="/career-hub" element={<CareerHub />} />
+            <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="*" element={<NotFoundComponent />} />
           </Routes>
         </MainLayout>

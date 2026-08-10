@@ -10,6 +10,7 @@ const links: NavItem[] = [
   { to: "/the-hireleap-method", label: "The HireLeap Method™" },
   { to: "/career-intelligence", label: "Career Intelligence" },
   { to: "/career-hub", label: "Career Hub" },
+  { to: "/success-stories", label: "Success Stories" },
 ];
 
 export function Navbar() {
