@@ -78,8 +78,8 @@ export default function CareerInvestment() {
       {/* Pricing Comparison Section */}
       <PricingSection />
 
-      {/* Alumni Benefit Section */}
-      <AlumniBenefitSection />
+      {/* Alumni Benefit / Membership Section */}
+      <MembershipSection />
 
       {/* FAQ Section */}
       <FaqSection />
@@ -156,8 +156,12 @@ function CTAStrip() {
   );
 }
 
-function PricingSection() {
-  const plans = [
+// --- CONFIGURATION ---
+// All prices, inclusions, and disclaimers are production-approved and editable here.
+const CAREER_INVESTMENT_CONFIG = {
+  disclaimer: "Flexible payment plans available for all packages. Post-placement fees are split into four manageable installments.",
+  consultationEmail: "consultation@hireleap.com",
+  plans: [
     {
       name: "BASIC",
       tagline: "Build Your Foundation",
@@ -252,8 +256,11 @@ function PricingSection() {
         cardBg: "bg-[#fffbeb]/60",
       }
     }
-  ];
+  ]
+};
+// -----------------------
 
+function PricingSection() {
   return (
     <section className="w-full bg-[#fbfbfb] pt-12 pb-8 px-5 sm:px-6 lg:px-10">
       <div className="max-w-[1100px] mx-auto">
@@ -267,7 +274,7 @@ function PricingSection() {
 
         {/* Pricing Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
-          {plans.map((p, idx) => {
+          {CAREER_INVESTMENT_CONFIG.plans.map((p, idx) => {
             const classes = p.themeClasses;
             return (
               <div 
@@ -343,9 +350,12 @@ function PricingSection() {
                   </div>
 
                   {/* CTA Button */}
-                  <button className={`w-full py-2 rounded-[6px] text-[11px] font-bold tracking-wide transition-all shadow-sm ${classes.btn}`}>
+                  <a 
+                    href={`mailto:${CAREER_INVESTMENT_CONFIG.consultationEmail}?subject=Consultation Request - ${p.name} Plan`}
+                    className={`w-full py-2 rounded-[6px] text-[11px] font-bold tracking-wide transition-all shadow-sm flex items-center justify-center text-center ${classes.btn}`}
+                  >
                     Get Started
-                  </button>
+                  </a>
                 </div>
 
               </div>
@@ -356,7 +366,7 @@ function PricingSection() {
         {/* Footer disclaimer */}
         <div className="mt-8 text-center flex items-center justify-center gap-2 text-[11px] text-gray-500 font-medium">
           <span>🔒</span>
-          <span>Flexible payment plans available for all packages. Post-placement fees are split into four manageable installments.</span>
+          <span>{CAREER_INVESTMENT_CONFIG.disclaimer}</span>
         </div>
 
       </div>
@@ -422,7 +432,7 @@ function FoundationBanner() {
   );
 }
 
-function AlumniBenefitSection() {
+function MembershipSection() {
   const listItems = [
     "Ongoing job marketing",
     "Managed applications",
@@ -447,21 +457,21 @@ function AlumniBenefitSection() {
             <div className="w-28 h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-2 border-purple-500/30 shadow-lg shrink-0">
               <img 
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=300&q=80" 
-                alt="HireLeap Alumni Community" 
+                alt="Career Momentum Membership" 
                 className="w-full h-full object-cover"
               />
             </div>
 
             {/* Left Content */}
-            <div className="text-center sm:text-left">
+            <div className="text-center sm:text-left relative z-10">
               <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-purple-400 mb-2">
-                EXCLUSIVE ALUMNI BENEFIT
+                FOR RETURNING USERS
               </div>
               <h2 className="text-[20px] lg:text-[24px] font-serif font-normal leading-snug mb-3">
-                Your HireLeap journey doesn't end with your first offer.
+                Career Momentum™ Membership
               </h2>
               <p className="text-[11.5px] text-gray-300 font-medium leading-relaxed max-w-[400px]">
-                Continue growing with ongoing opportunity marketing, application management, and career support—without repeating the entire HireLeap process.
+                Supports returning users needing ongoing marketing and application support—without repeating the entire HireLeap process.
               </p>
             </div>
           </div>
@@ -470,15 +480,15 @@ function AlumniBenefitSection() {
           <div className="hidden lg:block w-[1px] self-stretch bg-white/10" />
 
           {/* Right Block: Price and Checkmarks */}
-          <div className="w-full lg:w-[42%] flex flex-col sm:flex-row items-stretch gap-6 lg:gap-8">
+          <div className="w-full lg:w-[42%] flex flex-col sm:flex-row items-stretch gap-6 lg:gap-8 relative z-10">
             {/* Price Column */}
             <div className="flex-1 flex flex-col justify-center text-center sm:text-left">
-              <h3 className="text-[16px] font-bold text-white mb-0.5">Career Momentum™</h3>
+              <h3 className="text-[16px] font-bold text-white mb-0.5">Custom Pricing</h3>
               <p className="text-[11px] text-gray-400 font-medium mb-4">For HireLeap Alumni</p>
               
-              <div className="flex items-baseline justify-center sm:justify-start gap-1 mb-4">
-                <span className="text-[32px] font-sans font-extrabold">$200</span>
-                <span className="text-[11px] text-gray-400">/month</span>
+              <div className="flex flex-col items-center sm:items-start justify-center gap-1 mb-4">
+                <span className="text-[18px] font-sans font-extrabold text-[#a199fa]">Consultation Required</span>
+                <span className="text-[11px] text-gray-400">Provisional rate must be confirmed</span>
               </div>
               
               <p className="text-[10px] text-gray-400 font-medium leading-relaxed">
