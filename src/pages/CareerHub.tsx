@@ -169,7 +169,7 @@ function ResourceCenter() {
               <button onClick={() => setSelectedCategory("All")} className="text-[#3b2dd0] font-semibold text-[14px] hover:opacity-80">
                 Reset Filters
               </button>
-              <Link to="/contact" className="bg-[#3b2dd0] text-white px-5 py-2.5 rounded-[6px] font-semibold text-[13px] hover:bg-[#3b2dd0]/90">
+              <Link to="/plan-your-next-leap" className="bg-[#3b2dd0] text-white px-5 py-2.5 rounded-[6px] font-semibold text-[13px] hover:bg-[#3b2dd0]/90">
                 Book Consultation
               </Link>
             </div>

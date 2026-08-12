@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { PageShell } from "@/components/PageShell";
-import { VideoModal } from "@/components/VideoModal";
+
 import heroImg from "@/assets/hero-career.webp";
 import heroMobileImg from "@/assets/hero-career-mobile.webp";
 import infinityLoopAsset from "@/assets/infinity-loop.webp";
@@ -67,24 +67,22 @@ function Hero() {
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
-            to="#plan"
+            to="/plan-your-next-leap"
             onClick={() => console.log('Analytics Event: Primary CTA Clicked - Plan Your Next Leap')}
             className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-3.5 text-[14px] font-semibold text-primary-foreground shadow-soft transition-all hover:brightness-110 sm:text-[15px]"
           >
             Plan Your Next Leap <span aria-hidden>→</span>
           </Link>
-          <VideoModal>
-            <button 
-              onClick={() => console.log('Analytics Event: Secondary CTA Clicked - Explore How It Works Video')}
-              aria-label="Play introductory video"
-              className="inline-flex items-center gap-2.5 rounded-lg border border-border bg-background px-5 py-3.5 text-[14px] font-semibold text-foreground transition-colors hover:border-primary sm:text-[15px]"
-            >
-              <span className="grid h-6 w-6 place-items-center rounded-full bg-primary text-primary-foreground">
-                <Play className="h-3 w-3 fill-current" />
-              </span>
-              Explore How It Works
-            </button>
-          </VideoModal>
+          <button 
+            onClick={() => console.log('Analytics Event: Secondary CTA Clicked - Explore How It Works Video')}
+            aria-label="Play introductory video"
+            className="inline-flex items-center gap-2.5 rounded-lg border border-border bg-background px-5 py-3.5 text-[14px] font-semibold text-foreground transition-colors hover:border-primary sm:text-[15px]"
+          >
+            <span className="grid h-6 w-6 place-items-center rounded-full bg-primary text-primary-foreground">
+              <Play className="h-3 w-3 fill-current" />
+            </span>
+            Explore How It Works
+          </button>
         </div>
       </div>
 

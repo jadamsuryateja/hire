@@ -7,7 +7,6 @@ import {
   Lock,
   Users,
   Sparkles,
-  Youtube,
   Instagram,
   Linkedin,
   CheckCircle2,
@@ -265,12 +264,6 @@ export function Footer() {
                 className="grid h-10 w-10 place-items-center rounded-full border border-white/20 text-[#25D366] hover:bg-white/5 transition-colors"
               >
                 <FaWhatsapp className="h-4 w-4" />
-              </a>
-              <a
-                href="#"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/20 text-red-500 hover:bg-white/5 transition-colors"
-              >
-                <Youtube className="h-4 w-4" />
               </a>
               <a
                 href="#"

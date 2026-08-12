@@ -625,7 +625,7 @@ function ProgressionSection() {
 
             <div>
               <Link
-                to="/contact"
+                to="/plan-your-next-leap"
                 className="inline-flex bg-[#4922ca] hover:bg-[#3b1ba8] text-white px-8 py-4 rounded-[6px] transition-colors items-center gap-3"
               >
                 Start Your Career Journey

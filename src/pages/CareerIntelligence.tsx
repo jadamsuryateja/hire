@@ -1,14 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { PageShell } from "../components/PageShell";
-import { VideoModal } from "../components/VideoModal";
 import {
-  Play,
   Target,
   Users,
   Compass,
   ArrowRight,
-  PlayCircle,
   User,
   FileText,
   Briefcase,
@@ -85,17 +82,12 @@ function Hero() {
 
         <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
           <Link
-            to="/journey"
+            to="/career-journeys"
             className="group inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#2563EB] px-6 text-[14px] sm:text-[15px] font-semibold text-white transition-all hover:bg-[#1D4ED8] w-full sm:w-auto whitespace-nowrap"
           >
             Start Your Career Journey{" "}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
-          <VideoModal>
-            <button className="group inline-flex h-12 items-center justify-center gap-2.5 rounded-lg border border-white/20 bg-transparent px-6 text-[14px] sm:text-[15px] font-semibold text-white transition-all hover:bg-white/5 hover:border-white/40 w-full sm:w-auto whitespace-nowrap">
-              <PlayCircle className="h-5 w-5" /> See How We Prepare
-            </button>
-          </VideoModal>
         </div>
 
         {/* Feature row at bottom */}

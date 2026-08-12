@@ -253,7 +253,7 @@ function CareerJourneysCTA() {
           </p>
 
           <div className="flex flex-col items-center justify-center space-y-4">
-            <Link to="/contact" className="inline-flex items-center justify-center space-x-2 rounded-full bg-[#1a0b99] px-8 py-3.5 font-bold text-white transition-transform hover:scale-105 hover:shadow-lg">
+            <Link to="/plan-your-next-leap" className="inline-flex items-center justify-center space-x-2 rounded-full bg-[#1a0b99] px-8 py-3.5 font-bold text-white transition-transform hover:scale-105 hover:shadow-lg">
               <span className="text-[16px]">Start Your Career Journey</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
