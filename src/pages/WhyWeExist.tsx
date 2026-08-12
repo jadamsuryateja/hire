@@ -57,15 +57,15 @@ function Hero() {
       </div>
 
       {/* Visual */}
-      <div className="relative self-stretch overflow-hidden min-h-[280px] sm:min-h-[420px]">
-        <picture className="absolute inset-0 h-full w-full">
+      <div className="relative w-full overflow-hidden h-auto min-h-0 lg:min-h-[420px] lg:self-stretch">
+        <picture className="block w-full h-auto lg:absolute lg:inset-0 lg:h-full lg:w-full">
           <source media="(max-width: 768px)" srcSet={whyWeExistMobileImg} />
           <img loading="lazy"
             src={whyWeExistImg}
             alt="Professional working at desk with laptop and notes"
             width={1408}
             height={1008}
-            className="h-full w-full object-cover object-[75%_center] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)]"
+            className="w-full h-auto block lg:absolute lg:inset-0 lg:h-full lg:w-full lg:object-cover lg:object-[75%_center] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)]"
           />
         </picture>
       </div>
