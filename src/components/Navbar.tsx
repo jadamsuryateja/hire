@@ -22,17 +22,18 @@ export function Navbar() {
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur">
       <div className="mx-auto flex min-h-24 max-w-[1920px] items-center justify-between gap-4 px-4 py-6 sm:px-6 lg:px-10">
         <Link to="/" className="flex items-center gap-2.5 shrink-0" onClick={() => setOpen(false)}>
-          <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-gradient-to-br from-primary to-[oklch(0.42_0.24_265)] text-primary-foreground shadow-soft sm:h-10 sm:w-10">
-            <span className="text-lg font-black">H</span>
-          </div>
-          <div className="leading-tight">
-            <div className="text-[17px] font-extrabold tracking-tight text-foreground sm:text-[19px]">
-              HireLeap
-            </div>
-            <div className="text-[10px] text-muted-foreground sm:text-[10.5px]">
-              Better Decisions. Better Careers.
-            </div>
-          </div>
+          <img
+            src="/navlogo.png"
+            alt="HireLeap icon"
+            className="h-9 w-9 sm:h-10 sm:w-10 shrink-0 object-contain"
+            loading="eager"
+          />
+          <img
+            src="/navtitile.png"
+            alt="HireLeap"
+            className="h-7 w-auto sm:h-8 object-contain"
+            loading="eager"
+          />
         </Link>
 
         <nav className="hidden items-center justify-end gap-2 xl:flex xl:gap-3 whitespace-nowrap">

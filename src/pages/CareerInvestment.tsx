@@ -662,7 +662,7 @@ function FaqSection() {
   };
 
   return (
-    <section className="w-full bg-[#fbfbfb] pb-24 px-5 sm:px-6 lg:px-10">
+    <section id="faq" className="w-full bg-[#fbfbfb] pb-24 px-5 sm:px-6 lg:px-10">
       <div className="max-w-[1100px] mx-auto">
         {/* Title */}
         <div className="text-center mb-8">

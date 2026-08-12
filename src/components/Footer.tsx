@@ -107,10 +107,13 @@ export function Footer() {
             <p className="mb-8 text-[15px] sm:text-[16px] text-gray-300">
               One honest conversation today could change the direction of your career tomorrow.
             </p>
-            <button className="mb-6 flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#2563EB] to-[#7C3AED] px-6 py-3 font-semibold text-white transition-transform hover:scale-105">
+            <Link
+              to="/plan-your-next-leap"
+              className="mb-6 flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#2563EB] to-[#7C3AED] px-6 py-3 font-semibold text-white transition-transform hover:scale-105"
+            >
               Plan Your Next Leap
               <ArrowRight className="h-4 w-4" />
-            </button>
+            </Link>
             <div className="flex items-center gap-2 text-[13px] text-gray-400">
               <CheckCircle2 className="h-4 w-4 text-gray-500" />
               <span>No pressure. No obligation. Just clarity.</span>
@@ -125,14 +128,18 @@ export function Footer() {
           {/* Brand Col */}
           <div className="flex flex-col gap-6 lg:pr-8">
             <div className="flex items-center gap-3">
-              <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-gradient-to-br from-[#2563EB] to-[#7C3AED] text-white shadow-soft">
-                <span className="text-xl font-black">H</span>
-              </div>
-              <span className="text-[24px] font-bold tracking-tight">HireLeap</span>
-            </div>
-            <div className="text-[14px] font-medium">
-              Better <span className="text-[#3b82f6]">Decisions</span>. Better{" "}
-              <span className="text-[#9333EA]">Careers</span>.
+              <img
+                src="/footericon.png"
+                alt="HireLeap icon"
+                className="h-10 w-10 shrink-0 object-contain"
+                loading="lazy"
+              />
+              <img
+                src="/footertitle.png"
+                alt="HireLeap"
+                className="h-8 w-auto object-contain"
+                loading="lazy"
+              />
             </div>
             <p className="text-[13px] leading-relaxed text-gray-400">
               Helping professionals make better career decisions through expert guidance,
@@ -170,22 +177,22 @@ export function Footer() {
             </h3>
             <ul className="flex flex-col gap-3 text-[14px] text-gray-300">
               {[
-                "Why We Exist",
-                "Career Journeys",
-                "The HireLeap Method™",
-                "Career Intelligence",
-                "Career Hub",
-                "Success Stories",
-                "Pricing",
-                "About Us",
+                { name: "Why We Exist", path: "/why-we-exist" },
+                { name: "Career Journeys", path: "/career-journeys" },
+                { name: "The HireLeap Method™", path: "/the-hireleap-method" },
+                { name: "Career Intelligence", path: "/career-intelligence" },
+                { name: "Career Hub", path: "/career-hub" },
+                { name: "Success Stories", path: "/success-stories" },
+                { name: "Pricing", path: "/career-investment" },
+                { name: "About Us", path: "/about-us" },
               ].map((item) => (
-                <li key={item}>
+                <li key={item.name}>
                   <Link
-                    to="#"
+                    to={item.path}
                     className="flex items-center gap-2 hover:text-white transition-colors"
                   >
                     <ChevronRight className="h-3 w-3 text-[#3b82f6]" />
-                    {item}
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -198,14 +205,18 @@ export function Footer() {
               Resources
             </h3>
             <ul className="flex flex-col gap-3 text-[14px] text-gray-300">
-              {["Career Hub", "Webinars", "FAQs"].map((item) => (
-                <li key={item}>
+              {[
+                { name: "Career Hub", path: "/career-hub" },
+                { name: "Webinars", path: "/career-hub" },
+                { name: "FAQs", path: "/career-investment#faq" },
+              ].map((item) => (
+                <li key={item.name}>
                   <Link
-                    to="#"
+                    to={item.path}
                     className="flex items-center gap-2 hover:text-white transition-colors"
                   >
                     <ChevronRight className="h-3 w-3 text-[#3b82f6]" />
-                    {item}
+                    {item.name}
                   </Link>
                 </li>
               ))}

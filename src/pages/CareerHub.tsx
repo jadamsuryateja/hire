@@ -8,6 +8,7 @@ import careerHubImg from "../assets/careerhub.webp";
 import careerHubMobileImg from "../assets/careerhub-mobile.webp";
 import liveWebinarCallImg from "../assets/live_webinar_call.webp";
 import alumniMentorsImg from "../assets/alumni_mentors.webp";
+import theHireLeapCircleImg from "../assets/The HireLeap Circle.webp";
 
 export default function CareerHub() {
   return (
@@ -242,7 +243,7 @@ function LearnAndGrow() {
   return (
     <section className="w-full bg-white px-5 sm:px-6 lg:px-12 pt-4 lg:pt-8 pb-8 lg:pb-12 border-t border-gray-50">
       <div className="w-full max-w-[1400px] mx-auto">
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 xl:gap-24">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 xl:gap-8">
           
           {/* Left Block: Live learning */}
           <div className="flex flex-col lg:flex-row gap-6 xl:gap-8 items-center">
@@ -291,16 +292,19 @@ function LearnAndGrow() {
           {/* Right Block: The HireLeap Circle */}
           <div className="flex flex-col xl:flex-row gap-6 w-full items-center xl:items-stretch">
             {/* Text & Diagram */}
-            <div className="flex-1 flex flex-col w-full pt-4">
+            <div className="flex-1 flex flex-col w-full pt-4 min-w-0">
               <div className="z-20 text-center xl:text-left mb-2 xl:mb-4 xl:-ml-4">
                 <p className="text-[#3b2dd0] font-bold text-[10px] md:text-[11px] tracking-widest uppercase mb-3">The HireLeap Circle</p>
                 <h2 className="text-[#0A102A] text-[24px] xl:text-[28px] font-serif leading-tight">A journey of growth.<br/>A cycle of impact.</h2>
               </div>
               
-              <div className="flex-1 w-full flex items-center justify-center xl:justify-end xl:pr-[110px]">
-                <div className="scale-[0.65] sm:scale-75 md:scale-100 origin-center xl:origin-right">
-                  <HireLeapCircleDiagram />
-                </div>
+              <div className="flex-1 w-full flex items-center justify-center xl:justify-center my-2 md:my-0">
+                <img
+                  loading="lazy"
+                  src={theHireLeapCircleImg}
+                  alt="The HireLeap Circle diagram mapping out Learn, Apply, Succeed, Grow, Give Back, and Inspire"
+                  className="w-full max-w-[620px] h-auto object-contain"
+                />
               </div>
             </div>
 
@@ -323,98 +327,7 @@ function LearnAndGrow() {
   );
 }
 
-function HireLeapCircleDiagram() {
-  return (
-    <div className="relative w-[180px] h-[180px] my-8 shrink-0">
-      {/* Circle Border */}
-      <div className="absolute inset-0 rounded-full border-[1.5px] border-[#cba6f7]/60 pointer-events-none"></div>
 
-      {/* Central Logo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[48px] h-[64px] rounded-[12px] bg-[#0A102A] flex items-center justify-center shadow-lg z-20 overflow-hidden group">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#3b2dd0]/80 to-[#cba6f7]/20 opacity-50 mix-blend-overlay"></div>
-        <div className="absolute top-1.5 left-1.5 w-1 h-1 rounded-full bg-blue-300"></div>
-        <div className="absolute bottom-2 right-2 w-1 h-1 rounded-full bg-purple-300"></div>
-        <span className="relative z-10 text-[32px] font-bold text-[#3b2dd0] tracking-tighter mix-blend-screen leading-none drop-shadow-[0_0_8px_rgba(59,45,208,0.8)]">H</span>
-      </div>
-
-      {/* Circle Arrows */}
-      <ChevronRight className="absolute w-4 h-4 text-[#cba6f7] top-[6.7%] left-[75%] -translate-x-1/2 -translate-y-1/2 rotate-[30deg]" strokeWidth={2.5} />
-      <ChevronRight className="absolute w-4 h-4 text-[#cba6f7] top-[50%] left-[100%] -translate-x-1/2 -translate-y-1/2 rotate-[90deg]" strokeWidth={2.5} />
-      <ChevronRight className="absolute w-4 h-4 text-[#cba6f7] top-[93.3%] left-[75%] -translate-x-1/2 -translate-y-1/2 rotate-[150deg]" strokeWidth={2.5} />
-      <ChevronRight className="absolute w-4 h-4 text-[#cba6f7] top-[93.3%] left-[25%] -translate-x-1/2 -translate-y-1/2 rotate-[210deg]" strokeWidth={2.5} />
-      <ChevronRight className="absolute w-4 h-4 text-[#cba6f7] top-[50%] left-[0%] -translate-x-1/2 -translate-y-1/2 rotate-[270deg]" strokeWidth={2.5} />
-      <ChevronRight className="absolute w-4 h-4 text-[#cba6f7] top-[6.7%] left-[25%] -translate-x-1/2 -translate-y-1/2 rotate-[330deg]" strokeWidth={2.5} />
-
-      {/* Nodes */}
-      
-      {/* 12 o'clock: Learn */}
-      <div className="absolute top-[0%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-10">
-        <div className="w-[36px] h-[36px] rounded-full bg-white border-[1.5px] border-[#3b2dd0] flex items-center justify-center shadow-sm text-[#3b2dd0]">
-          <Share2 className="w-[16px] h-[16px]" strokeWidth={1.5} />
-        </div>
-        <div className="absolute top-1/2 left-full ml-2.5 -translate-y-1/2 w-[110px] text-left">
-          <div className="text-[12px] font-bold text-[#0A102A]">Learn</div>
-          <div className="text-[9.5px] text-gray-500 leading-[1.3] mt-0.5">Gain insights and<br/>new perspectives.</div>
-        </div>
-      </div>
-
-      {/* 2 o'clock: Apply */}
-      <div className="absolute top-[25%] left-[93.3%] -translate-x-1/2 -translate-y-1/2 z-10">
-        <div className="w-[36px] h-[36px] rounded-full bg-white border-[1.5px] border-[#3b2dd0] flex items-center justify-center shadow-sm text-[#3b2dd0]">
-          <Users className="w-[16px] h-[16px]" strokeWidth={1.5} />
-        </div>
-        <div className="absolute top-1/2 left-full ml-2.5 -translate-y-1/2 w-[110px] text-left">
-          <div className="text-[12px] font-bold text-[#0A102A]">Apply</div>
-          <div className="text-[9.5px] text-gray-500 leading-[1.3] mt-0.5">Take action and<br/>build your skills.</div>
-        </div>
-      </div>
-
-      {/* 4 o'clock: Succeed */}
-      <div className="absolute top-[75%] left-[93.3%] -translate-x-1/2 -translate-y-1/2 z-10">
-        <div className="w-[36px] h-[36px] rounded-full bg-white border-[1.5px] border-[#3b2dd0] flex items-center justify-center shadow-sm text-[#3b2dd0]">
-          <Heart className="w-[16px] h-[16px]" strokeWidth={1.5} />
-        </div>
-        <div className="absolute top-1/2 left-full ml-2.5 -translate-y-1/2 w-[110px] text-left">
-          <div className="text-[12px] font-bold text-[#0A102A]">Succeed</div>
-          <div className="text-[9.5px] text-gray-500 leading-[1.3] mt-0.5">Achieve your goals<br/>and create impact.</div>
-        </div>
-      </div>
-
-      {/* 6 o'clock: Grow */}
-      <div className="absolute top-[100%] left-[50%] -translate-x-1/2 -translate-y-1/2 z-10">
-        <div className="w-[36px] h-[36px] rounded-full bg-white border-[1.5px] border-[#3b2dd0] flex items-center justify-center shadow-sm text-[#3b2dd0]">
-          <Sparkles className="w-[16px] h-[16px]" strokeWidth={1.5} />
-        </div>
-        <div className="absolute top-full left-1/2 mt-2 -translate-x-1/2 w-[110px] text-center">
-          <div className="text-[12px] font-bold text-[#0A102A]">Grow</div>
-          <div className="text-[9.5px] text-gray-500 leading-[1.3] mt-0.5">Keep evolving in<br/>your career.</div>
-        </div>
-      </div>
-
-      {/* 8 o'clock: Give Back */}
-      <div className="absolute top-[75%] left-[6.7%] -translate-x-1/2 -translate-y-1/2 z-10">
-        <div className="w-[36px] h-[36px] rounded-full bg-white border-[1.5px] border-[#3b2dd0] flex items-center justify-center shadow-sm text-[#3b2dd0]">
-          <Share2 className="w-[16px] h-[16px]" strokeWidth={1.5} />
-        </div>
-        <div className="absolute top-1/2 right-full mr-2.5 -translate-y-1/2 w-[110px] text-right xl:text-left">
-          <div className="text-[12px] font-bold text-[#0A102A] xl:flex xl:justify-end xl:w-[90px]">Give Back</div>
-          <div className="text-[9.5px] text-gray-500 leading-[1.3] mt-0.5 xl:flex xl:justify-end xl:w-[90px] xl:text-right">Share your experience<br/>and support others.</div>
-        </div>
-      </div>
-
-      {/* 10 o'clock: Inspire */}
-      <div className="absolute top-[25%] left-[6.7%] -translate-x-1/2 -translate-y-1/2 z-10">
-        <div className="w-[36px] h-[36px] rounded-full bg-white border-[1.5px] border-[#3b2dd0] flex items-center justify-center shadow-sm text-[#3b2dd0]">
-          <BookOpen className="w-[16px] h-[16px]" strokeWidth={1.5} />
-        </div>
-        <div className="absolute top-1/2 right-full mr-2.5 -translate-y-1/2 w-[110px] text-right xl:text-left">
-          <div className="text-[12px] font-bold text-[#0A102A] xl:flex xl:justify-end xl:w-[90px]">Inspire</div>
-          <div className="text-[9.5px] text-gray-500 leading-[1.3] mt-0.5 xl:flex xl:justify-end xl:w-[90px] xl:text-right">Help someone take<br/>their next step.</div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function TomorrowLeaders() {
   return (

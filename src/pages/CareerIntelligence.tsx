@@ -443,30 +443,13 @@ function IntelligenceDiagramSection() {
             <div className="relative w-[700px] min-w-[700px] shrink-0 h-[500px] transform scale-[0.45] sm:scale-[0.6] md:scale-100 transform-origin-center -my-[130px] sm:-my-[100px] md:my-0">
               {/* Center glowing circle */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[230px] h-[230px] rounded-full border-[1.5px] border-[#818cf8] bg-gradient-to-br from-[#4f38f0] to-[#140b66] shadow-[0_0_80px_rgba(79,56,240,0.6)] z-10 flex flex-col items-center justify-center">
-                {/* Logo inside */}
-                <div className="mb-3 relative">
-                  {/* HireLeap custom SVG logo */}
-                  <div className="flex items-center justify-center w-14 h-14">
-                    <svg
-                      width="48"
-                      height="48"
-                      viewBox="0 0 40 40"
-                      fill="none"
-                      className="text-white"
-                    >
-                      <rect x="8" y="6" width="5.5" height="28" rx="2" fill="currentColor" />
-                      <rect x="26.5" y="6" width="5.5" height="28" rx="2" fill="currentColor" />
-                      <path
-                        d="M 13.5 24 L 26.5 14"
-                        stroke="currentColor"
-                        strokeWidth="4.5"
-                        strokeLinecap="round"
-                      />
-                      <circle cx="20" cy="11" r="3.5" fill="currentColor" />
-                    </svg>
-                  </div>
-                </div>
-                <span className="text-white font-medium text-[20px] leading-tight text-center tracking-tight">
+                <img
+                  src="/footericon.png"
+                  alt="HireLeap"
+                  className="w-14 h-14 object-contain mb-2"
+                  loading="lazy"
+                />
+                <span className="text-white font-medium text-[16px] leading-tight text-center tracking-tight">
                   Career
                   <br />
                   Intelligence

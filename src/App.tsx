@@ -53,8 +53,10 @@ function App() {
             property="og:description"
             content="Better Decisions. Better Careers. Plan your next leap with clarity."
           />
+          <meta property="og:image" content="/favicon.png" />
           <meta property="og:type" content="website" />
           <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:image" content="/favicon.png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link
