@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 import { PageShell } from "../components/PageShell";
 import { ArrowRight, BookOpen, Users, Sparkles, Heart, Calendar, Clock, Wifi, Share2, Briefcase, Trophy, TrendingUp, HeartHandshake, Lightbulb, ChevronRight, User, GraduationCap, Search, X, Filter, Lock } from "lucide-react";
 import { mockResources } from "../data/mockResources";
-import careerHubImg from "../assets/careerhub.png";
+import careerHubImg from "../assets/careerhub.webp";
+import careerHubMobileImg from "../assets/careerhub-mobile.webp";
+import liveWebinarCallImg from "../assets/live_webinar_call.webp";
+import alumniMentorsImg from "../assets/alumni_mentors.webp";
 
 export default function CareerHub() {
   return (
@@ -82,13 +85,16 @@ export default function CareerHub() {
           </div>
 
           {/* Right Image Container */}
-          <div className="relative w-full h-[350px] lg:h-full lg:absolute lg:top-0 lg:right-0 lg:w-[60%]">
-            <div className="absolute inset-0 overflow-hidden lg:overflow-visible">
-               <img
-                src={careerHubImg}
-                alt="Professionals collaborating at a table"
-                className="absolute inset-0 h-full w-full object-cover object-center lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_30%,rgba(0,0,0,1)_100%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_30%,rgba(0,0,0,1)_100%)]"
-              />
+          <div className="relative w-full h-auto min-h-0 lg:h-full lg:absolute lg:top-0 lg:right-0 lg:w-[60%]">
+            <div className="relative w-full h-auto overflow-hidden lg:absolute lg:inset-0 lg:h-full lg:w-full lg:overflow-visible">
+              <picture className="block w-full h-auto lg:absolute lg:inset-0 lg:h-full lg:w-full">
+                <source media="(max-width: 768px)" srcSet={careerHubMobileImg} />
+                <img loading="lazy"
+                  src={careerHubImg}
+                  alt="Professionals collaborating at a table"
+                  className="w-full h-auto block lg:h-full lg:w-full lg:object-cover lg:object-center lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_30%,rgba(0,0,0,1)_100%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_30%,rgba(0,0,0,1)_100%)]"
+                />
+              </picture>
               <div className="absolute inset-x-0 bottom-0 h-24 lg:h-32 bg-gradient-to-t from-white to-transparent pointer-events-none" />
             </div>
             
@@ -173,7 +179,7 @@ function ResourceCenter() {
         {featuredResource && (
           <Link to={`/insights/${featuredResource.slug}`} className="mb-12 border border-[#e5e7eb] rounded-[16px] overflow-hidden flex flex-col lg:flex-row group hover:shadow-lg transition-shadow bg-white cursor-pointer w-full">
             <div className="lg:w-3/5 h-[300px] lg:h-[400px] overflow-hidden">
-              <img src={featuredResource.image} alt={featuredResource.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img loading="lazy" src={featuredResource.image} alt={featuredResource.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
             </div>
             <div className="lg:w-2/5 p-8 lg:p-12 flex flex-col justify-center">
               <span className="text-[#3b2dd0] text-[11px] font-bold tracking-wider uppercase mb-4">{featuredResource.category}</span>
@@ -198,7 +204,7 @@ function ResourceCenter() {
           {gridResources.map(resource => (
             <Link to={`/insights/${resource.slug}`} key={resource.id} className="border border-[#e5e7eb] rounded-[12px] overflow-hidden flex flex-col hover:shadow-lg transition-shadow bg-white group">
               <div className="aspect-[4/3] w-full overflow-hidden">
-                <img src={resource.image} alt={resource.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img loading="lazy" src={resource.image} alt={resource.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
               <div className="p-5 flex flex-col flex-1">
                 <span className="text-[#3b2dd0] text-[10px] font-bold tracking-wider uppercase mb-3">{resource.category}</span>
@@ -278,7 +284,7 @@ function LearnAndGrow() {
               <div className="absolute top-4 left-4 bg-[#3b2dd0] text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded-[4px] z-10 flex items-center gap-1.5 shadow-md">
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span> Live
               </div>
-              <img src="/live_webinar_call.png" alt="Live Webinar video call with professionals" className="w-full h-full object-cover" />
+              <img loading="lazy" src={liveWebinarCallImg} alt="Live Webinar video call with professionals" className="w-full h-full object-cover" />
             </div>
           </div>
 
@@ -422,13 +428,13 @@ function TomorrowLeaders() {
             {/* Desktop Image Content (Absolute) */}
             <div className="absolute inset-y-0 right-0 w-[45%] hidden xl:block z-0">
               <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent z-10 w-32 left-0 top-0"></div>
-              <img src="/alumni_mentors.png" alt="Mentors and mentees high-fiving" className="w-full h-full object-cover rounded-r-[16px]" />
+              <img loading="lazy" src={alumniMentorsImg} alt="Mentors and mentees high-fiving" className="w-full h-full object-cover rounded-r-[16px]" />
             </div>
 
             {/* Mobile Image Content (Static) */}
             <div className="w-full h-[240px] relative shrink-0 xl:hidden order-last">
               <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-transparent z-10 h-24 left-0 top-0"></div>
-              <img src="/alumni_mentors.png" alt="Mentors and mentees high-fiving" className="w-full h-full object-cover rounded-b-[16px]" />
+              <img loading="lazy" src={alumniMentorsImg} alt="Mentors and mentees high-fiving" className="w-full h-full object-cover rounded-b-[16px]" />
             </div>
 
             {/* Text Content */}

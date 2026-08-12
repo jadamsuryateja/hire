@@ -28,7 +28,8 @@ import {
   UserCheck,
   Heart,
 } from "lucide-react";
-import careerIntelligenceImg from "../assets/careerintelligence.png";
+import careerIntelligenceImg from "../assets/careerintelligence.webp";
+import careerIntelligenceMobileImg from "../assets/careerintelligence-mobile.webp";
 
 export default function CareerIntelligence() {
   return (
@@ -130,18 +131,21 @@ function Hero() {
       </div>
 
       {/* Visual */}
-      <div className="relative self-stretch overflow-hidden min-h-[280px] sm:min-h-[420px] bg-[#0A102A]">
-        <img
-          src={careerIntelligenceImg}
-          alt="Team collaborating on career strategy with dashboards"
-          width={1408}
-          height={1008}
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
+      <div className="relative w-full overflow-hidden h-auto min-h-0 lg:min-h-[420px] lg:self-stretch bg-[#0A102A]">
+        <picture className="block w-full h-auto lg:absolute lg:inset-0 lg:h-full lg:w-full">
+          <source media="(max-width: 768px)" srcSet={careerIntelligenceMobileImg} />
+          <img loading="lazy"
+            src={careerIntelligenceImg}
+            alt="Team collaborating on career strategy with dashboards"
+            width={1408}
+            height={1008}
+            className="w-full h-auto block lg:h-full lg:w-full lg:object-cover lg:object-center"
+          />
+        </picture>
         {/* Horizontal fade for desktop */}
         <div className="absolute top-0 bottom-0 left-0 bg-gradient-to-r from-[#0A102A] via-[#0A102A]/70 to-transparent w-[30%] lg:w-[45%] hidden lg:block"></div>
         {/* Vertical fade for mobile */}
-        <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-[#0A102A] via-[#0A102A]/70 to-transparent h-[40%] lg:hidden"></div>
+        <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-[#0A102A] via-[#0A102A]/70 to-transparent h-[20%] lg:hidden"></div>
       </div>
     </section>
   );
@@ -167,7 +171,7 @@ function StorySection() {
 
             <div className="flex flex-col lg:block relative gap-0">
               <div className="rounded-2xl overflow-hidden lg:ml-[110px] aspect-[4/5] sm:aspect-[16/9] lg:aspect-[4/5] bg-gray-200 shadow-sm border border-gray-200 order-1 lg:order-none">
-                <img
+                <img loading="lazy"
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
                   alt="Professional looking at laptop"
                   className="w-full h-full object-cover"
@@ -676,7 +680,7 @@ function CapabilitiesSection() {
               className="flex flex-col bg-white rounded-xl overflow-hidden border border-gray-100 shadow-[0_4px_20px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-shadow"
             >
               <div className="h-[140px] xl:h-[150px] w-full relative overflow-hidden bg-gray-100">
-                <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+                <img loading="lazy" src={card.image} alt={card.title} className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col p-5 xl:p-6 flex-grow">
                 <div className="flex items-center gap-3 mb-3">
@@ -704,7 +708,7 @@ function StripSection() {
   return (
     <section className="w-full bg-[#040a15] flex flex-col lg:flex-row max-h-[1000px] lg:max-h-[320px]">
       <div className="w-full lg:w-5/12 h-[200px] lg:h-auto relative">
-        <img
+        <img loading="lazy"
           src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80"
           alt="Professional looking forward"
           className="w-full h-full object-cover object-center"

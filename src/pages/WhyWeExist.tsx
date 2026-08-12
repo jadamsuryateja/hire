@@ -2,7 +2,11 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { PageShell } from "../components/PageShell";
 import { CloudRain, Briefcase, CalendarClock, Cpu, Users, CircleDollarSign, Compass, Quote, Ear, Search, FileText, Target, Rocket, Check, Sparkles, ShieldCheck, Shield, FileCheck, Award, Lightbulb, Eye, Heart, ArrowRight, Headset } from "lucide-react";
-import whyWeExistImg from "../assets/whyweexist.png";
+import whyWeExistImg from "../assets/whyweexist.webp";
+import whyWeExistMobileImg from "../assets/whyweexist-mobile.webp";
+import missionFlagImg from "../assets/mission_flag.webp";
+import visionPersonImg from "../assets/vision_person.webp";
+import compassCtaImg from "../assets/compass_cta.webp";
 
 export default function WhyWeExist() {
   return (
@@ -54,13 +58,16 @@ function Hero() {
 
       {/* Visual */}
       <div className="relative self-stretch overflow-hidden min-h-[280px] sm:min-h-[420px]">
-        <img
-          src={whyWeExistImg}
-          alt="Professional working at desk with laptop and notes"
-          width={1408}
-          height={1008}
-          className="absolute inset-0 h-full w-full object-cover object-[75%_center] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)]"
-        />
+        <picture className="absolute inset-0 h-full w-full">
+          <source media="(max-width: 768px)" srcSet={whyWeExistMobileImg} />
+          <img loading="lazy"
+            src={whyWeExistImg}
+            alt="Professional working at desk with laptop and notes"
+            width={1408}
+            height={1008}
+            className="h-full w-full object-cover object-[75%_center] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)]"
+          />
+        </picture>
       </div>
     </section>
   );
@@ -95,14 +102,14 @@ function TheReality() {
 
         {/* Right Column */}
         <div className="flex w-full flex-col lg:w-[78%] xl:w-[82%] lg:pl-6 pr-5 sm:pr-6 lg:pr-8">
-          {/* Icons Row */}
-          <div className="mb-6 flex overflow-x-auto snap-x snap-mandatory flex-nowrap hide-scrollbar gap-4 pb-4 sm:grid sm:grid-cols-4 lg:flex lg:justify-between w-full">
+          {/* Icons Grid */}
+          <div className="mb-6 grid grid-cols-2 gap-y-4 gap-x-2 sm:grid-cols-3 lg:flex lg:justify-between w-full">
             {painPoints.map((item, idx) => (
               <div 
                 key={idx} 
-                className={`flex shrink-0 w-[120px] sm:w-auto flex-col px-1 sm:px-2 snap-center lg:flex-1 items-center text-center ${idx !== painPoints.length - 1 ? 'lg:border-r lg:border-border/50' : ''}`}
+                className={`flex flex-col items-center text-center lg:flex-1 ${idx !== painPoints.length - 1 ? 'lg:border-r lg:border-border/50' : ''}`}
               >
-                <item.icon className="mb-4 h-7 w-7 text-primary" strokeWidth={1.5} />
+                <item.icon className="mb-1.5 h-6 w-6 text-primary" strokeWidth={1.5} />
                 <div className="whitespace-pre-line text-[11px] font-semibold leading-tight text-foreground sm:text-[12px]">
                   {item.label}
                 </div>
@@ -219,9 +226,9 @@ function WhatMakesUsDifferent() {
             {/* The actual horizontal line connecting circles, hidden on smaller screens where they wrap to avoid broken lines */}
             <div className="absolute left-8 right-8 top-6 hidden h-[1px] bg-[#E0E7FF] xl:block" />
             
-            <div className="flex overflow-x-auto snap-x snap-mandatory flex-nowrap hide-scrollbar gap-4 pb-4 w-full sm:grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 xl:gap-2">
+            <div className="grid grid-cols-2 gap-2 sm:gap-4 pb-4 w-full md:grid-cols-3 xl:grid-cols-6 xl:gap-2">
               {steps.map((step, idx) => (
-                <div key={idx} className="relative flex shrink-0 w-[260px] sm:w-auto flex-col items-center snap-center">
+                <div key={idx} className="relative flex shrink-0 w-full flex-col items-center">
                   
                   {/* Icon Circle */}
                   <div className="relative z-10 mb-4 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-md">
@@ -346,7 +353,7 @@ function MissionVision() {
               <div 
                 className="absolute inset-0 opacity-80 mix-blend-multiply"
                 style={{ 
-                  backgroundImage: "url('/images/mission_flag.png')", 
+                  backgroundImage: `url(${missionFlagImg})`, 
                   backgroundSize: 'cover', 
                   backgroundPosition: 'left center' 
                 }} 
@@ -376,7 +383,7 @@ function MissionVision() {
               <div 
                 className="absolute inset-0 opacity-80 mix-blend-multiply"
                 style={{ 
-                  backgroundImage: "url('/images/vision_person.png')", 
+                  backgroundImage: `url(${visionPersonImg})`, 
                   backgroundSize: 'cover', 
                   backgroundPosition: 'right center' 
                 }} 
@@ -482,8 +489,8 @@ function FinalCTA() {
             
             {/* Left Image Background */}
             <div className="absolute left-0 top-0 bottom-0 w-[50%] md:w-[35%] max-w-[300px] pointer-events-none rounded-l-[24px] overflow-hidden">
-              <img 
-                src="/images/compass_cta.png" 
+              <img loading="lazy" 
+                src={compassCtaImg} 
                 alt="" 
                 className="w-full h-full object-cover object-center mix-blend-screen opacity-90 -translate-x-[10%]"
               />

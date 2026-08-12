@@ -27,7 +27,8 @@ import {
   Lock,
 } from "lucide-react";
 import { PageShell } from "../components/PageShell";
-import planYourNextLeapImg from "../assets/Plan Your Next Leap.png";
+import planYourNextLeapImg from "../assets/Plan Your Next Leap.webp";
+import planYourNextLeapMobileImg from "../assets/Plan Your Next Leap-mobile.webp";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Name is required"),
@@ -154,12 +155,15 @@ export default function PlanYourNextLeap() {
           </div>
 
           {/* Visual */}
-          <div className="relative self-stretch overflow-hidden min-h-[280px] sm:min-h-[420px]">
-            <img
-              src={planYourNextLeapImg}
-              alt="Plan Your Next Leap"
-              className="absolute inset-0 h-full w-full object-cover object-[75%_center] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_20%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_20%)]"
-            />
+          <div className="relative w-full overflow-hidden h-auto min-h-0 md:min-h-[420px] md:self-stretch">
+            <picture className="block w-full h-auto md:absolute md:inset-0 md:h-full md:w-full">
+              <source media="(max-width: 768px)" srcSet={planYourNextLeapMobileImg} />
+              <img loading="lazy"
+                src={planYourNextLeapImg}
+                alt="Plan Your Next Leap"
+                className="w-full h-auto block md:h-full md:w-full md:object-cover md:object-[75%_center] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_20%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_20%)]"
+              />
+            </picture>
           </div>
         </section>
 
@@ -232,7 +236,7 @@ export default function PlanYourNextLeap() {
               >
                 {/* Background image area */}
                 <div className="absolute inset-x-0 bottom-0 top-1/3">
-                  <img
+                  <img loading="lazy"
                     src={card.image}
                     alt={card.title}
                     className="w-full h-full object-cover object-bottom"
@@ -271,41 +275,41 @@ export default function PlanYourNextLeap() {
               </h2>
 
               {/* Timeline Steps */}
-              <div className="relative grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 justify-between mb-12 gap-8 lg:gap-4">
+              <div className="relative grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-4 justify-between mb-12 gap-x-2 gap-y-8 lg:gap-4">
                 {/* Connecting Line (desktop only) */}
                 <div className="hidden xl:block absolute top-10 left-[10%] right-[10%] h-[1px] border-t border-dashed border-[#4922ca]/30" />
 
                 {[
                   {
-                    icon: <Ear className="w-6 h-6" />,
+                    icon: <Ear className="w-5 h-5 sm:w-6 h-6" />,
                     title: "We Listen",
                     desc: "We start by truly understanding you. No advice yet—just careful listening.",
                   },
                   {
-                    icon: <LineChart className="w-6 h-6" />,
+                    icon: <LineChart className="w-5 h-5 sm:w-6 h-6" />,
                     title: "We Evaluate",
                     desc: "We evaluate your goals, experience, strengths, interests, and constraints.",
                   },
                   {
-                    icon: <Target className="w-6 h-6" />,
+                    icon: <Target className="w-5 h-5 sm:w-6 h-6" />,
                     title: "We Recommend",
                     desc: "We recommend the right HireLeap Journey for you—what's right, not what's popular.",
                   },
                   {
-                    icon: <UserCheck className="w-6 h-6" />,
+                    icon: <UserCheck className="w-5 h-5 sm:w-6 h-6" />,
                     title: "We Partner",
                     desc: "If we're a good fit, we begin together—with clarity, not confusion.",
                   },
                 ].map((step, idx) => (
                   <div
                     key={idx}
-                    className="relative z-10 flex flex-col items-center text-center max-w-[180px] sm:max-w-[160px] xl:max-w-[140px] mx-auto"
+                    className="relative z-10 flex flex-col items-center text-center max-w-full mx-auto px-1"
                   >
-                    <div className="w-20 h-20 rounded-full bg-[#4922ca] flex items-center justify-center text-white shadow-lg mb-4">
+                    <div className="w-16 h-16 sm:w-20 h-20 rounded-full bg-[#4922ca] flex items-center justify-center text-white shadow-lg mb-3">
                       {step.icon}
                     </div>
-                    <h3 className="text-[#0a1b3f] font-bold text-[15px] mb-2">{step.title}</h3>
-                    <p className="text-foreground/70 text-[12px] leading-relaxed">{step.desc}</p>
+                    <h3 className="text-[#0a1b3f] font-bold text-[14px] sm:text-[15px] mb-1 sm:mb-2">{step.title}</h3>
+                    <p className="text-foreground/70 text-[11px] sm:text-[12px] leading-relaxed px-1 sm:px-0">{step.desc}</p>
                   </div>
                 ))}
               </div>

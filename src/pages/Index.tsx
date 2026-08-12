@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { PageShell } from "@/components/PageShell";
 import { VideoModal } from "@/components/VideoModal";
-import heroImg from "@/assets/hero-career.jpg";
-import infinityLoopAsset from "@/assets/infinity-loop.png";
+import heroImg from "@/assets/hero-career.webp";
+import heroMobileImg from "@/assets/hero-career-mobile.webp";
+import infinityLoopAsset from "@/assets/infinity-loop.webp";
 import {
   Sparkles,
   Play,
@@ -88,14 +89,17 @@ function Hero() {
       </div>
 
       {/* Visual */}
-      <div className="relative self-stretch overflow-hidden min-h-[280px] sm:min-h-[420px]">
-        <img
-          src={heroImg}
-          alt="Professional gazing at a sunset city skyline"
-          width={1408}
-          height={1008}
-          className="absolute inset-0 h-full w-full object-cover object-[75%_center] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)]"
-        />
+      <div className="relative w-full overflow-hidden h-auto min-h-0 lg:min-h-[420px] lg:self-stretch">
+        <picture className="block w-full h-auto lg:absolute lg:inset-0 lg:h-full lg:w-full">
+          <source media="(max-width: 768px)" srcSet={heroMobileImg} />
+          <img loading="lazy"
+            src={heroImg}
+            alt="Professional gazing at a sunset city skyline"
+            width={1408}
+            height={1008}
+            className="w-full h-auto block lg:h-full lg:w-full lg:object-cover lg:object-[75%_center] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)]"
+          />
+        </picture>
       </div>
     </section>
   );
@@ -184,7 +188,7 @@ function MethodSection() {
           <h4 className="mb-6 text-[11px] font-extrabold tracking-[0.18em] text-navy-accent">AI + HUMAN GUIDANCE</h4>
           <div className="relative mx-auto w-full max-w-[260px]">
             {/* Infinity loop image */}
-            <img
+            <img loading="lazy"
               src={infinityLoopAsset}
               alt="AI and human guidance infinity loop"
               className="block w-full"
@@ -313,7 +317,7 @@ function TestimonialSection() {
               "HireLeap helped me transition from a mid-level role to a leadership position within 6 months. The AI insights were spot on, and the human coaching gave me the confidence I needed."
             </p>
             <div className="mt-6 flex items-center gap-3">
-              <img src="https://i.pravatar.cc/100?img=33" alt="" className="h-10 w-10 rounded-full object-cover" />
+              <img loading="lazy" src="https://i.pravatar.cc/100?img=33" alt="" className="h-10 w-10 rounded-full object-cover" />
               <div>
                 <div className="text-[13px] font-bold">Sarah Jenkins</div>
                 <div className="text-[11px] text-muted-foreground">VP of Engineering</div>
@@ -326,7 +330,7 @@ function TestimonialSection() {
               "I was stuck in a rut for years. The platform didn't just give me advice; it gave me a step-by-step roadmap. Highly recommended for anyone feeling lost in their career."
             </p>
             <div className="mt-6 flex items-center gap-3">
-              <img src="https://i.pravatar.cc/100?img=11" alt="" className="h-10 w-10 rounded-full object-cover" />
+              <img loading="lazy" src="https://i.pravatar.cc/100?img=11" alt="" className="h-10 w-10 rounded-full object-cover" />
               <div>
                 <div className="text-[13px] font-bold">David Chen</div>
                 <div className="text-[11px] text-muted-foreground">Product Marketing Manager</div>

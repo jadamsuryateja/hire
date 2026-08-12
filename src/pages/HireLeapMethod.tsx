@@ -2,7 +2,9 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { PageShell } from "../components/PageShell";
 import { ShieldCheck, UserCheck, Target, Briefcase, Phone, UserPlus, TrendingUp, CircleDollarSign, Globe, RefreshCcw, MapPin, User, Mountain, Search, Split, CheckCircle2, GraduationCap, ArrowRight, Lightbulb, Compass, Trophy, LineChart, Smile, Users, BarChart2 } from "lucide-react";
-import heroImg from "../assets/hireleapmethod.png";
+import heroImg from "../assets/hireleapmethod.webp";
+import heroMobileImg from "../assets/hireleapmethod-mobile.webp";
+import hireleapMethodImg from "../assets/hireleap_method.webp";
 
 export default function HireLeapMethod() {
   return (
@@ -55,8 +57,8 @@ function GoalsSection() {
         <div className="w-full bg-[#F8FAFC] rounded-2xl border border-gray-100 overflow-hidden flex flex-col lg:flex-row items-center p-6 lg:py-6 lg:px-8 gap-6">
           {/* Left Graphic (SVG Illustration) */}
           <div className="w-full lg:w-1/2 flex justify-center items-center relative min-h-[220px]">
-            <img 
-              src="/hireleap_method.png" 
+            <img loading="lazy" 
+              src={hireleapMethodImg} 
               alt="HireLeap Method Graphic" 
               className="w-full h-auto max-w-[400px] object-contain"
             />
@@ -122,14 +124,17 @@ function Hero() {
       </div>
 
       {/* Visual */}
-      <div className="relative self-stretch overflow-hidden min-h-[350px] sm:min-h-[500px]">
-        <img
-          src={heroImg}
-          alt="Two professionals discussing a career roadmap on a laptop"
-          width={1408}
-          height={1008}
-          className="absolute inset-0 h-full w-full object-cover object-center lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)]"
-        />
+      <div className="relative w-full overflow-hidden h-auto min-h-0 lg:min-h-[500px] lg:self-stretch">
+        <picture className="block w-full h-auto lg:absolute lg:inset-0 lg:h-full lg:w-full">
+          <source media="(max-width: 768px)" srcSet={heroMobileImg} />
+          <img loading="lazy"
+            src={heroImg}
+            alt="Two professionals discussing a career roadmap on a laptop"
+            width={1408}
+            height={1008}
+            className="w-full h-auto block lg:h-full lg:w-full lg:object-cover lg:object-center lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)]"
+          />
+        </picture>
       </div>
     </section>
   );

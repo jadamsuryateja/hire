@@ -16,7 +16,8 @@ import {
   Flag,
 } from "lucide-react";
 import { useState } from "react";
-import careerInvestmentImg from "../assets/career-investment.png";
+import careerInvestmentImg from "../assets/career-investment.webp";
+import careerInvestmentMobileImg from "../assets/career-investment-mobile.webp";
 
 export default function CareerInvestment() {
   return (
@@ -30,30 +31,8 @@ export default function CareerInvestment() {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative w-full bg-white flex flex-col lg:flex-row items-stretch min-h-[600px] xl:min-h-[650px] overflow-hidden">
-        {/* Right side - Image & Graphic (Rendered first in code so it can sit under the left gradient on mobile if needed, though we use grid/flex) */}
-        <div className="absolute inset-0 lg:relative lg:w-[60%] lg:order-2 z-0">
-          {/* Main Zen Background */}
-          <img
-            src={careerInvestmentImg}
-            alt="Zen garden sand ripples"
-            className="w-full h-full object-cover object-center"
-          />
-
-          {/* Overlay text simulating the engraved stone in the center - Removed as it is baked into the image */}
-
-          {/* Fading gradient from the left (white) to blend the image into the content on desktop */}
-          <div className="hidden lg:block absolute inset-y-0 left-0 w-[40%] bg-gradient-to-r from-white via-white/80 to-transparent z-10" />
-
-          {/* Dark card in bottom right */}
-          <div className="hidden md:flex absolute bottom-10 right-10 lg:bottom-16 lg:right-16 bg-[#27272a] text-white p-7 rounded-[12px] w-[240px] flex-col items-start shadow-2xl z-20">
-            <Quote className="w-5 h-5 text-[#7161fa] mb-3 fill-current rotate-180" />
-            <p className="text-[13.5px] font-sans font-medium leading-relaxed">
-              Small decisions today create the career you'll be proud of tomorrow.
-            </p>
-          </div>
-        </div>
-
+      <section className="relative w-full bg-white flex flex-col lg:flex-row items-stretch lg:min-h-[600px] xl:min-h-[650px] overflow-hidden">
+        
         {/* Left side - Content */}
         <div className="relative z-10 w-full lg:w-[45%] xl:w-[40%] flex flex-col justify-center px-6 py-16 sm:px-10 lg:pl-16 xl:pl-24 bg-white/95 lg:bg-transparent lg:order-1">
           <div className="w-8 border-t-2 border-[#a199fa] mb-4" />
@@ -86,6 +65,32 @@ export default function CareerInvestment() {
               <Play className="w-4 h-4 fill-current shrink-0" />
               <span>See How HireLeap Creates Impact</span>
             </button>
+          </div>
+        </div>
+
+        {/* Right side - Image & Graphic */}
+        <div className="relative w-full h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-[60%] lg:order-2 z-0">
+          {/* Main Zen Background */}
+          <picture className="block w-full h-auto lg:h-full lg:w-full">
+            <source media="(max-width: 768px)" srcSet={careerInvestmentMobileImg} />
+            <img loading="lazy"
+              src={careerInvestmentImg}
+              alt="Zen garden sand ripples"
+              className="w-full h-auto block lg:h-full lg:w-full lg:object-cover lg:object-center"
+            />
+          </picture>
+
+          {/* Overlay text simulating the engraved stone in the center - Removed as it is baked into the image */}
+
+          {/* Fading gradient from the left (white) to blend the image into the content on desktop */}
+          <div className="hidden lg:block absolute inset-y-0 left-0 w-[40%] bg-gradient-to-r from-white via-white/80 to-transparent z-10" />
+
+          {/* Dark card in bottom right */}
+          <div className="hidden md:flex absolute bottom-10 right-10 lg:bottom-16 lg:right-16 bg-[#27272a] text-white p-7 rounded-[12px] w-[240px] flex-col items-start shadow-2xl z-20">
+            <Quote className="w-5 h-5 text-[#7161fa] mb-3 fill-current rotate-180" />
+            <p className="text-[13.5px] font-sans font-medium leading-relaxed">
+              Small decisions today create the career you'll be proud of tomorrow.
+            </p>
           </div>
         </div>
       </section>
@@ -522,7 +527,7 @@ function MembershipSection() {
           <div className="flex-1 flex flex-col sm:flex-row items-center gap-6">
             {/* Alumni Community Image */}
             <div className="w-28 h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-2 border-purple-500/30 shadow-lg shrink-0">
-              <img
+              <img loading="lazy"
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=300&q=80"
                 alt="Career Momentum Membership"
                 className="w-full h-full object-cover"

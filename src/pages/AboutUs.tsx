@@ -22,7 +22,8 @@ import {
   Handshake,
   Infinity as InfinityIcon,
 } from "lucide-react";
-import aboutUsImg from "../assets/About Us.png";
+import aboutUsImg from "../assets/About Us.webp";
+import aboutUsMobileImg from "../assets/About Us-mobile.webp";
 
 export default function AboutUs() {
   return (
@@ -67,12 +68,15 @@ export default function AboutUs() {
           </div>
 
           {/* Visual */}
-          <div className="relative self-stretch overflow-hidden min-h-[280px] sm:min-h-[420px]">
-            <img
-              src={aboutUsImg}
-              alt="Stepping stones leading out into a lake at sunset representing the career journey"
-              className="absolute inset-0 h-full w-full object-cover object-[75%_center] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)]"
-            />
+          <div className="relative w-full overflow-hidden h-auto min-h-0 md:min-h-[420px] md:self-stretch">
+            <picture className="block w-full h-auto md:absolute md:inset-0 md:h-full md:w-full">
+              <source media="(max-width: 768px)" srcSet={aboutUsMobileImg} />
+              <img loading="lazy"
+                src={aboutUsImg}
+                alt="Stepping stones leading out into a lake at sunset representing the career journey"
+                className="w-full h-auto block md:h-full md:w-full md:object-cover md:object-[75%_center] lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)]"
+              />
+            </picture>
           </div>
         </section>
 
@@ -222,24 +226,24 @@ function ProgressionSection() {
             </div>
 
             {/* Grid Items */}
-            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 border-t lg:border-t-0 border-border/50">
+            <div className="flex-1 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 border-t lg:border-t-0 border-border/50">
               {/* Item 1 */}
-              <div className="flex flex-col items-center justify-start text-center px-4 py-8 lg:py-12 border-b lg:border-b-0 lg:border-r border-border/50">
-                <Compass className="w-8 h-8 text-primary mb-6" strokeWidth={1.5} />
-                <p className="text-[13px] text-foreground leading-relaxed max-w-[180px]">
+              <div className="flex flex-col items-center justify-start text-center px-4 py-6 sm:py-8 lg:py-12 border-r border-b border-border/50 lg:border-b-0 lg:border-r">
+                <Compass className="w-7 h-7 sm:w-8 sm:h-8 text-primary mb-4 sm:mb-6" strokeWidth={1.5} />
+                <p className="text-[12.5px] sm:text-[13px] text-foreground leading-relaxed max-w-[180px]">
                   Better careers
                   <br />
                   begin with better
                   <br />
                   decisions.
                 </p>
-                <div className="w-8 h-[2px] bg-primary mt-6 rounded-full" />
+                <div className="w-8 h-[2px] bg-primary mt-4 sm:mt-6 rounded-full" />
               </div>
 
               {/* Item 2 */}
-              <div className="flex flex-col items-center justify-start text-center px-4 py-8 lg:py-12 border-b lg:border-b-0 lg:border-r border-border/50">
-                <Brain className="w-8 h-8 text-primary mb-6" strokeWidth={1.5} />
-                <p className="text-[13px] text-foreground leading-relaxed max-w-[180px]">
+              <div className="flex flex-col items-center justify-start text-center px-4 py-6 sm:py-8 lg:py-12 border-b border-border/50 lg:border-b-0 lg:border-r">
+                <Brain className="w-7 h-7 sm:w-8 sm:h-8 text-primary mb-4 sm:mb-6" strokeWidth={1.5} />
+                <p className="text-[12.5px] sm:text-[13px] text-foreground leading-relaxed max-w-[180px]">
                   Technology should
                   <br />
                   strengthen human
@@ -252,9 +256,9 @@ function ProgressionSection() {
               </div>
 
               {/* Item 3 */}
-              <div className="flex flex-col items-center justify-start text-center px-4 py-8 lg:py-12 border-b md:border-b-0 lg:border-r border-border/50">
-                <CheckCircle2 className="w-8 h-8 text-primary mb-6" strokeWidth={1.5} />
-                <p className="text-[13px] text-foreground leading-relaxed max-w-[180px]">
+              <div className="flex flex-col items-center justify-start text-center px-4 py-6 sm:py-8 lg:py-12 border-r border-b md:border-b-0 border-border/50 lg:border-r">
+                <CheckCircle2 className="w-7 h-7 sm:w-8 sm:h-8 text-primary mb-4 sm:mb-6" strokeWidth={1.5} />
+                <p className="text-[12.5px] sm:text-[13px] text-foreground leading-relaxed max-w-[180px]">
                   Advice without
                   <br />
                   execution changes
@@ -267,9 +271,9 @@ function ProgressionSection() {
               </div>
 
               {/* Item 4 */}
-              <div className="flex flex-col items-center justify-start text-center px-4 py-8 lg:py-12 border-b md:border-b-0 lg:border-r border-border/50">
-                <MountainSnow className="w-8 h-8 text-primary mb-6" strokeWidth={1.5} />
-                <p className="text-[13px] text-foreground leading-relaxed max-w-[180px]">
+              <div className="flex flex-col items-center justify-start text-center px-4 py-6 sm:py-8 lg:py-12 border-b md:border-b-0 border-border/50 lg:border-r">
+                <MountainSnow className="w-7 h-7 sm:w-8 sm:h-8 text-primary mb-4 sm:mb-6" strokeWidth={1.5} />
+                <p className="text-[12.5px] sm:text-[13px] text-foreground leading-relaxed max-w-[180px]">
                   Every career
                   <br />
                   deserves intentional
@@ -284,14 +288,14 @@ function ProgressionSection() {
               </div>
 
               {/* Item 5 */}
-              <div className="flex flex-col items-center justify-start text-center px-4 py-8 lg:py-12">
-                <div className="relative w-8 h-8 mb-6 mx-auto text-primary">
+              <div className="col-span-2 md:col-span-1 flex flex-col items-center justify-start text-center px-4 py-6 sm:py-8 lg:py-12">
+                <div className="relative w-7 h-7 sm:w-8 sm:h-8 mb-4 sm:mb-6 mx-auto text-primary">
                   <Star
-                    className="w-[14px] h-[14px] absolute top-[2px] left-1/2 -translate-x-1/2"
+                    className="w-[12px] h-[12px] sm:w-[14px] sm:h-[14px] absolute top-[2px] left-1/2 -translate-x-1/2"
                     strokeWidth={2}
                   />
                   <svg
-                    className="w-8 h-8 absolute inset-0"
+                    className="w-7 h-7 sm:w-8 sm:h-8 absolute inset-0"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -302,7 +306,7 @@ function ProgressionSection() {
                     <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
                   </svg>
                 </div>
-                <p className="text-[13px] text-foreground leading-relaxed max-w-[180px]">
+                <p className="text-[12.5px] sm:text-[13px] text-foreground leading-relaxed max-w-[180px]">
                   Real success isn't
                   <br />
                   getting one offer.
@@ -440,31 +444,31 @@ function ProgressionSection() {
 
           {/* Right Column */}
           <div className="w-full lg:w-[80%] flex flex-col">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-2 sm:gap-0">
               {/* Promise 1 */}
-              <div className="flex flex-col px-6 lg:px-8 py-6 lg:py-0 border-b lg:border-b-0 lg:border-l border-white/10">
-                <ShieldCheck className="w-8 h-8 text-[#987bf5] mb-6" strokeWidth={1.5} />
-                <h3 className="text-[14px] text-white mb-4 leading-[1.5]">
+              <div className="flex flex-col px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-0 border-r border-b lg:border-r-0 lg:border-b-0 lg:border-l border-white/10">
+                <ShieldCheck className="w-7 h-7 sm:w-8 sm:h-8 text-[#987bf5] mb-4 sm:mb-6" strokeWidth={1.5} />
+                <h3 className="text-[13px] sm:text-[14px] text-white mb-3 sm:mb-4 leading-[1.5]">
                   We promise to
                   <br />
                   tell you the truth.
                 </h3>
-                <p className="text-[13px] text-white/60 leading-[1.6]">
+                <p className="text-[12px] sm:text-[13px] text-white/60 leading-[1.6]">
                   Even when it isn't the easiest answer.
                 </p>
               </div>
 
               {/* Promise 2 */}
-              <div className="flex flex-col px-6 lg:px-8 py-6 lg:py-0 border-b lg:border-b-0 lg:border-l border-white/10">
-                <Heart className="w-8 h-8 text-[#987bf5] mb-6" strokeWidth={1.5} />
-                <h3 className="text-[14px] text-white mb-4 leading-[1.5]">
+              <div className="flex flex-col px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-0 border-b lg:border-b-0 lg:border-l border-white/10">
+                <Heart className="w-7 h-7 sm:w-8 sm:h-8 text-[#987bf5] mb-4 sm:mb-6" strokeWidth={1.5} />
+                <h3 className="text-[13px] sm:text-[14px] text-white mb-3 sm:mb-4 leading-[1.5]">
                   We promise to
                   <br />
                   recommend what's
                   <br />
                   right for your career.
                 </h3>
-                <p className="text-[13px] text-white/60 leading-[1.6]">
+                <p className="text-[12px] sm:text-[13px] text-white/60 leading-[1.6]">
                   Not what's easiest
                   <br />
                   for us.
@@ -472,16 +476,16 @@ function ProgressionSection() {
               </div>
 
               {/* Promise 3 */}
-              <div className="flex flex-col px-6 lg:px-8 py-6 lg:py-0 border-b lg:border-b-0 lg:border-l border-white/10">
-                <Handshake className="w-8 h-8 text-[#987bf5] mb-6" strokeWidth={1.5} />
-                <h3 className="text-[14px] text-white mb-4 leading-[1.5]">
+              <div className="flex flex-col px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-0 border-r lg:border-r-0 lg:border-b-0 lg:border-l border-white/10">
+                <Handshake className="w-7 h-7 sm:w-8 sm:h-8 text-[#987bf5] mb-4 sm:mb-6" strokeWidth={1.5} />
+                <h3 className="text-[13px] sm:text-[14px] text-white mb-3 sm:mb-4 leading-[1.5]">
                   We promise to
                   <br />
                   combine intelligence
                   <br />
                   with human experience.
                 </h3>
-                <p className="text-[13px] text-white/60 leading-[1.6]">
+                <p className="text-[12px] sm:text-[13px] text-white/60 leading-[1.6]">
                   Never sacrificing one
                   <br />
                   for the other.
@@ -489,15 +493,15 @@ function ProgressionSection() {
               </div>
 
               {/* Promise 4 */}
-              <div className="flex flex-col px-6 lg:px-8 py-6 lg:py-0 lg:border-l border-white/10">
-                <InfinityIcon className="w-8 h-8 text-[#987bf5] mb-6" strokeWidth={1.5} />
-                <h3 className="text-[14px] text-white mb-4 leading-[1.5]">
+              <div className="flex flex-col px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-0 lg:border-l border-white/10">
+                <InfinityIcon className="w-7 h-7 sm:w-8 sm:h-8 text-[#987bf5] mb-4 sm:mb-6" strokeWidth={1.5} />
+                <h3 className="text-[13px] sm:text-[14px] text-white mb-3 sm:mb-4 leading-[1.5]">
                   We promise to remain
                   <br />a long-term career
                   <br />
                   partner.
                 </h3>
-                <p className="text-[13px] text-white/60 leading-[1.6]">
+                <p className="text-[12px] sm:text-[13px] text-white/60 leading-[1.6]">
                   Not simply a service
                   <br />
                   provider.

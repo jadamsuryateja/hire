@@ -14,7 +14,8 @@ import {
   Check,
   CheckCircle2,
 } from "lucide-react";
-import heroImg from "../assets/successstories.png";
+import heroImg from "../assets/successstories.webp";
+import heroMobileImg from "../assets/successstories-mobile.webp";
 
 export default function SuccessStories() {
   return (
@@ -75,16 +76,19 @@ function Hero() {
       </div>
 
       {/* Visual */}
-      <div className="relative self-stretch overflow-hidden min-h-[350px] sm:min-h-[500px] lg:min-h-[600px]">
-        <img
-          src={heroImg}
-          alt="Professional working at desk at night"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-        />
+      <div className="relative w-full overflow-hidden h-auto min-h-0 lg:min-h-[600px] lg:self-stretch">
+        <picture className="block w-full h-auto lg:absolute lg:inset-0 lg:h-full lg:w-full">
+          <source media="(max-width: 768px)" srcSet={heroMobileImg} />
+          <img loading="lazy"
+            src={heroImg}
+            alt="Professional working at desk at night"
+            className="w-full h-auto block lg:h-full lg:w-full lg:object-cover lg:object-center"
+          />
+        </picture>
         {/* Horizontal fade for desktop */}
         <div className="absolute top-0 bottom-0 left-0 bg-gradient-to-r from-[#0A102A] via-[#0A102A]/50 to-transparent w-[30%] lg:w-[40%] hidden lg:block"></div>
         {/* Vertical fade for mobile */}
-        <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-[#0A102A] via-[#0A102A]/50 to-transparent h-[40%] lg:hidden"></div>
+        <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-[#0A102A] via-[#0A102A]/50 to-transparent h-[20%] lg:hidden"></div>
       </div>
     </section>
   );
@@ -184,7 +188,7 @@ function ChaptersSection() {
             <div
               className={`w-full h-36 flex items-center justify-center mb-6 overflow-hidden ${chapter.bgColor} rounded-lg`}
             >
-              <img
+              <img loading="lazy"
                 src={chapter.illustration}
                 alt="Illustration"
                 className="h-24 w-auto object-contain p-2"
@@ -261,7 +265,7 @@ function PathSection() {
         {/* Dotted horizontal line for desktop */}
         <div className="absolute top-[40px] left-[8.33%] right-[8.33%] h-[1.5px] border-t border-dashed border-gray-300 z-0 hidden lg:block" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-4 w-full relative z-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-4 gap-y-8 lg:gap-4 w-full relative z-10">
           {steps.map((step, idx) => {
             const Icon = step.icon;
             return (
@@ -341,7 +345,7 @@ function ComparisonSection() {
         <div className="relative rounded-[16px] lg:rounded-r-none overflow-hidden min-h-[300px] flex items-center bg-[#f3f4f6] text-[#0A102A] border-r border-gray-100 lg:border-r-0">
           {/* Background image of stressed guy */}
           <div className="absolute inset-0 z-0">
-            <img
+            <img loading="lazy"
               src={heroImg}
               alt="Stressed professional working late"
               className="w-full h-full object-cover object-right opacity-90"
@@ -370,7 +374,7 @@ function ComparisonSection() {
         <div className="relative rounded-[16px] lg:rounded-l-none overflow-hidden min-h-[300px] flex items-center bg-[#faf8ff] text-[#0A102A]">
           {/* Background image of person looking at sunset */}
           <div className="absolute inset-0 z-0">
-            <img
+            <img loading="lazy"
               src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1200&q=80"
               alt="Confident professional looking out at city sunset"
               className="w-full h-full object-cover object-right opacity-90"
@@ -460,7 +464,7 @@ function AlumniMentorsSection() {
             {/* Round illustration card */}
             <div className="w-36 h-36 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center overflow-hidden mb-5 relative">
               <div className="absolute inset-0 bg-[#eff6ff]/35" />
-              <img
+              <img loading="lazy"
                 src={step.illustration}
                 alt={step.title}
                 className="h-24 w-auto object-contain p-2 relative z-10"
@@ -485,7 +489,7 @@ function CtaBannerSection() {
       <div className="relative w-full max-w-7xl mx-auto rounded-[12px] bg-[#0A102A] overflow-hidden flex flex-col md:flex-row items-center justify-between min-h-[110px] shadow-lg">
         {/* Background Image (Left side) */}
         <div className="absolute inset-y-0 left-0 w-[40%] md:w-[25%] lg:w-[20%] z-0">
-          <img
+          <img loading="lazy"
             src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop"
             alt="Person standing on path at sunset"
             className="w-full h-full object-cover object-left opacity-90"

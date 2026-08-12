@@ -2,7 +2,8 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { PageShell } from "../components/PageShell";
 import { Cpu, Users, Layers, Sprout, TrendingUp, Compass, Globe, Heart, Mountain, Star, ArrowRight, ShieldCheck, UserCheck, Quote } from "lucide-react";
-import heroImg from "@/assets/career_journeys_hero.png"; 
+import heroImg from "@/assets/career_journeys_hero.webp"; 
+import heroMobileImg from "@/assets/career_journeys_hero-mobile.webp";
 
 export default function CareerJourneys() {
   return (
@@ -50,15 +51,17 @@ function Hero() {
         </div>
       </div>
 
-      {/* Visual */}
-      <div className="relative self-stretch overflow-hidden min-h-[350px] sm:min-h-[500px]">
-        <img
-          src="/career_journeys_hero.png"
-          alt="Modern home office desk setup with laptop and whiteboard"
-          width={1408}
-          height={1008}
-          className="absolute inset-0 h-full w-full object-cover object-center lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)]"
-        />
+      <div className="relative w-full overflow-hidden h-auto min-h-0 lg:min-h-[500px] lg:self-stretch">
+        <picture className="block w-full h-auto lg:absolute lg:inset-0 lg:h-full lg:w-full">
+          <source media="(max-width: 768px)" srcSet={heroMobileImg} />
+          <img loading="lazy"
+            src={heroImg}
+            alt="Modern home office desk setup with laptop and whiteboard"
+            width={1408}
+            height={1008}
+            className="w-full h-auto block lg:h-full lg:w-full lg:object-cover lg:object-center lg:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)] lg:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_15%)]"
+          />
+        </picture>
       </div>
     </section>
   );
@@ -204,7 +207,7 @@ function JourneysList() {
 
               {/* Image Side */}
               <div className="md:absolute right-0 top-0 bottom-0 md:w-[45%] lg:w-[40%] h-[250px] md:h-auto overflow-hidden">
-                <img 
+                <img loading="lazy" 
                   src={journey.image} 
                   alt={journey.title}
                   className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 md:[mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_25%)] md:[-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_25%)]"
@@ -224,7 +227,7 @@ function CareerJourneysCTA() {
     <section className="relative w-full bg-white pb-12 pt-10 sm:pb-16 sm:pt-14">
       {/* Background Mountain Path (Left Side) */}
       <div className="absolute left-0 top-0 h-full w-[40%] opacity-50 pointer-events-none hidden lg:block overflow-hidden">
-        <img 
+        <img loading="lazy" 
           src="https://images.unsplash.com/photo-1542224566-6e85f2e6772f?auto=format&fit=crop&w=1200&q=80" 
           alt="Path in the mountains"
           className="h-full w-full object-cover [mask-image:linear-gradient(to_right,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_100%)] [-webkit-mask-image:linear-gradient(to_right,rgba(0,0,0,1)_0%,rgba(0,0,0,0)_100%)]"
