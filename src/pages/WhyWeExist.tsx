@@ -109,8 +109,8 @@ function TheReality() {
                 key={idx} 
                 className={`flex flex-col items-center text-center lg:flex-1 ${idx !== painPoints.length - 1 ? 'lg:border-r lg:border-border/50' : ''}`}
               >
-                <item.icon className="mb-1.5 h-6 w-6 text-primary" strokeWidth={1.5} />
-                <div className="whitespace-pre-line text-[11px] font-semibold leading-tight text-foreground sm:text-[12px]">
+                <item.icon className="mb-0.5 h-[36px] w-[36px] text-primary" strokeWidth={1.5} />
+                <div className="whitespace-pre-line text-[13px] font-bold leading-tight text-black sm:text-[14px]">
                   {item.label}
                 </div>
               </div>
@@ -133,26 +133,29 @@ function TheReality() {
 function OurBelief() {
   return (
     <section className="w-full bg-[#F8FAFC] py-4">
-      <div className="mx-auto flex w-full max-w-full flex-col gap-8 lg:flex-row lg:items-center">
+      <div className="mx-auto flex w-full max-w-full flex-col gap-8 lg:flex-row lg:items-stretch">
         {/* Left Column */}
-        <div className="w-full lg:w-[22%] xl:w-[18%] flex-shrink-0 lg:border-r lg:border-border/50 pl-5 sm:pl-6 lg:pl-8 lg:pr-8">
-          <h2 className="mb-6 whitespace-nowrap font-serif text-[32px] font-bold text-foreground sm:text-[40px]">
-            Our Belief
-          </h2>
-          <Quote className="h-16 w-16 fill-[#E0E7FF] text-[#E0E7FF]" />
+        <div className="w-full lg:w-[22%] xl:w-[18%] flex-shrink-0 lg:border-r lg:border-border/50 pl-5 sm:pl-6 lg:pl-8 lg:pr-8 flex flex-col justify-between">
+          <div>
+            <span className="text-[13px] font-bold text-primary block mb-1 font-sans">02</span>
+            <h2 className="mb-6 whitespace-nowrap font-serif text-[32px] font-bold text-foreground sm:text-[38px] leading-tight">
+              Our Belief
+            </h2>
+          </div>
+          <Quote className="h-16 w-16 fill-[#E2E8F0] text-[#E2E8F0] opacity-80 mt-auto" />
         </div>
 
         {/* Right Column */}
-        <div className="flex w-full flex-col gap-3 lg:w-[78%] xl:w-[82%] lg:pl-6">
-          <p className="font-serif text-[28px] font-medium leading-tight text-foreground lg:text-[34px]">
+        <div className="flex w-full flex-col gap-4 lg:w-[78%] xl:w-[82%] lg:pl-10 justify-center">
+          <p className="font-serif text-[28px] font-semibold leading-[1.25] text-[#0F172A] lg:text-[34px]">
             We don't believe better careers<br className="hidden lg:block" /> begin with better resumes.
           </p>
-          <p className="font-serif text-[28px] font-medium leading-tight text-primary lg:text-[34px]">
+          <p className="font-serif text-[28px] font-semibold leading-[1.25] text-primary lg:text-[34px]">
             We believe better careers<br className="hidden lg:block" /> begin with better{" "}
             <span className="relative inline-block">
               decisions.
-              <svg className="absolute -bottom-[0.12em] left-0 w-full h-[0.3em] text-primary" viewBox="0 0 100 20" preserveAspectRatio="none">
-                <path d="M 2,17 Q 50,-2 98,17" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
+              <svg className="absolute -bottom-[0.15em] left-0 w-full h-[0.25em] text-primary" viewBox="0 0 100 20" preserveAspectRatio="none">
+                <path d="M 2,15 Q 50,0 98,15" fill="none" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round" />
               </svg>
             </span>
           </p>
@@ -208,7 +211,7 @@ function WhatMakesUsDifferent() {
         <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:gap-8">
           
           {/* Left Column */}
-          <div className="w-full lg:w-[22%] xl:w-[18%] flex-shrink-0 pl-5 sm:pl-6 lg:pl-8">
+          <div className="w-full lg:w-[22%] xl:w-[18%] flex-shrink-0 pl-5 sm:pl-6 lg:pl-8 lg:pt-20">
             <h2 className="mb-8 font-serif text-[32px] font-bold leading-[1.1] text-foreground sm:text-[36px] xl:text-[30px]">
               What Makes<br />
               HireLeap<br />
@@ -224,25 +227,30 @@ function WhatMakesUsDifferent() {
           {/* Right Column (Timeline Grid) */}
           <div className="relative w-full lg:w-[78%] xl:w-[82%]">
             {/* The actual horizontal line connecting circles, hidden on smaller screens where they wrap to avoid broken lines */}
-            <div className="absolute left-8 right-8 top-6 hidden h-[1px] bg-[#E0E7FF] xl:block" />
+            <div className="absolute left-8 right-8 top-8 hidden h-[1px] bg-[#E0E7FF] xl:block" />
             
             <div className="grid grid-cols-2 gap-2 sm:gap-4 pb-4 w-full md:grid-cols-3 xl:grid-cols-6 xl:gap-2">
               {steps.map((step, idx) => (
                 <div key={idx} className="relative flex shrink-0 w-full flex-col items-center">
                   
+                  {/* Dot on connecting line */}
+                  {idx < steps.length - 1 && (
+                    <div className="absolute right-0 top-8 z-0 hidden h-2 w-2 -translate-y-1/2 translate-x-1/2 rounded-full bg-[#1e1b4b] xl:block" />
+                  )}
+                  
                   {/* Icon Circle */}
-                  <div className="relative z-10 mb-4 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-md">
-                    <step.icon className="h-5 w-5" />
+                  <div className="relative z-10 mb-4 flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-primary text-white shadow-md">
+                    <step.icon className="h-7 w-7" />
                   </div>
 
                   {/* Card Body */}
                   <div className="flex h-full w-full flex-col rounded-[20px] border border-border/40 bg-white p-5 xl:p-3 2xl:p-5 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.05)] text-center sm:text-left">
-                    <h3 className="mb-1 text-[15px] xl:text-[13px] 2xl:text-[15px] font-bold text-foreground text-center sm:text-left">{step.title}</h3>
-                    <p className="mb-4 text-[13px] xl:text-[11px] 2xl:text-[13px] leading-snug text-muted-foreground text-center sm:text-left">{step.subtitle}</p>
+                    <h3 className="mb-1 text-[15px] xl:text-[13px] 2xl:text-[15px] font-bold font-sans text-[#1e1b4b] text-center sm:text-left">{step.title}</h3>
+                    <p className="mb-4 text-[13px] xl:text-[11px] 2xl:text-[13px] leading-snug font-sans text-[#312e81]/80 text-center sm:text-left">{step.subtitle}</p>
                     <ul className="flex flex-col gap-2">
                       {step.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start text-[13px] xl:text-[11px] 2xl:text-[13px] xl:tracking-tight text-foreground/80 justify-center sm:justify-start">
-                          <Check className="mr-2 mt-[2px] h-[14px] w-[14px] xl:h-[12px] xl:w-[12px] xl:mt-[3px] 2xl:h-[14px] 2xl:w-[14px] 2xl:mt-[2px] shrink-0 text-primary" />
+                        <li key={bIdx} className="flex items-start text-[13px] xl:text-[11px] 2xl:text-[13px] xl:tracking-tight font-sans text-[#312e81]/90 font-medium justify-center sm:justify-start">
+                          <Check className="mr-2 mt-[2px] h-[14px] w-[14px] xl:h-[12px] xl:w-[12px] xl:mt-[3px] 2xl:h-[14px] 2xl:w-[14px] 2xl:mt-[2px] shrink-0 text-[#4f46e5]" />
                           <span className="leading-snug">{bullet}</span>
                         </li>
                       ))}
@@ -253,9 +261,9 @@ function WhatMakesUsDifferent() {
             </div>
 
             {/* Bottom Pill Banner */}
-            <div className="mt-8 flex w-full flex-col items-center justify-center rounded-[30px] bg-[#F4F7FF] px-6 py-4 text-center sm:flex-row sm:px-8">
-              <Sparkles className="mb-2 h-6 w-6 text-primary sm:mb-0 sm:mr-4 shrink-0" />
-              <p className="text-[15px] text-foreground text-center sm:text-left">
+            <div className="mt-8 flex w-full flex-col items-center justify-center rounded-[30px] bg-[#F4F7FF] px-6 py-4 text-center sm:flex-row sm:px-8 gap-3">
+              <Sparkles className="h-6 w-6 text-primary shrink-0" />
+              <p className="text-[15px] text-foreground text-center leading-relaxed">
                 We combine <span className="font-semibold text-primary">AI intelligence, expert guidance,</span> and <span className="font-semibold text-primary">structured execution</span><br className="hidden sm:block" /> to turn your career goals into real outcomes.
               </p>
             </div>
@@ -295,7 +303,7 @@ function ThePromise() {
 
         {/* Middle Column */}
         <div className="flex w-full flex-col xl:w-[50%] xl:border-l xl:border-border/10 xl:px-8">
-          <h3 className="mb-4 text-[15px] font-semibold text-white/90">
+          <h3 className="mb-4 text-[15px] font-semibold font-sans text-white/90">
             Every interaction with HireLeap should leave you:
           </h3>
           
@@ -305,8 +313,8 @@ function ThePromise() {
                 key={idx} 
                 className={`flex flex-col items-center text-center ${idx !== promiseItems.length - 1 ? 'md:border-r md:border-border/10' : ''} px-2`}
               >
-                <div className="mb-3 flex h-10 w-10 items-center justify-center">
-                  <item.icon className="h-7 w-7 text-[#8B5CF6]" strokeWidth={1.25} />
+                <div className="mb-3 flex h-14 w-14 items-center justify-center">
+                  <item.icon className="h-10 w-10 text-[#8B5CF6]" strokeWidth={1.25} />
                 </div>
                 <div className="whitespace-pre-line text-[11px] font-medium leading-[1.3] text-white/80">
                   {item.label}
@@ -349,27 +357,26 @@ function MissionVision() {
           <div className="relative w-full lg:w-1/2 rounded-none lg:rounded-r-[20px] bg-[#EEF2FC] overflow-hidden min-h-[240px] sm:min-h-[280px] flex items-center">
             
             {/* Image Container restricted to left side */}
-            <div className="absolute top-0 left-0 bottom-0 w-[60%] z-0">
+            <div className="absolute top-0 left-0 bottom-0 w-full z-0">
               <div 
                 className="absolute inset-0 opacity-80 mix-blend-multiply"
                 style={{ 
                   backgroundImage: `url(${missionFlagImg})`, 
                   backgroundSize: 'cover', 
-                  backgroundPosition: 'left center' 
+                  backgroundPosition: 'left center',
+                  transform: 'scaleX(-1)'
                 }} 
               />
-              {/* Fade out to the right */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#EEF2FC]" />
             </div>
 
             <div className="relative z-20 w-full sm:w-[85%] lg:w-[80%] ml-auto py-8 px-6 sm:py-10 sm:px-10 lg:pl-4 lg:pr-12">
               <div className="mb-2 flex items-center space-x-3">
-                <span className="text-[12px] font-bold text-primary tracking-wide uppercase">OUR MISSION</span>
+                <span className="text-[12px] font-bold text-black tracking-wide uppercase [text-shadow:_0_1px_4px_rgba(255,255,255,0.95)]">OUR MISSION</span>
               </div>
-              <h2 className="mb-2 font-serif text-[24px] font-bold leading-[1.15] text-navy sm:text-[28px]">
+              <h2 className="mb-2 font-serif text-[24px] font-bold leading-[1.15] text-black sm:text-[28px] [text-shadow:_0_1px_6px_rgba(255,255,255,0.95)]">
                 To help people make better career decisions
               </h2>
-              <p className="text-[14px] font-medium leading-relaxed text-navy">
+              <p className="text-[14px] font-semibold leading-relaxed text-black [text-shadow:_0_1px_4px_rgba(255,255,255,0.95)]">
                 through AI intelligence, expert guidance, <br className="hidden sm:block" />and structured execution.
               </p>
             </div>
@@ -379,27 +386,26 @@ function MissionVision() {
           <div className="relative w-full lg:w-1/2 rounded-none lg:rounded-l-[20px] bg-[#EEF2FC] overflow-hidden min-h-[240px] sm:min-h-[280px] flex items-center">
             
             {/* Image Container restricted to right side */}
-            <div className="absolute top-0 right-0 bottom-0 w-[60%] z-0">
+            <div className="absolute top-0 right-0 bottom-0 w-full z-0">
               <div 
                 className="absolute inset-0 opacity-80 mix-blend-multiply"
                 style={{ 
                   backgroundImage: `url(${visionPersonImg})`, 
                   backgroundSize: 'cover', 
-                  backgroundPosition: 'right center' 
+                  backgroundPosition: 'right center',
+                  transform: 'scaleX(-1)'
                 }} 
               />
-              {/* Fade out to the left */}
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-[#EEF2FC]" />
             </div>
             
             <div className="relative z-20 w-full sm:w-[85%] lg:w-[80%] mr-auto py-8 px-6 sm:py-10 sm:px-10 lg:pr-4 lg:pl-12">
               <div className="mb-2 flex items-center space-x-3">
-                <span className="text-[12px] font-bold text-primary tracking-wide uppercase">OUR VISION</span>
+                <span className="text-[12px] font-bold text-black tracking-wide uppercase [text-shadow:_0_1px_4px_rgba(255,255,255,0.95)]">OUR VISION</span>
               </div>
-              <h2 className="mb-2 font-serif text-[24px] font-bold leading-[1.15] text-navy sm:text-[28px]">
+              <h2 className="mb-2 font-serif text-[24px] font-bold leading-[1.15] text-black sm:text-[28px] [text-shadow:_0_1px_6px_rgba(255,255,255,0.95)]">
                 To become the world's most trusted digital experience
               </h2>
-              <p className="text-[14px] font-medium leading-relaxed text-navy">
+              <p className="text-[14px] font-semibold leading-relaxed text-black [text-shadow:_0_1px_4px_rgba(255,255,255,0.95)]">
                 for career decision-making.
               </p>
             </div>
@@ -458,7 +464,7 @@ function CorePrinciples() {
           {principles.map((principle, index) => (
             <div key={index} className="flex flex-col items-center text-center p-5 sm:p-6 rounded-2xl bg-white border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-shadow duration-300">
               <div className="mb-4 text-primary">
-                <principle.icon className="h-8 w-8 stroke-[1.5]" />
+                <principle.icon className="h-11 w-11 stroke-[1.25]" />
               </div>
               <h3 className="mb-2 font-serif text-[16px] font-bold text-navy">
                 {principle.title}
@@ -485,7 +491,7 @@ function FinalCTA() {
             <div className="absolute inset-0 bg-gradient-to-br from-[#0A102A] via-[#0D1636] to-[#0A102A]" />
           </div>
           
-          <div className="relative z-10 flex items-center justify-center py-4 px-6 md:px-12 md:py-5">
+          <div className="relative z-10 flex items-center justify-center py-8 px-6 md:px-12 md:py-10">
             
             {/* Left Image Background */}
             <div className="absolute left-0 top-0 bottom-0 w-[50%] md:w-[35%] max-w-[300px] pointer-events-none rounded-l-[24px] overflow-hidden">
@@ -503,12 +509,20 @@ function FinalCTA() {
                 Your next career decision deserves clarity.
               </h2>
               <p className="mb-6 text-[15px] sm:text-[16px] font-medium leading-relaxed text-gray-300">
-                Not pressure. Not guesswork. Not luck. <span className="text-primary font-bold">Start with understanding.</span>
+                Not pressure. Not guesswork. Not luck. <span className="text-[#3b82f6] font-bold">Start with understanding.</span>
               </p>
               
-              <Link to="/consultation" className="flex items-center justify-center space-x-2 rounded-full bg-white px-6 py-2.5 font-bold text-primary transition-transform hover:scale-105 hover:shadow-lg">
-                <span className="text-[15px]">Book a Consultation</span>
+              <Link to="/plan-your-next-leap" className="flex items-center justify-center space-x-2 rounded-full bg-white px-8 py-3 font-bold text-[#1a0b99] transition-transform hover:scale-105 hover:shadow-lg">
+                <span className="text-[15px]">Start Your Career Journey</span>
                 <ArrowRight className="h-4 w-4" />
+              </Link>
+              
+              <Link 
+                to="/plan-your-next-leap" 
+                className="mt-3 flex items-center gap-1.5 text-[13px] font-semibold text-white/80 transition-colors hover:text-white"
+              >
+                <Headset className="h-4 w-4 shrink-0" />
+                <span>Talk to a Career Expert</span>
               </Link>
             </div>
             

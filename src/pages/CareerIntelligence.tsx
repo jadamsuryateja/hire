@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { PageShell } from "../components/PageShell";
@@ -24,9 +25,11 @@ import {
   Bell,
   UserCheck,
   Heart,
+  Play,
 } from "lucide-react";
 import careerIntelligenceImg from "../assets/careerintelligence.webp";
 import careerIntelligenceMobileImg from "../assets/careerintelligence-mobile.webp";
+import arjunImg from "../assets/arjun.jpg";
 
 export default function CareerIntelligence() {
   return (
@@ -54,20 +57,20 @@ function Hero() {
       {/* Text Content */}
       <div className="px-5 py-8 sm:px-6 sm:py-10 lg:py-14 lg:pl-10 flex flex-col justify-center">
         <div className="flex flex-col mb-2 gap-1">
-          <div className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-pink-600">
+          <div className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-pink-400">
             EXPERIENCE OS
           </div>
-          <div className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-primary">
+          <div className="text-[11px] font-extrabold uppercase tracking-[0.2em] text-indigo-300">
             CAREER INTELLIGENCE
           </div>
         </div>
 
-        <h1 className="text-[36px] font-normal leading-[1.08] tracking-tight text-white sm:text-[48px] lg:text-[24px] xl:text-[30px] 2xl:text-[40px] min-[1920px]:text-[52px]">
+        <h1 className="font-serif text-[36px] font-normal leading-[1.08] tracking-tight text-white sm:text-[48px] lg:text-[24px] xl:text-[30px] 2xl:text-[40px] min-[1920px]:text-[52px]">
           Long before
           <br />
           your interview begins,
           <br />
-          <span className="text-[#818cf8]">
+          <span className="text-[#8f82ff]">
             our preparation
             <br />
             already has.
@@ -82,18 +85,26 @@ function Hero() {
 
         <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
           <Link
-            to="/career-journeys"
-            className="group inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#2563EB] px-6 text-[14px] sm:text-[15px] font-semibold text-white transition-all hover:bg-[#1D4ED8] w-full sm:w-auto whitespace-nowrap"
+            to="/plan-your-next-leap"
+            className="group inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#1a0b99] px-6 text-[14px] sm:text-[15px] font-semibold text-white transition-all hover:bg-[#1a0b99]/90 w-full sm:w-auto whitespace-nowrap"
           >
             Start Your Career Journey{" "}
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
+          
+          <a
+            href="#prepare"
+            className="group inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 text-[14px] sm:text-[15px] font-semibold text-white transition-all hover:bg-white/10 w-full sm:w-auto whitespace-nowrap"
+          >
+            <Play className="h-4 w-4 text-[#8f82ff] shrink-0" />
+            See How We Prepare
+          </a>
         </div>
 
         {/* Feature row at bottom */}
         <div className="mt-8 flex flex-col sm:flex-row justify-start items-start gap-8 sm:gap-6 lg:gap-8 border-t border-gray-800 pt-8 w-full">
           <div className="flex items-start gap-3 max-w-[200px]">
-            <Target className="h-6 w-6 text-indigo-400 shrink-0 mt-0.5" />
+            <Target className="h-6 w-6 text-[#8f82ff] shrink-0 mt-0.5" />
             <div className="flex flex-col gap-1">
               <span className="text-white font-bold text-[13px]">No Guesswork</span>
               <span className="text-gray-400 text-[11px] leading-relaxed font-medium">
@@ -102,7 +113,7 @@ function Hero() {
             </div>
           </div>
           <div className="flex items-start gap-3 max-w-[200px]">
-            <Users className="h-6 w-6 text-indigo-400 shrink-0 mt-0.5" />
+            <Users className="h-6 w-6 text-[#8f82ff] shrink-0 mt-0.5" />
             <div className="flex flex-col gap-1">
               <span className="text-white font-bold text-[13px]">Human + AI</span>
               <span className="text-gray-400 text-[11px] leading-relaxed font-medium">
@@ -111,7 +122,7 @@ function Hero() {
             </div>
           </div>
           <div className="flex items-start gap-3 max-w-[200px]">
-            <Compass className="h-6 w-6 text-indigo-400 shrink-0 mt-0.5" />
+            <Compass className="h-6 w-6 text-[#8f82ff] shrink-0 mt-0.5" />
             <div className="flex flex-col gap-1">
               <span className="text-white font-bold text-[13px]">Purpose Driven</span>
               <span className="text-gray-400 text-[11px] leading-relaxed font-medium">
@@ -162,16 +173,16 @@ function StorySection() {
             </div>
 
             <div className="flex flex-col lg:block relative gap-0">
-              <div className="rounded-2xl overflow-hidden lg:ml-[110px] aspect-[4/5] sm:aspect-[16/9] lg:aspect-[4/5] bg-gray-200 shadow-sm border border-gray-200 order-1 lg:order-none">
+              <div className="rounded-2xl overflow-hidden lg:ml-[130px] aspect-[4/5] sm:aspect-[16/9] lg:aspect-[4/5] bg-gray-200 shadow-sm border border-gray-200 order-1 lg:order-none">
                 <img loading="lazy"
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+                  src={arjunImg}
                   alt="Professional looking at laptop"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-[85%_center]"
                 />
               </div>
 
               {/* Floating Card (Desktop) / Centered Overlapping Card (Mobile) */}
-              <div className="lg:absolute lg:top-14 lg:left-8 bg-white rounded-2xl p-6 lg:p-7 shadow-[0_12px_40px_rgb(0,0,0,0.12)] border border-gray-100 lg:min-w-[240px] lg:max-w-[280px] z-10 relative -mt-16 sm:-mt-24 mx-4 sm:mx-auto sm:max-w-[320px] lg:mx-0 lg:mt-0 order-2 lg:order-none">
+              <div className="lg:absolute lg:top-14 lg:left-0 bg-white rounded-2xl p-6 lg:p-7 shadow-[0_12px_40px_rgb(0,0,0,0.12)] border border-gray-100 lg:min-w-[240px] lg:max-w-[280px] z-10 relative -mt-16 sm:-mt-24 mx-4 sm:mx-auto sm:max-w-[320px] lg:mx-0 lg:mt-0 order-2 lg:order-none">
                 <div className="flex flex-col gap-1 mb-6">
                   <span className="font-bold text-[#0f172a] text-[18px] tracking-tight">
                     Meet Arjun
@@ -342,15 +353,15 @@ function PreparationProcessSection() {
   ];
 
   return (
-    <section className="w-full bg-white py-8 sm:py-10 lg:py-12">
+    <section id="prepare" className="w-full bg-white py-8 sm:py-10 lg:py-12">
       <div className="max-w-[1536px] mx-auto px-5 sm:px-6 lg:px-12">
         {/* Header */}
         <div className="text-center mb-8 lg:mb-12">
-          <div className="text-[12px] font-bold uppercase tracking-widest text-[#3b2dd0] mb-2">
+          <div className="text-[12px] font-bold uppercase tracking-widest text-[#1a0b99] mb-2">
             BEFORE WE RECOMMEND ANYTHING.
           </div>
           <h2 className="text-[#0A102A] text-[36px] sm:text-[44px] font-serif leading-tight">
-            We <span className="text-[#3b2dd0] italic">prepare.</span>
+            We <span className="text-[#1a0b99] italic">prepare.</span>
           </h2>
         </div>
 
@@ -360,11 +371,11 @@ function PreparationProcessSection() {
             <div key={index} className="flex flex-col relative text-center items-center">
               {/* Top Icons & Connecting Arrow */}
               <div className="relative flex flex-col items-center mb-6 lg:mb-8 w-full">
-                {/* Dotted Arrow to next step (hidden on last step and mobile) */}
+                {/* Solid Arrow to next step (hidden on last step and mobile) */}
                 {index !== steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 left-[calc(50%+45px)] xl:left-[calc(50%+55px)] w-[calc(100%-70px)] xl:w-[calc(100%-80px)] h-[2px] -translate-y-1/2 z-0">
-                    <div className="w-full h-full border-t-[1.5px] border-dotted border-[#3b2dd0]/40 relative">
-                      <div className="absolute -right-1 top-[calc(50%-4px)] w-2 h-2 border-t-[1.5px] border-r-[1.5px] border-[#3b2dd0]/60 transform rotate-45"></div>
+                  <div className="hidden lg:block absolute top-1/2 left-[calc(50%+42px)] xl:left-[calc(50%+50px)] w-[calc(100%-84px)] xl:w-[calc(100%-100px)] h-[2px] -translate-y-1/2 z-0">
+                    <div className="w-full h-full border-t-2 border-dotted border-[#1a0b99] relative">
+                      <div className="absolute right-0 top-[-5px] w-2 h-2 border-t-2 border-r-2 border-[#1a0b99] transform rotate-45"></div>
                     </div>
                   </div>
                 )}
@@ -382,7 +393,7 @@ function PreparationProcessSection() {
 
               {/* Content block */}
               <div className="flex flex-col text-center px-2">
-                <h4 className="text-[14px] xl:text-[15.5px] font-bold text-[#0A102A] mb-3 leading-tight lg:min-h-[46px]">
+                <h4 className="text-[14px] xl:text-[15.5px] font-bold text-[#1a0b99] mb-3 leading-tight lg:min-h-[46px]">
                   {step.title}
                 </h4>
                 <p className="text-[12.5px] xl:text-[13.5px] leading-relaxed text-gray-600 font-medium">
@@ -662,7 +673,7 @@ function CapabilitiesSection() {
                   <div className="w-7 h-7 rounded-full bg-[#f0f0fe] flex items-center justify-center shrink-0 border border-[#e0e0fd]">
                     <card.icon className="w-3.5 h-3.5 text-[#3b2dd0]" strokeWidth={2.5} />
                   </div>
-                  <h4 className="text-[13.5px] xl:text-[14px] font-bold text-[#0f172a] leading-tight">
+                  <h4 className="font-sans text-[13.5px] xl:text-[14px] font-bold text-[#0f172a] leading-tight">
                     {card.title}
                   </h4>
                 </div>
@@ -704,7 +715,7 @@ function StripSection() {
               <p className="text-white text-base lg:text-[17px] font-serif tracking-wide">
                 One day you'll celebrate the opportunity.
               </p>
-              <p className="text-[#6366f1] text-[20px] lg:text-[24px] font-serif leading-[1.2]">
+              <p className="text-[#8f82ff] text-[20px] lg:text-[24px] font-serif leading-[1.2]">
                 We'll celebrate the journey that helped you earn it.
               </p>
             </div>
@@ -714,8 +725,8 @@ function StripSection() {
             <p className="text-gray-200 text-[13px] mb-4">That's the HireLeap difference.</p>
 
             <Link
-              to="/journey"
-              className="flex items-center justify-center gap-2 bg-[#3b2dd0] hover:bg-[#3b2dd0]/90 text-white px-5 py-2.5 rounded transition-all mb-5 max-w-[300px] font-medium text-sm"
+              to="/plan-your-next-leap"
+              className="flex items-center justify-center gap-2 bg-[#1a0b99] hover:bg-[#1a0b99]/90 text-white px-5 py-2.5 rounded transition-all mb-5 max-w-[300px] font-medium text-sm"
             >
               Start Your Career Journey
               <ArrowRight className="w-4 h-4 ml-1" />

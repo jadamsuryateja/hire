@@ -37,7 +37,7 @@ export default function CareerHub() {
             </div>
             <h1 className="text-[40px] font-normal leading-[1.08] tracking-tight text-[#0A102A] sm:text-[48px] lg:text-[42px] xl:text-[52px] mb-6">
               Career never stops.<br />
-              <span className="text-primary">Neither does HireLeap.</span>
+              <span className="text-[#1a0b99]">Neither does HireLeap.</span>
             </h1>
             
             <div className="text-[14px] sm:text-[15px] leading-relaxed text-[#4b5563] max-w-[420px] font-medium space-y-1 mb-8">
@@ -50,13 +50,13 @@ export default function CareerHub() {
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Link
                 to="/insights"
-                className="group inline-flex h-[46px] items-center justify-center gap-2 rounded-[6px] bg-[#3b2dd0] px-7 text-[14px] font-semibold text-white transition-all hover:bg-[#3b2dd0]/90 whitespace-nowrap"
+                className="group inline-flex h-[46px] items-center justify-center gap-2 rounded-[6px] bg-[#1a0b99] px-7 text-[14px] font-semibold text-white transition-all hover:bg-[#1a0b99]/90 whitespace-nowrap"
               >
                 Explore Insights <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" strokeWidth={2} />
               </Link>
               <Link
                 to="/community"
-                className="inline-flex h-[46px] items-center justify-center gap-2 rounded-[6px] border border-[#d6d6ec] bg-transparent px-7 text-[14px] font-semibold text-[#3b2dd0] transition-all hover:border-[#3b2dd0] hover:bg-[#3b2dd0]/5 whitespace-nowrap"
+                className="inline-flex h-[46px] items-center justify-center gap-2 rounded-[6px] border border-[#d6d6ec] bg-transparent px-7 text-[14px] font-semibold text-[#1a0b99] transition-all hover:border-[#1a0b99] hover:bg-[#1a0b99]/5 whitespace-nowrap"
               >
                 <Calendar className="h-[18px] w-[18px]" strokeWidth={1.5} /> Join the Conversation
               </Link>
@@ -66,19 +66,19 @@ export default function CareerHub() {
             <div className="mt-12 lg:mt-16 relative z-30">
               <div className="flex flex-wrap lg:flex-nowrap items-center justify-start gap-8 lg:gap-12 xl:gap-16 text-[12.5px] font-medium text-[#0A102A] leading-[1.4] lg:w-[950px] max-w-[90vw] lg:max-w-none">
                 <div className="flex items-center gap-3 shrink-0">
-                  <BookOpen className="h-[20px] w-[20px] text-[#3b2dd0] shrink-0" strokeWidth={1.5} />
+                  <BookOpen className="h-[20px] w-[20px] text-[#1a0b99] shrink-0" strokeWidth={1.5} />
                   <span>Practical insights<br/>you can apply</span>
                 </div>
                 <div className="flex items-center gap-3 shrink-0">
-                  <Users className="h-[20px] w-[20px] text-[#3b2dd0] shrink-0" strokeWidth={1.5} />
+                  <Users className="h-[20px] w-[20px] text-[#1a0b99] shrink-0" strokeWidth={1.5} />
                   <span>Live learning &<br/>expert guidance</span>
                 </div>
                 <div className="flex items-center gap-3 shrink-0">
-                  <Sparkles className="h-[20px] w-[20px] text-[#3b2dd0] shrink-0" strokeWidth={1.5} />
+                  <Sparkles className="h-[20px] w-[20px] text-[#1a0b99] shrink-0" strokeWidth={1.5} />
                   <span>Tools & resources<br/>added regularly</span>
                 </div>
                 <div className="flex items-center gap-3 shrink-0">
-                  <Heart className="h-[20px] w-[20px] text-[#3b2dd0] shrink-0" strokeWidth={1.5} />
+                  <Heart className="h-[20px] w-[20px] text-[#1a0b99] shrink-0" strokeWidth={1.5} />
                   <span>A community that<br/>grows together</span>
                 </div>
               </div>
@@ -110,129 +110,91 @@ export default function CareerHub() {
 }
 
 function ResourceCenter() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [visibleCount, setVisibleCount] = useState(3);
-
-  const categories = useMemo(() => {
-    const cats = new Set(mockResources.map(r => r.category));
-    return ["All", ...Array.from(cats)];
-  }, []);
-
-  const filteredResources = useMemo(() => {
-    if (selectedCategory === "All") return mockResources;
-    return mockResources.filter(r => r.category === selectedCategory);
-  }, [selectedCategory]);
-
-  const featuredResource = selectedCategory === "All" ? filteredResources[0] : null;
-  const gridResources = featuredResource ? filteredResources.slice(1, visibleCount + 1) : filteredResources.slice(0, visibleCount);
-  const totalCount = featuredResource ? filteredResources.length - 1 : filteredResources.length;
+  const cards = [
+    {
+      id: 1,
+      category: "CAREER STRATEGY",
+      title: "Why talented professionals stay invisible to recruiters",
+      summary: "The unseen mistakes that keep your profile from getting noticed.",
+      readTime: "8 min read",
+      image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80",
+      slug: "invisible-to-recruiters"
+    },
+    {
+      id: 2,
+      category: "RESUME & PROFILE",
+      title: "Before you rewrite your resume, answer these five questions",
+      summary: "Clarity first. Content second. Here's where to begin.",
+      readTime: "6 min read",
+      image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80",
+      slug: "rewrite-your-resume"
+    },
+    {
+      id: 3,
+      category: "CAREER GROWTH",
+      title: "Career growth isn't always about changing companies",
+      summary: "How to create impact, visibility, and new opportunities where you are.",
+      readTime: "7 min read",
+      image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=600&q=80",
+      slug: "career-growth-strategies"
+    }
+  ];
 
   return (
-    <section className="w-full bg-white px-6 md:px-12 lg:px-24 pb-16 pt-0">
-      <div className="w-full max-w-[1250px] mx-auto">
+    <section className="w-full bg-white px-5 sm:px-6 lg:px-12 pb-16 pt-0">
+      <div className="w-full max-w-[1400px] mx-auto">
         
-        {/* Header & Filters */}
-        <div className="flex flex-col mb-12">
-          <div className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div>
-              <p className="text-[#3b2dd0] font-bold text-[10px] md:text-[11px] tracking-widest uppercase mb-3">Learn something that moves you forward</p>
-              <h2 className="text-[#0A102A] text-3xl md:text-[38px] font-serif leading-tight">Curated insights. Real impact.</h2>
-            </div>
+        {/* Header */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4 border-b border-gray-100 pb-6">
+          <div>
+            <p className="text-[#1a0b99] font-bold text-[10px] md:text-[11px] tracking-widest uppercase mb-3">LEARN SOMETHING THAT MOVES YOU FORWARD</p>
+            <h2 className="text-[#0A102A] text-3xl md:text-[36px] font-serif leading-tight">Curated insights. Real impact.</h2>
           </div>
-          
-          <div className="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-hide" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-            {categories.map(cat => (
-              <button
-                key={cat}
-                onClick={() => { setSelectedCategory(cat); setVisibleCount(3); }}
-                className={`whitespace-nowrap px-4 py-2 rounded-full text-[13px] font-semibold transition-colors ${
-                  selectedCategory === cat 
-                    ? "bg-[#0A102A] text-white" 
-                    : "bg-gray-100 text-[#4b5563] hover:bg-gray-200"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+          <Link to="/insights" className="text-[#1a0b99] font-semibold text-[14.5px] flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+            View all insights <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
 
-        {/* Empty State */}
-        {filteredResources.length === 0 && (
-          <div className="flex flex-col items-center justify-center py-20 text-center">
-            <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-6">
-              <Search className="w-6 h-6 text-gray-400" />
-            </div>
-            <h3 className="text-[#0A102A] text-2xl font-serif mb-3">No resources found</h3>
-            <p className="text-[#4b5563] mb-6 max-w-md">We couldn't find any resources in this category. Try adjusting your filters or booking a consultation.</p>
-            <div className="flex items-center gap-4">
-              <button onClick={() => setSelectedCategory("All")} className="text-[#3b2dd0] font-semibold text-[14px] hover:opacity-80">
-                Reset Filters
-              </button>
-              <Link to="/plan-your-next-leap" className="bg-[#3b2dd0] text-white px-5 py-2.5 rounded-[6px] font-semibold text-[13px] hover:bg-[#3b2dd0]/90">
-                Book Consultation
-              </Link>
-            </div>
-          </div>
-        )}
-
-        {/* Featured Resource (Only on 'All') */}
-        {featuredResource && (
-          <Link to={`/insights/${featuredResource.slug}`} className="mb-12 border border-[#e5e7eb] rounded-[16px] overflow-hidden flex flex-col lg:flex-row group hover:shadow-lg transition-shadow bg-white cursor-pointer w-full">
-            <div className="lg:w-3/5 h-[300px] lg:h-[400px] overflow-hidden">
-              <img loading="lazy" src={featuredResource.image} alt={featuredResource.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            </div>
-            <div className="lg:w-2/5 p-8 lg:p-12 flex flex-col justify-center">
-              <span className="text-[#3b2dd0] text-[11px] font-bold tracking-wider uppercase mb-4">{featuredResource.category}</span>
-              <h3 className="text-[#0A102A] text-2xl lg:text-[28px] font-serif leading-tight mb-4 group-hover:text-[#3b2dd0] transition-colors">{featuredResource.title}</h3>
-              <p className="text-[#4b5563] text-[15px] leading-relaxed mb-8">{featuredResource.summary}</p>
-              
-              <div className="flex items-center justify-between mt-auto">
-                <div className="flex items-center gap-4 text-gray-500 text-[13px] font-medium">
-                  <span className="flex items-center gap-1.5"><User className="w-4 h-4" /> {featuredResource.author}</span>
-                  <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" /> {featuredResource.readTime}</span>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-[#f3efff] flex items-center justify-center group-hover:bg-[#3b2dd0] transition-colors">
-                  <ArrowRight className="w-5 h-5 text-[#3b2dd0] group-hover:text-white transition-colors" />
-                </div>
+        {/* 4 Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {cards.map(resource => (
+            <div key={resource.id} className="border border-gray-200/80 rounded-[16px] overflow-hidden flex flex-col bg-white">
+              <div className="aspect-[16/10] w-full overflow-hidden">
+                <img loading="lazy" src={resource.image} alt={resource.title} className="w-full h-full object-cover" />
               </div>
-            </div>
-          </Link>
-        )}
-
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {gridResources.map(resource => (
-            <Link to={`/insights/${resource.slug}`} key={resource.id} className="border border-[#e5e7eb] rounded-[12px] overflow-hidden flex flex-col hover:shadow-lg transition-shadow bg-white group">
-              <div className="aspect-[4/3] w-full overflow-hidden">
-                <img loading="lazy" src={resource.image} alt={resource.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              </div>
-              <div className="p-5 flex flex-col flex-1">
-                <span className="text-[#3b2dd0] text-[10px] font-bold tracking-wider uppercase mb-3">{resource.category}</span>
-                <h3 className="text-[#0A102A] text-[18px] font-serif leading-snug mb-3 group-hover:text-[#3b2dd0] transition-colors">{resource.title}</h3>
-                <p className="text-[#4b5563] text-[13.5px] leading-relaxed mb-6 flex-1">{resource.summary}</p>
+              <div className="p-5 flex flex-col flex-grow">
+                <span className="text-[#1a0b99] text-[10px] font-bold tracking-wider uppercase mb-3">{resource.category}</span>
+                <h3 className="text-[#0A102A] text-[18px] font-serif font-medium leading-snug mb-3">{resource.title}</h3>
+                <p className="text-[#4b5563] text-[13px] leading-relaxed mb-6 flex-grow">{resource.summary}</p>
                 <div className="flex items-center justify-between mt-auto pt-4 border-t border-gray-100">
                   <div className="flex items-center gap-1.5 text-gray-500 text-[12px] font-medium">
                     <Clock className="w-3.5 h-3.5" /> {resource.readTime}
                   </div>
-                  <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-[#3b2dd0] transition-colors" />
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
-        </div>
 
-        {/* Pagination / Load More */}
-        {visibleCount < totalCount && (
-          <div className="mt-12 flex justify-center">
-            <button 
-              onClick={() => setVisibleCount(prev => prev + 3)}
-              className="bg-white border border-[#e5e7eb] text-[#0A102A] px-8 py-3 rounded-[6px] font-semibold text-[13px] hover:bg-gray-50 transition-colors shadow-sm"
-            >
-              Load More Resources
-            </button>
+          {/* Card 4: Save What Matters Card */}
+          <div className="bg-[#f3efff] border border-[#eaddff] rounded-[16px] p-6 lg:p-7 flex flex-col justify-between shadow-sm min-h-[350px]">
+            <div>
+              <div className="w-12 h-12 rounded-full bg-[#1a0b99] flex items-center justify-center mb-6 shadow-md">
+                <BookOpen className="w-[20px] h-[20px] text-white" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-[#0A102A] text-[20px] font-serif font-medium leading-tight mb-4">
+                Save what matters.<br />Return anytime.
+              </h3>
+              <p className="text-gray-600 text-[13px] leading-relaxed mb-8">
+                Bookmark insights, continue reading, and track what you've learned across your journey.
+              </p>
+            </div>
+            
+            <Link to="/plan-your-next-leap" className="text-[#1a0b99] font-bold text-[13.5px] flex items-center gap-1.5 hover:opacity-80 transition-all group mt-auto">
+              Create your free account 
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
-        )}
+        </div>
 
       </div>
     </section>
@@ -315,8 +277,8 @@ function LearnAndGrow() {
               </div>
               <h3 className="text-[#0A102A] text-[18px] font-serif leading-tight mb-4">Every step creates opportunities—for you and for others.</h3>
               <p className="text-[#4b5563] text-[12.5px] leading-relaxed mb-8 flex-1">Today you learn. Tomorrow you guide. Together, we build better careers.</p>
-              <Link to="/register" className="text-[#3b2dd0] font-semibold text-[13px] flex items-center gap-1.5 hover:opacity-80 transition-opacity mt-auto">
-                Join the movement <ArrowRight className="w-3.5 h-3.5" />
+              <Link to="/plan-your-next-leap" className="text-[#3b2dd0] font-semibold text-[13px] flex items-center gap-1.5 hover:opacity-80 transition-opacity mt-auto">
+                Create your free account <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>
@@ -352,7 +314,7 @@ function TomorrowLeaders() {
 
             {/* Text Content */}
             <div className="flex-1 z-20 py-8 xl:py-10 px-6 md:px-8 xl:pl-10 xl:pr-0 xl:w-[60%] relative bg-white xl:bg-transparent">
-              <p className="text-[#3b2dd0] font-bold text-[10px] md:text-[11px] tracking-widest uppercase mb-3">Building tomorrow's leaders</p>
+              <p className="text-[#1a0b99] font-bold text-[10px] md:text-[11px] tracking-widest uppercase mb-3">Building tomorrow's leaders</p>
               <h2 className="text-[#0A102A] text-[26px] md:text-[32px] font-serif leading-tight mb-4 pr-4">
                 From learners to leaders.<br/>From professionals to mentors.
               </h2>
@@ -362,18 +324,18 @@ function TomorrowLeaders() {
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 pr-4">
                 <div>
-                  <User className="w-[22px] h-[22px] text-[#3b2dd0] mb-3" strokeWidth={1.5} />
-                  <h4 className="text-[#3b2dd0] font-bold text-[12px] mb-2">Share your experience</h4>
+                  <User className="w-9 h-9 text-[#1a0b99] mb-3" strokeWidth={1.5} />
+                  <h4 className="text-[#1a0b99] font-bold text-[13.5px] mb-2">Share your experience</h4>
                   <p className="text-[#4b5563] text-[11px] leading-relaxed pr-2">Help others with advice that made a difference.</p>
                 </div>
                 <div>
-                  <Users className="w-[22px] h-[22px] text-[#3b2dd0] mb-3" strokeWidth={1.5} />
-                  <h4 className="text-[#3b2dd0] font-bold text-[12px] mb-2">Mentor & volunteer</h4>
+                  <Users className="w-9 h-9 text-[#1a0b99] mb-3" strokeWidth={1.5} />
+                  <h4 className="text-[#1a0b99] font-bold text-[13.5px] mb-2">Mentor & volunteer</h4>
                   <p className="text-[#4b5563] text-[11px] leading-relaxed pr-2">Guide aspirants, review resumes, or conduct mocks.</p>
                 </div>
                 <div>
-                  <Sparkles className="w-[22px] h-[22px] text-[#3b2dd0] mb-3" strokeWidth={1.5} />
-                  <h4 className="text-[#3b2dd0] font-bold text-[12px] mb-2">Be part of the legacy</h4>
+                  <Sparkles className="w-9 h-9 text-[#1a0b99] mb-3" strokeWidth={1.5} />
+                  <h4 className="text-[#1a0b99] font-bold text-[13.5px] mb-2">Be part of the legacy</h4>
                   <p className="text-[#4b5563] text-[11px] leading-relaxed pr-2">Build your profile as a HireLeap Alumni and leader.</p>
                 </div>
               </div>

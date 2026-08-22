@@ -106,18 +106,18 @@ function Hero() {
 /* ---------------- SOUND FAMILIAR ---------------- */
 function SoundFamiliar() {
   const items = [
-    { icon: <HelpCircle className="h-5 w-5" />, tint: "bg-danger/10 text-danger", title: "Not sure if", desc: "you're on the right career path?" },
-    { icon: <Move className="h-5 w-5" />, tint: "bg-warning/10 text-warning", title: "Confused about", desc: "your next move or transition?" },
-    { icon: <User className="h-5 w-5" />, tint: "bg-[oklch(0.75_0.15_75)]/10 text-[oklch(0.65_0.15_75)]", title: "Wondering how", desc: "to grow or pivot with confidence?" },
-    { icon: <TrendingUp className="h-5 w-5" />, tint: "bg-success/10 text-success", title: "Overwhelmed by", desc: "too many options and advice?" },
-    { icon: <Target className="h-5 w-5" />, tint: "bg-violet/10 text-violet", title: "Looking for clarity", desc: "and a clear plan for your future?" },
+    { icon: <HelpCircle className="h-5 w-5" />, tint: "bg-danger/10 text-danger", text: <>Not sure if<br />you're on the<br />right career path?</> },
+    { icon: <Move className="h-5 w-5" />, tint: "bg-warning/10 text-warning", text: <>Confused about<br />your next move<br />or transition?</> },
+    { icon: <User className="h-5 w-5" />, tint: "bg-[oklch(0.75_0.15_75)]/10 text-[oklch(0.65_0.15_75)]", text: <>Wondering how<br />to grow or pivot<br />with confidence?</> },
+    { icon: <TrendingUp className="h-5 w-5" />, tint: "bg-success/10 text-success", text: <>Overwhelmed by<br />too many options<br />and advice?</> },
+    { icon: <Target className="h-5 w-5" />, tint: "bg-violet/10 text-violet", text: <>Looking for clarity<br />and a clear plan<br />for your future?</> },
   ];
   return (
     <section className="relative z-10 mt-6 w-full px-4 sm:px-6 lg:-mt-5 lg:px-10">
       <div className="grid items-center gap-6 rounded-2xl border border-border bg-card px-5 py-6 shadow-card sm:px-6 sm:py-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[1.2fr_repeat(5,1fr)] xl:gap-0 xl:px-6 xl:py-10">
-        <div className="flex flex-col items-center text-center md:col-span-2 md:pb-4 lg:col-span-3 xl:col-span-1 xl:items-start xl:pb-0 xl:text-left xl:border-r xl:border-border xl:pr-4">
-          <div className="text-[15px] font-extrabold leading-tight text-primary">SOUND FAMILIAR?</div>
-          <div className="mt-1 text-[12.5px] leading-tight text-muted-foreground">You're not alone.<br />We can help.</div>
+        <div className="flex flex-col items-center justify-center text-center md:col-span-2 md:pb-4 lg:col-span-3 xl:col-span-1 xl:items-start xl:pb-0 xl:text-left xl:border-r xl:border-border xl:pr-6 h-full">
+          <div className="text-[17px] font-extrabold leading-tight text-primary">SOUND FAMILIAR?</div>
+          <div className="mt-1.5 text-[14px] leading-relaxed text-black font-bold">You're not alone.<br />We can help.</div>
         </div>
         {items.map((it, i) => (
           <div
@@ -127,9 +127,8 @@ function SoundFamiliar() {
             <div className={`grid h-11 w-11 flex-none place-items-center rounded-full sm:h-12 sm:w-12 ${it.tint}`}>
               {it.icon}
             </div>
-            <div className="flex flex-col text-[12.5px] leading-[1.35] text-foreground">
-              <span className="font-semibold">{it.title}</span>
-              <span>{it.desc}</span>
+            <div className="text-[14px] leading-[1.4] text-black font-bold">
+              {it.text}
             </div>
           </div>
         ))}
@@ -161,15 +160,15 @@ function MethodSection() {
       <div className="grid gap-8 rounded-2xl bg-navy px-6 py-8 text-navy-foreground shadow-card sm:px-8 md:grid-cols-2 md:gap-x-8 lg:grid-cols-[2.2fr_1.4fr_1fr_1fr] lg:gap-0 lg:px-10 lg:py-10">
         {/* Method steps */}
         <div className="md:col-span-2 lg:col-span-1 lg:border-r lg:border-white/10 lg:pr-8">
-          <h4 className="mb-6 text-[11px] font-extrabold tracking-[0.18em] text-navy-accent">THE HIRELEAP METHOD™</h4>
+          <h4 className="mb-6 text-[11px] font-extrabold tracking-[0.18em] text-navy-accent font-sans">THE HIRELEAP METHOD™</h4>
           <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:flex lg:items-start lg:gap-0">
             {steps.map((s, i) => (
               <div key={s.title} className="relative flex flex-col items-center text-center lg:flex-1 lg:px-1">
                 <div className="grid h-14 w-14 place-items-center rounded-full border border-white/25 bg-white/[0.03] text-navy-foreground">
                   {s.icon}
                 </div>
-                <h5 className="mt-3 text-[12.5px] font-bold leading-tight">{s.title}</h5>
-                <p className="mt-2 text-[10.5px] leading-[1.45] text-navy-foreground/60">{s.desc}</p>
+                <h5 className="mt-3 text-[12.5px] font-bold font-sans leading-tight">{s.title}</h5>
+                <p className="mt-2 text-[10.5px] leading-[1.45] text-navy-foreground/60 font-sans">{s.desc}</p>
                 {i < steps.length - 1 && (
                   <div className="pointer-events-none absolute left-[calc(50%+1.75rem)] right-[calc(-50%+1.75rem)] top-7 -translate-y-1/2 hidden items-center gap-0.5 text-white/50 lg:flex">
                     <div className="h-px flex-1 border-t border-dotted border-white/50" />
@@ -183,7 +182,7 @@ function MethodSection() {
 
         {/* AI + Human */}
         <div className="md:col-span-2 lg:col-span-1 lg:border-r lg:border-white/10 lg:px-6 lg:mt-0">
-          <h4 className="mb-6 text-[11px] font-extrabold tracking-[0.18em] text-navy-accent">AI + HUMAN GUIDANCE</h4>
+          <h4 className="mb-6 text-[11px] font-extrabold tracking-[0.18em] text-navy-accent font-sans">AI + HUMAN GUIDANCE</h4>
           <div className="relative mx-auto w-full max-w-[260px]">
             {/* Infinity loop image */}
             <img loading="lazy"
@@ -193,25 +192,25 @@ function MethodSection() {
             />
 
             {/* AI label centered in left loop */}
-            <div className="pointer-events-none absolute left-[22%] top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center text-[10px] font-semibold leading-tight text-white drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]">
+            <div className="pointer-events-none absolute left-[22%] top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center text-[10.5px] font-bold leading-tight text-white font-sans drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]">
               AI<br />Intelligence
             </div>
 
             {/* Expert label centered in right loop */}
-            <div className="pointer-events-none absolute left-[78%] top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center text-[10px] font-semibold leading-tight text-white drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]">
+            <div className="pointer-events-none absolute left-[78%] top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center text-[10.5px] font-bold leading-tight text-white font-sans drop-shadow-[0_0_6px_rgba(0,0,0,0.9)]">
               Expert<br />Guidance
             </div>
           </div>
-          <p className="mt-5 text-center text-[10.5px] leading-[1.55] text-navy-foreground/65">
+          <p className="mt-5 text-center text-[10.5px] leading-[1.55] text-navy-foreground/65 font-sans">
             AI analyzes thousands of data points to uncover opportunities and insights—while our career experts provide the human perspective to guide you forward.
           </p>
         </div>
 
         {/* Trusted */}
         <div className="lg:border-r lg:border-white/10 lg:px-6 lg:mt-0">
-          <h4 className="mb-6 text-[11px] font-extrabold tracking-[0.18em] text-navy-accent">TRUSTED BY PROFESSIONALS</h4>
-          <div className="text-[28px] font-extrabold leading-[1.1] tracking-tight">Proven<br/>Impact</div>
-          <div className="mt-2 text-[12px] text-navy-foreground/70">Real career leaps</div>
+          <h4 className="mb-6 text-[11px] font-extrabold tracking-[0.18em] text-navy-accent font-sans">TRUSTED BY PROFESSIONALS</h4>
+          <div className="text-[32px] font-extrabold leading-none tracking-tight font-sans text-white">25K+</div>
+          <div className="mt-1.5 text-[12px] text-navy-foreground/70 font-sans">Career leaps guided</div>
           <div className="mt-5 flex items-center">
             {avatars.map((src, i) => (
               <img
@@ -224,19 +223,19 @@ function MethodSection() {
                 className="-mr-2 h-9 w-9 rounded-full border-2 border-navy object-cover"
               />
             ))}
-            <div className="grid h-9 w-9 place-items-center rounded-full border-2 border-navy bg-white/10 text-[13px] font-bold">+</div>
+            <div className="grid h-9 w-9 place-items-center rounded-full border-2 border-navy bg-white/10 text-[13px] font-bold font-sans">+</div>
           </div>
         </div>
 
         {/* Quote */}
-        <div className="lg:pl-6 lg:mt-0">
+        <div className="lg:pl-6 lg:mt-0 font-sans">
           <Quote className="h-5 w-5 fill-primary text-primary" />
-          <p className="mt-3 text-[12px] leading-[1.55] text-navy-foreground/90">
+          <p className="mt-3 text-[12px] leading-[1.55] text-navy-foreground/90 font-sans">
             "HireLeap helped me gain the clarity I needed to make a bold move. Best decision of my career."
           </p>
-          <div className="mt-4">
-            <div className="text-[12.5px] font-bold">– Anjali S.</div>
-            <div className="text-[11px] text-navy-foreground/60">Product Manager</div>
+          <div className="mt-4 font-sans">
+            <div className="text-[12.5px] font-bold font-sans text-white">– Anjali S.</div>
+            <div className="text-[11px] text-navy-foreground/60 font-sans">Product Manager</div>
           </div>
           <div className="mt-2 flex gap-0.5 text-warning">
             {Array.from({ length: 5 }).map((_, i) => (

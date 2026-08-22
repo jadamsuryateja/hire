@@ -14,12 +14,20 @@ import {
   Check,
   MapPin,
   Flag,
+  X,
+  Shield,
+  Diamond,
+  Crown,
+  Award,
+  ChevronDown,
 } from "lucide-react";
 import { useState } from "react";
 import careerInvestmentImg from "../assets/career-investment.webp";
 import careerInvestmentMobileImg from "../assets/career-investment-mobile.webp";
 
 export default function CareerInvestment() {
+  const [showVideo, setShowVideo] = useState(false);
+
   return (
     <PageShell>
       <Helmet>
@@ -35,8 +43,8 @@ export default function CareerInvestment() {
         
         {/* Left side - Content */}
         <div className="relative z-10 w-full lg:w-[45%] xl:w-[40%] flex flex-col justify-center px-6 py-16 sm:px-10 lg:pl-16 xl:pl-24 bg-white/95 lg:bg-transparent lg:order-1">
-          <div className="w-8 border-t-2 border-[#a199fa] mb-4" />
-          <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#3b2dd0] mb-6">
+          <div className="w-8 border-t-2 border-[#8f82ff] mb-4" />
+          <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1a0b99] mb-6">
             CAREER INVESTMENT
           </div>
 
@@ -44,7 +52,7 @@ export default function CareerInvestment() {
             You're not choosing a price.
             <br />
             You're choosing how deeply we partner with{" "}
-            <span className="italic text-[#3b2dd0]">your future.</span>
+            <span className="italic text-[#1a0b99]">your future.</span>
           </h1>
 
           <p className="text-[14px] sm:text-[15px] text-[#52525b] font-medium leading-relaxed max-w-[420px] mb-10">
@@ -54,14 +62,17 @@ export default function CareerInvestment() {
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8">
             <Link
-              to="/career-journeys"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-[6px] bg-[#3b2dd0] text-white font-sans text-[13px] font-bold tracking-wide hover:bg-[#3226b3] transition-transform hover:scale-105 shadow-xl whitespace-nowrap"
+              to="/plan-your-next-leap"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-7 py-3.5 rounded-[6px] bg-[#1a0b99] text-white font-sans text-[13px] font-bold tracking-wide hover:bg-[#140a7a] transition-transform hover:scale-105 shadow-xl whitespace-nowrap"
             >
               Plan Your Next Leap
               <ArrowRight className="ml-2 w-4 h-4 font-normal shrink-0" />
             </Link>
 
-            <button className="flex items-center space-x-2 text-[#3b2dd0] font-sans text-[13px] font-bold tracking-wide hover:opacity-80 transition-opacity whitespace-nowrap text-left">
+            <button
+              onClick={() => setShowVideo(true)}
+              className="flex items-center space-x-2 text-[#1a0b99] font-sans text-[13px] font-bold tracking-wide hover:opacity-80 transition-opacity whitespace-nowrap text-left cursor-pointer"
+            >
               <Play className="w-4 h-4 fill-current shrink-0" />
               <span>See How HireLeap Creates Impact</span>
             </button>
@@ -87,7 +98,7 @@ export default function CareerInvestment() {
 
           {/* Dark card in bottom right */}
           <div className="hidden md:flex absolute bottom-10 right-10 lg:bottom-16 lg:right-16 bg-[#27272a] text-white p-7 rounded-[12px] w-[240px] flex-col items-start shadow-2xl z-20">
-            <Quote className="w-5 h-5 text-[#7161fa] mb-3 fill-current rotate-180" />
+            <Quote className="w-5 h-5 text-[#8f82ff] mb-3 fill-current rotate-180" />
             <p className="text-[13.5px] font-sans font-medium leading-relaxed">
               Small decisions today create the career you'll be proud of tomorrow.
             </p>
@@ -98,17 +109,45 @@ export default function CareerInvestment() {
       {/* Floating Foundation Banner */}
       <FoundationBanner />
 
-      {/* Pricing Comparison Section */}
+      {/* Pricing Comparison Section with Tabs */}
       <PricingSection />
 
-      {/* Alumni Benefit / Membership Section */}
-      <MembershipSection />
+      {/* Full Comparison Table */}
+      <ComparisonTable />
 
       {/* FAQ Section */}
       <FaqSection />
 
       {/* CTA Strip Section */}
       <CTAStrip />
+
+      {/* Video Modal */}
+      {showVideo && (
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          onClick={() => setShowVideo(false)}
+        >
+          <div
+            className="relative w-full max-w-[900px] aspect-video bg-black rounded-xl overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowVideo(false)}
+              className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+              aria-label="Close video"
+            >
+              <X className="w-5 h-5 text-white" />
+            </button>
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0"
+              title="HireLeap Impact Video"
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
     </PageShell>
   );
 }
@@ -171,7 +210,7 @@ function CTAStrip() {
 
             <Link
               to="/career-journeys"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-[6px] bg-[#5a4add] text-white font-sans text-[12px] font-bold tracking-wide hover:bg-[#4839c3] transition-transform hover:scale-105 shadow-xl whitespace-nowrap mb-4"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-[6px] bg-[#1a0b99] text-white font-sans text-[12px] font-bold tracking-wide hover:bg-[#140a7a] transition-transform hover:scale-105 shadow-xl whitespace-nowrap mb-4"
             >
               Start Your Career Journey
               <ArrowRight className="ml-2 w-4 h-4 font-normal shrink-0" />
@@ -220,14 +259,15 @@ const CAREER_INVESTMENT_CONFIG = {
         "5 interview coaching sessions",
         "Application strategy guidance",
       ],
+      icon: Shield,
       guarantee: "Job Guarantee: 0 Days",
       color: "purple",
       themeClasses: {
-        accent: "text-[#3b2dd0]",
+        accent: "text-[#1a0b99]",
         iconBg: "bg-[#f5f3ff]",
         border: "border-gray-100",
-        btn: "bg-[#3b2dd0] hover:bg-[#3226b3] text-white",
-        badge: "text-[#3b2dd0]",
+        btn: "bg-[#1a0b99] hover:bg-[#140a7a] text-white",
+        badge: "text-[#1a0b99]",
         cardBg: "bg-white",
       },
     },
@@ -244,14 +284,15 @@ const CAREER_INVESTMENT_CONFIG = {
         "15 interview coaching sessions",
         "Active recruiter engagement",
       ],
+      icon: Diamond,
       guarantee: "Job Guarantee: 150 Days",
       color: "green",
       themeClasses: {
-        accent: "text-[#0f766e]",
-        iconBg: "bg-[#f0fdfa]",
+        accent: "text-[#1a0b99]",
+        iconBg: "bg-[#f5f3ff]",
         border: "border-gray-100",
-        btn: "bg-[#0f766e] hover:bg-[#115e59] text-white",
-        badge: "text-[#0f766e]",
+        btn: "bg-[#1a0b99] hover:bg-[#140a7a] text-white",
+        badge: "text-[#1a0b99]",
         cardBg: "bg-white",
       },
     },
@@ -268,15 +309,16 @@ const CAREER_INVESTMENT_CONFIG = {
         "30 interview coaching sessions",
         "Dedicated career partner",
       ],
+      icon: Crown,
       guarantee: "Job Guarantee: 110 Days",
       recommended: true,
       color: "blue",
       themeClasses: {
-        accent: "text-[#1d4ed8]",
-        iconBg: "bg-[#eff6ff]",
-        border: "border-[#1d4ed8]/30 shadow-md scale-102 relative z-10",
-        btn: "bg-[#1d4ed8] hover:bg-[#1e40af] text-white",
-        badge: "text-[#1d4ed8]",
+        accent: "text-[#1a0b99]",
+        iconBg: "bg-[#f5f3ff]",
+        border: "border-[#1a0b99]/30 shadow-md scale-102 relative z-10",
+        btn: "bg-[#1a0b99] hover:bg-[#140a7a] text-white",
+        badge: "text-[#1a0b99]",
         cardBg: "bg-white",
       },
     },
@@ -294,14 +336,15 @@ const CAREER_INVESTMENT_CONFIG = {
         "Executive-level career partner",
         "Certification course included",
       ],
+      icon: Award,
       guarantee: "Job Guarantee: 95 Days",
       color: "platinum",
       themeClasses: {
-        accent: "text-[#b45309]",
-        iconBg: "bg-[#fef3c7]",
-        border: "border-[#b45309]/10",
-        btn: "bg-[#b45309] hover:bg-[#92400e] text-white",
-        badge: "text-[#b45309]",
+        accent: "text-[#1a0b99]",
+        iconBg: "bg-[#f5f3ff]",
+        border: "border-[#1a0b99]/10",
+        btn: "bg-[#1a0b99] hover:bg-[#140a7a] text-white",
+        badge: "text-[#1a0b99]",
         cardBg: "bg-[#fffbeb]/60",
       },
     },
@@ -310,134 +353,208 @@ const CAREER_INVESTMENT_CONFIG = {
 // -----------------------
 
 function PricingSection() {
+  const [activeTab, setActiveTab] = useState<'primary' | 'alumni'>('primary');
+
+  const alumniListItems = [
+    "Ongoing job marketing",
+    "Managed applications",
+    "Resume updates when needed",
+    "Recruiter outreach",
+    "Opportunity tracking",
+    "Monthly strategy review",
+    "Cancel anytime",
+  ];
+
   return (
     <section className="w-full bg-[#fbfbfb] pt-12 pb-8 px-5 sm:px-6 lg:px-10">
       <div className="max-w-[1100px] mx-auto">
         {/* Eyebrow / Section Title */}
-        <div className="text-center mb-10">
-          <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#3b2dd0]">
+        <div className="text-center mb-6">
+          <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1a0b99] mb-4">
             CHOOSE YOUR LEVEL OF PARTNERSHIP
+          </div>
+
+          {/* Tabs */}
+          <div className="inline-flex items-center bg-gray-100 rounded-[8px] p-1">
+            <button
+              onClick={() => setActiveTab('primary')}
+              className={`px-5 py-2 rounded-[6px] text-[11px] font-bold tracking-wide transition-all ${
+                activeTab === 'primary'
+                  ? 'bg-[#1a0b99] text-white shadow-sm'
+                  : 'text-[#52525b] hover:text-[#0A102A]'
+              }`}
+            >
+              Primary Programs
+            </button>
+            <button
+              onClick={() => setActiveTab('alumni')}
+              className={`px-5 py-2 rounded-[6px] text-[11px] font-bold tracking-wide transition-all ${
+                activeTab === 'alumni'
+                  ? 'bg-[#1a0b99] text-white shadow-sm'
+                  : 'text-[#52525b] hover:text-[#0A102A]'
+              }`}
+            >
+              HireLeap Alumni
+            </button>
           </div>
         </div>
 
-        {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
-          {CAREER_INVESTMENT_CONFIG.plans.map((p, idx) => {
-            const classes = p.themeClasses;
-            return (
-              <div
-                key={idx}
-                className={`relative rounded-[12px] border p-5 flex flex-col justify-between ${classes.cardBg} ${classes.border}`}
-              >
-                {/* Recommended Badge */}
-                {p.recommended && (
-                  <div className="absolute -top-3.5 right-4 bg-[#1e1b4b] text-white text-[8px] font-bold px-2.5 py-1 rounded-[4px] uppercase tracking-wider shadow">
-                    RECOMMENDED FOR MOST PROFESSIONALS
-                  </div>
-                )}
+        {/* Primary Programs Tab */}
+        {activeTab === 'primary' && (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
+              {CAREER_INVESTMENT_CONFIG.plans.map((p, idx) => {
+                const classes = p.themeClasses;
+                const PlanIcon = p.icon;
+                return (
+                  <div
+                    key={idx}
+                    className={`relative rounded-[12px] border p-5 flex flex-col justify-between ${classes.cardBg} ${classes.border}`}
+                  >
+                    {p.recommended && (
+                      <div className="absolute -top-3.5 right-4 bg-[#1e1b4b] text-white text-[8px] font-bold px-2.5 py-1 rounded-[4px] uppercase tracking-wider shadow">
+                        RECOMMENDED FOR MOST PROFESSIONALS
+                      </div>
+                    )}
 
-                <div>
-                  {/* Icon & Plan Info */}
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <div
-                      className={`w-7 h-7 rounded-full ${classes.iconBg} flex items-center justify-center shrink-0`}
-                    >
-                      <span className={`text-[10px] font-bold ${classes.accent}`}>★</span>
-                    </div>
                     <div>
-                      <h3 className={`text-[11.5px] font-bold tracking-wider ${classes.accent}`}>
-                        {p.name}
-                      </h3>
-                      <p className="text-[#0A102A] text-[10px] font-bold leading-tight">
-                        {p.tagline}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-[#52525b] text-[10px] leading-relaxed mb-2.5 font-medium">
-                    {p.description}
-                  </p>
-
-                  <div className="border-t border-gray-100 my-2" />
-
-                  {/* Plan Cost */}
-                  <div className="mb-2">
-                    <span className="text-gray-400 text-[8px] uppercase font-bold block">
-                      Plan Cost
-                    </span>
-                    <span className="text-[20px] font-sans font-extrabold text-[#0a102a]">
-                      {p.price}
-                    </span>
-                  </div>
-
-                  <div className="border-t border-gray-100 my-2" />
-
-                  {/* Stats Grid */}
-                  <div className="grid grid-cols-3 gap-1 text-center mb-3.5 py-1 bg-gray-50/50 rounded-lg">
-                    <div>
-                      <span className="text-[7.5px] text-gray-400 font-bold block">
-                        Applications
-                      </span>
-                      <span className={`text-[9.5px] font-bold ${classes.accent}`}>
-                        {p.stats.apps}
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-[7.5px] text-gray-400 font-bold block">
-                        Interview Support
-                      </span>
-                      <span className={`text-[9.5px] font-bold ${classes.accent}`}>
-                        {p.stats.interviews}
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-[7.5px] text-gray-400 font-bold block">
-                        Recruiter Access
-                      </span>
-                      <span className={`text-[9.5px] font-bold ${classes.accent}`}>
-                        {p.stats.access}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Features List */}
-                  <ul className="space-y-1.5 mb-4">
-                    {p.features.map((feat, fIdx) => (
-                      <li
-                        key={fIdx}
-                        className="flex items-start gap-1.5 text-[10.5px] text-[#52525b] font-medium leading-tight"
-                      >
-                        <span
-                          className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center text-[7px] font-bold shrink-0 mt-0.5 ${classes.accent} border-current/20`}
+                      <div className="flex items-center gap-2.5 mb-2">
+                        <div
+                          className={`w-9 h-9 rounded-full ${classes.iconBg} flex items-center justify-center shrink-0`}
                         >
-                          ✓
+                          <PlanIcon className={`w-[18px] h-[18px] ${classes.accent}`} strokeWidth={2} />
+                        </div>
+                        <div>
+                          <h3 className={`text-[11.5px] font-bold tracking-wider ${classes.accent}`}>
+                            {p.name}
+                          </h3>
+                          <p className="text-[#0A102A] text-[10px] font-bold leading-tight">
+                            {p.tagline}
+                          </p>
+                        </div>
+                      </div>
+
+                      <p className="text-[#52525b] text-[10px] leading-relaxed mb-2.5 font-medium">
+                        {p.description}
+                      </p>
+
+                      <div className="border-t border-gray-100 my-2" />
+
+                      <div className="mb-2">
+                        <span className="text-gray-400 text-[8px] uppercase font-bold block">Plan Cost</span>
+                        <span className="text-[20px] font-sans font-extrabold text-[#0a102a]">{p.price}</span>
+                      </div>
+
+                      <div className="border-t border-gray-100 my-2" />
+
+                      <div className="grid grid-cols-3 gap-1 text-center mb-3.5 py-1 bg-gray-50/50 rounded-lg">
+                        <div>
+                          <span className="text-[7.5px] text-gray-400 font-bold block">Applications</span>
+                          <span className={`text-[9.5px] font-bold ${classes.accent}`}>{p.stats.apps}</span>
+                        </div>
+                        <div>
+                          <span className="text-[7.5px] text-gray-400 font-bold block">Interview Support</span>
+                          <span className={`text-[9.5px] font-bold ${classes.accent}`}>{p.stats.interviews}</span>
+                        </div>
+                        <div>
+                          <span className="text-[7.5px] text-gray-400 font-bold block">Recruiter Access</span>
+                          <span className={`text-[9.5px] font-bold ${classes.accent}`}>{p.stats.access}</span>
+                        </div>
+                      </div>
+
+                      <ul className="space-y-1.5 mb-4">
+                        {p.features.map((feat, fIdx) => (
+                          <li key={fIdx} className="flex items-start gap-1.5 text-[10.5px] text-[#52525b] font-medium leading-tight">
+                            <span className={`w-3.5 h-3.5 rounded-full border flex items-center justify-center text-[7px] font-bold shrink-0 mt-0.5 ${classes.accent} border-current/20`}>✓</span>
+                            <span>{feat}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div>
+                      <div className="flex items-center gap-1.5 mb-2.5 text-[10px] font-bold text-gray-600">
+                        <span className={classes.accent}>🛡️</span>
+                        <span>{p.guarantee}</span>
+                      </div>
+                      <a
+                        href={`mailto:${CAREER_INVESTMENT_CONFIG.consultationEmail}?subject=Consultation Request - ${p.name} Plan`}
+                        className={`w-full py-2 rounded-[6px] text-[11px] font-bold tracking-wide transition-all shadow-sm flex items-center justify-center text-center ${classes.btn}`}
+                      >
+                        Get Started
+                      </a>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* See All Inclusions */}
+            <div className="mt-6 text-center">
+              <a
+                href="#comparison-table"
+                className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#1a0b99] hover:underline transition-all"
+              >
+                See all inclusions
+                <ChevronDown className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </>
+        )}
+
+        {/* HireLeap Alumni Tab */}
+        {activeTab === 'alumni' && (
+          <div className="max-w-[700px] mx-auto">
+            <div className="relative rounded-[16px] bg-[#0c0828] text-white py-8 px-8 lg:px-12 overflow-hidden flex flex-col lg:flex-row items-center gap-8 lg:gap-12 shadow-xl">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
+
+              <div className="flex-1 flex flex-col sm:flex-row items-center gap-6">
+                <div className="w-28 h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-2 border-purple-500/30 shadow-lg shrink-0">
+                  <img loading="lazy"
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=300&q=80"
+                    alt="Career Momentum Membership"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="text-center sm:text-left relative z-10">
+                  <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-purple-400 mb-2">FOR RETURNING USERS</div>
+                  <h2 className="text-[20px] lg:text-[24px] font-serif font-normal leading-snug mb-3">Career Momentum™ Membership</h2>
+                  <p className="text-[11.5px] text-gray-300 font-medium leading-relaxed max-w-[400px]">
+                    Supports returning users needing ongoing marketing and application support—without repeating the entire HireLeap process.
+                  </p>
+                </div>
+              </div>
+
+              <div className="hidden lg:block w-[1px] self-stretch bg-white/10" />
+
+              <div className="w-full lg:w-[42%] flex flex-col sm:flex-row items-stretch gap-6 lg:gap-8 relative z-10">
+                <div className="flex-1 flex flex-col justify-center text-center sm:text-left">
+                  <h3 className="text-[16px] font-bold text-white mb-0.5">Custom Pricing</h3>
+                  <p className="text-[11px] text-gray-400 font-medium mb-4">For HireLeap Alumni</p>
+                  <div className="flex flex-col items-center sm:items-start justify-center gap-1 mb-4">
+                    <span className="text-[18px] font-sans font-extrabold text-[#a199fa]">Consultation Required</span>
+                    <span className="text-[11px] text-gray-400">Provisional rate must be confirmed</span>
+                  </div>
+                  <p className="text-[10px] text-gray-400 font-medium leading-relaxed">
+                    Available exclusively to professionals who have completed a HireLeap journey.
+                  </p>
+                </div>
+                <div className="flex-1 flex flex-col justify-center border-t border-white/10 pt-6 sm:border-t-0 sm:pt-0 sm:border-l sm:border-white/10 sm:pl-6">
+                  <ul className="space-y-2">
+                    {alumniListItems.map((item, idx) => (
+                      <li key={idx} className="flex items-center gap-2 text-[11px] text-gray-200 font-medium">
+                        <span className="w-4 h-4 rounded-full border border-purple-400/30 flex items-center justify-center shrink-0">
+                          <Check className="w-2.5 h-2.5 text-purple-400" />
                         </span>
-                        <span>{feat}</span>
+                        <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-
-                <div>
-                  {/* Guarantee Info */}
-                  <div className="flex items-center gap-1.5 mb-2.5 text-[10px] font-bold text-gray-600">
-                    <span className={classes.accent}>🛡️</span>
-                    <span>{p.guarantee}</span>
-                  </div>
-
-                  {/* CTA Button */}
-                  <a
-                    href={`mailto:${CAREER_INVESTMENT_CONFIG.consultationEmail}?subject=Consultation Request - ${p.name} Plan`}
-                    className={`w-full py-2 rounded-[6px] text-[11px] font-bold tracking-wide transition-all shadow-sm flex items-center justify-center text-center ${classes.btn}`}
-                  >
-                    Get Started
-                  </a>
-                </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          </div>
+        )}
 
         {/* Footer disclaimer */}
         <div className="mt-8 text-center flex items-center justify-center gap-2 text-[11px] text-gray-500 font-medium">
@@ -452,22 +569,22 @@ function PricingSection() {
 function FoundationBanner() {
   const features = [
     {
-      icon: <BrainCircuit className="w-4 h-4 text-[#7c3aed]" />,
+      icon: <BrainCircuit className="w-6 h-6 text-[#1a0b99]" />,
       title: "Career Intelligence",
       description: "AI-powered insights combined with human expertise.",
     },
     {
-      icon: <User className="w-4 h-4 text-[#7c3aed]" />,
+      icon: <User className="w-6 h-6 text-[#1a0b99]" />,
       title: "Expert Guidance",
       description: "Seasoned career professionals by your side.",
     },
     {
-      icon: <ShieldCheck className="w-4 h-4 text-[#7c3aed]" />,
+      icon: <ShieldCheck className="w-6 h-6 text-[#1a0b99]" />,
       title: "Proven Framework",
       description: "A structured methodology that has helped thousands succeed.",
     },
     {
-      icon: <Handshake className="w-4 h-4 text-[#7c3aed]" />,
+      icon: <Handshake className="w-6 h-6 text-[#1a0b99]" />,
       title: "End-to-End Partnership",
       description: "From preparation to placement and beyond—we stay with you.",
     },
@@ -478,7 +595,7 @@ function FoundationBanner() {
       <div className="bg-white rounded-[12px] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100 py-5 px-6 lg:py-6 lg:px-10 flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-10">
         {/* Left Side: Title */}
         <div className="w-full lg:w-[32%] xl:w-[30%] shrink-0">
-          <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#3b2dd0] mb-1.5">
+          <div className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#1a0b99] mb-1.5">
             EVERY PLAN INCLUDES THE HIRELEAP FOUNDATION
           </div>
           <h2 className="text-[16px] sm:text-[18px] font-serif font-medium text-[#1a1a1a] leading-snug">
@@ -490,7 +607,7 @@ function FoundationBanner() {
         <div className="w-full lg:flex-1 grid grid-cols-2 md:grid-cols-4 gap-4 xl:gap-6">
           {features.map((f, i) => (
             <div key={i} className="flex flex-col">
-              <div className="w-8 h-8 rounded-full bg-[#f5f3ff] flex items-center justify-center mb-2 shrink-0">
+              <div className="w-10 h-10 rounded-full bg-[#f5f3ff] flex items-center justify-center mb-2 shrink-0">
                 {f.icon}
               </div>
               <h3 className="text-[#0A102A] font-bold text-[12px] mb-1 leading-tight">{f.title}</h3>
@@ -505,91 +622,67 @@ function FoundationBanner() {
   );
 }
 
-function MembershipSection() {
-  const listItems = [
-    "Ongoing job marketing",
-    "Managed applications",
-    "Resume updates when needed",
-    "Recruiter outreach",
-    "Opportunity tracking",
-    "Monthly strategy review",
-    "Cancel anytime",
+// Full Comparison Table
+function ComparisonTable() {
+  const rows = [
+    { feature: "Expert Resume Preparation", basic: true, elite: true, premium: true, platinum: true },
+    { feature: "RUC Session", basic: true, elite: true, premium: true, platinum: true },
+    { feature: "Interview Coaching Sessions", basic: "5", elite: "15", premium: "30", platinum: "Unlimited" },
+    { feature: "Application Strategy", basic: true, elite: true, premium: true, platinum: true },
+    { feature: "Applications Submitted", basic: "Up to 70", elite: "Up to 90", premium: "Up to 110", platinum: "Up to 150" },
+    { feature: "Active Recruiter Engagement", basic: false, elite: true, premium: true, platinum: true },
+    { feature: "Dedicated Career Partner", basic: false, elite: false, premium: true, platinum: true },
+    { feature: "Executive-Level Partner", basic: false, elite: false, premium: false, platinum: true },
+    { feature: "Certification Course Included", basic: false, elite: false, premium: false, platinum: true },
+    { feature: "Recruiter Access Level", basic: "Common", elite: "Professional", premium: "Professional", platinum: "Executive" },
+    { feature: "Job Guarantee", basic: "0 Days", elite: "150 Days", premium: "110 Days", platinum: "95 Days" },
   ];
 
+  const renderCell = (val: boolean | string) => {
+    if (val === true) return <Check className="w-4 h-4 text-[#1a0b99] mx-auto" />;
+    if (val === false) return <span className="text-gray-300">—</span>;
+    return <span className="text-[10px] font-bold text-[#0A102A]">{val}</span>;
+  };
+
   return (
-    <section className="w-full bg-[#fbfbfb] pb-2 px-5 sm:px-6 lg:px-10">
+    <section id="comparison-table" className="w-full bg-[#fbfbfb] pb-12 px-5 sm:px-6 lg:px-10">
       <div className="max-w-[1100px] mx-auto">
-        <div className="relative rounded-[16px] bg-[#0c0828] text-white py-6 lg:py-6 px-8 lg:px-12 overflow-hidden flex flex-col lg:flex-row items-center gap-8 lg:gap-12 shadow-xl">
-          {/* Subtle background glow */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="text-center mb-6">
+          <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#1a0b99] mb-1">DETAILED COMPARISON</div>
+          <h2 className="text-[18px] sm:text-[22px] font-serif font-medium text-[#0A102A]">See all inclusions across plans</h2>
+        </div>
 
-          {/* Left Block: Seal Graphic & Info */}
-          <div className="flex-1 flex flex-col sm:flex-row items-center gap-6">
-            {/* Alumni Community Image */}
-            <div className="w-28 h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden border-2 border-purple-500/30 shadow-lg shrink-0">
-              <img loading="lazy"
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=300&q=80"
-                alt="Career Momentum Membership"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Left Content */}
-            <div className="text-center sm:text-left relative z-10">
-              <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-purple-400 mb-2">
-                FOR RETURNING USERS
-              </div>
-              <h2 className="text-[20px] lg:text-[24px] font-serif font-normal leading-snug mb-3">
-                Career Momentum™ Membership
-              </h2>
-              <p className="text-[11.5px] text-gray-300 font-medium leading-relaxed max-w-[400px]">
-                Supports returning users needing ongoing marketing and application support—without
-                repeating the entire HireLeap process.
-              </p>
-            </div>
-          </div>
-
-          {/* Vertical Separator Line */}
-          <div className="hidden lg:block w-[1px] self-stretch bg-white/10" />
-
-          {/* Right Block: Price and Checkmarks */}
-          <div className="w-full lg:w-[42%] flex flex-col sm:flex-row items-stretch gap-6 lg:gap-8 relative z-10">
-            {/* Price Column */}
-            <div className="flex-1 flex flex-col justify-center text-center sm:text-left">
-              <h3 className="text-[16px] font-bold text-white mb-0.5">Custom Pricing</h3>
-              <p className="text-[11px] text-gray-400 font-medium mb-4">For HireLeap Alumni</p>
-
-              <div className="flex flex-col items-center sm:items-start justify-center gap-1 mb-4">
-                <span className="text-[18px] font-sans font-extrabold text-[#a199fa]">
-                  Consultation Required
-                </span>
-                <span className="text-[11px] text-gray-400">
-                  Provisional rate must be confirmed
-                </span>
-              </div>
-
-              <p className="text-[10px] text-gray-400 font-medium leading-relaxed">
-                Available exclusively to professionals who have completed a HireLeap journey.
-              </p>
-            </div>
-
-            {/* List Column */}
-            <div className="flex-1 flex flex-col justify-center border-t border-white/10 pt-6 sm:border-t-0 sm:pt-0 sm:border-l sm:border-white/10 sm:pl-6">
-              <ul className="space-y-2">
-                {listItems.map((item, idx) => (
-                  <li
-                    key={idx}
-                    className="flex items-center gap-2 text-[11px] text-gray-200 font-medium"
-                  >
-                    <span className="w-4 h-4 rounded-full border border-purple-400/30 flex items-center justify-center shrink-0">
-                      <Check className="w-2.5 h-2.5 text-purple-400" />
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+        <div className="overflow-x-auto rounded-[12px] border border-gray-100 shadow-sm bg-white">
+          <table className="w-full min-w-[600px]">
+            <thead>
+              <tr className="border-b border-gray-100">
+                <th className="text-left py-3 px-4 text-[10px] font-bold uppercase tracking-wider text-gray-400 w-[35%]">Feature</th>
+                <th className="text-center py-3 px-3 text-[10px] font-bold uppercase tracking-wider text-[#1a0b99]">Basic</th>
+                <th className="text-center py-3 px-3 text-[10px] font-bold uppercase tracking-wider text-[#1a0b99]">Elite</th>
+                <th className="text-center py-3 px-3 text-[10px] font-bold uppercase tracking-wider text-[#1a0b99] bg-[#f5f3ff]/60">Premium</th>
+                <th className="text-center py-3 px-3 text-[10px] font-bold uppercase tracking-wider text-[#1a0b99]">Platinum</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, i) => (
+                <tr key={i} className={`border-b border-gray-50 ${i % 2 === 0 ? 'bg-gray-50/30' : ''}`}>
+                  <td className="py-2.5 px-4 text-[10.5px] font-medium text-[#52525b]">{row.feature}</td>
+                  <td className="py-2.5 px-3 text-center">{renderCell(row.basic)}</td>
+                  <td className="py-2.5 px-3 text-center">{renderCell(row.elite)}</td>
+                  <td className="py-2.5 px-3 text-center bg-[#f5f3ff]/60">{renderCell(row.premium)}</td>
+                  <td className="py-2.5 px-3 text-center">{renderCell(row.platinum)}</td>
+                </tr>
+              ))}
+              {/* Price Row */}
+              <tr className="border-t-2 border-gray-100">
+                <td className="py-3 px-4 text-[10.5px] font-bold text-[#0A102A]">Plan Cost</td>
+                <td className="py-3 px-3 text-center text-[14px] font-extrabold text-[#0A102A]">$1,500</td>
+                <td className="py-3 px-3 text-center text-[14px] font-extrabold text-[#0A102A]">$3,000</td>
+                <td className="py-3 px-3 text-center text-[14px] font-extrabold text-[#0A102A] bg-[#f5f3ff]/60">$5,000</td>
+                <td className="py-3 px-3 text-center text-[14px] font-extrabold text-[#0A102A]">$15,000</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -622,6 +715,22 @@ function FaqSection() {
       q: "Is Career Momentum™ only for existing clients?",
       a: "Yes, Career Momentum™ is an exclusive benefit built only for HireLeap alumni who have successfully navigated a primary program and want ongoing career care.",
     },
+    {
+      q: "How long does a typical HireLeap journey take?",
+      a: "Most professionals complete their career transition within 60–120 days depending on the plan chosen, market conditions, and personal readiness. Our Premium and Platinum plans include job guarantees with defined timelines for added peace of mind.",
+    },
+    {
+      q: "Do you work with professionals outside India?",
+      a: "Absolutely. HireLeap supports professionals globally. Our career strategists, resume experts, and recruiter network operate across multiple geographies including North America, Europe, the Middle East, and Southeast Asia.",
+    },
+    {
+      q: "What industries and roles does HireLeap specialize in?",
+      a: "HireLeap supports professionals across technology, finance, consulting, healthcare, marketing, and operations. Whether you're a software engineer, product manager, data scientist, or a C-suite executive, our frameworks adapt to your domain.",
+    },
+    {
+      q: "Is there a refund policy if I'm not satisfied?",
+      a: "We stand behind our work. If you feel the quality of our deliverables doesn't meet the promised standard, we offer a review and remediation process. Specific refund terms are outlined in your service agreement based on the plan selected.",
+    },
   ];
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -631,8 +740,8 @@ function FaqSection() {
   };
 
   // Divide FAQs into two columns
-  const col1 = faqs.slice(0, 3);
-  const col2 = faqs.slice(3, 6);
+  const col1 = faqs.slice(0, 5);
+  const col2 = faqs.slice(5, 10);
 
   const renderFaqItem = (faq: (typeof faqs)[0], actualIdx: number) => {
     const isOpen = openIndex === actualIdx;
@@ -666,7 +775,7 @@ function FaqSection() {
       <div className="max-w-[1100px] mx-auto">
         {/* Title */}
         <div className="text-center mb-8">
-          <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#3b2dd0]">
+          <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#1a0b99]">
             FREQUENTLY ASKED QUESTIONS
           </div>
         </div>

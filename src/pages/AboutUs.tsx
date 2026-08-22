@@ -44,19 +44,19 @@ export default function AboutUs() {
         {/* Hero Section */}
         <section className="grid w-full items-center gap-8 lg:grid-cols-[3fr_7fr] lg:gap-10">
           <div className="px-5 py-8 sm:px-6 sm:py-10 lg:py-14 lg:pl-10">
-            <div className="mb-5 text-[12px] uppercase tracking-widest text-primary">
+            <div className="mb-5 text-[12px] uppercase tracking-widest text-[#1a0b99]">
               Why We Believe
             </div>
             <h1 className="text-[36px] font-normal leading-[1.08] tracking-tight text-foreground sm:text-[48px] lg:text-[24px] xl:text-[30px] 2xl:text-[40px] min-[1920px]:text-[52px]">
               We didn't build HireLeap because careers are difficult.
               <br />
-              <span className="text-primary block mt-2">
+              <span className="text-[#1a0b99] block mt-2">
                 We built it because career decisions shouldn't be made alone.
               </span>
             </h1>
 
             {/* Horizontal separator line */}
-            <div className="w-12 h-[2px] bg-primary my-6" />
+            <div className="w-12 h-[2px] bg-[#1a0b99] my-6" />
 
             <div className="space-y-4 text-muted-foreground text-[14px] leading-relaxed max-w-[480px]">
               <p>Every career reaches moments where one decision quietly changes everything.</p>
@@ -89,14 +89,14 @@ export default function AboutUs() {
 
 function ProgressionSection() {
   const miniCards = [
-    { icon: <Sparkles className="w-5 h-5 text-primary" />, label: "AI Tools" },
-    { icon: <GraduationCap className="w-5 h-5 text-primary" />, label: "Online Courses" },
-    { icon: <PlayCircle className="w-5 h-5 text-primary" />, label: "Videos & Content" },
-    { icon: <Briefcase className="w-5 h-5 text-primary" />, label: "Job Boards" },
-    { icon: <Linkedin className="w-5 h-5 text-primary" />, label: "LinkedIn" },
-    { icon: <Users className="w-5 h-5 text-primary" />, label: "Communities" },
-    { icon: <User className="w-5 h-5 text-primary" />, label: "Recruiters" },
-    { icon: <Lightbulb className="w-5 h-5 text-primary" />, label: "Career Advice" },
+    { icon: <Sparkles className="w-7 h-7 text-[#1a0b99]" />, label: "AI Tools" },
+    { icon: <GraduationCap className="w-7 h-7 text-[#1a0b99]" />, label: "Online Courses" },
+    { icon: <PlayCircle className="w-7 h-7 text-[#1a0b99]" />, label: "Videos & Content" },
+    { icon: <Briefcase className="w-7 h-7 text-[#1a0b99]" />, label: "Job Boards" },
+    { icon: <Linkedin className="w-7 h-7 text-[#1a0b99]" />, label: "LinkedIn" },
+    { icon: <Users className="w-7 h-7 text-[#1a0b99]" />, label: "Communities" },
+    { icon: <User className="w-7 h-7 text-[#1a0b99]" />, label: "Recruiters" },
+    { icon: <Lightbulb className="w-7 h-7 text-[#1a0b99]" />, label: "Career Advice" },
   ];
 
   return (
@@ -108,9 +108,9 @@ function ProgressionSection() {
             <div className="flex-1 flex flex-col justify-start lg:pr-6">
               <h2 className="text-[32px] sm:text-[38px] lg:text-[40px] font-serif leading-[1.1] text-foreground mb-6">
                 The world <br />
-                <span className="text-primary italic">changed.</span>
+                <span className="text-[#1a0b99] italic">changed.</span>
               </h2>
-              <div className="w-8 h-[1.5px] bg-primary/40 mb-6" />
+              <div className="w-8 h-[1.5px] bg-[#1a0b99]/40 mb-6" />
               <p className="text-[14px] leading-relaxed text-muted-foreground max-w-[280px]">
                 Careers have never offered more opportunities.
               </p>
@@ -127,7 +127,7 @@ function ProgressionSection() {
                     key={i}
                     className="flex flex-col items-center justify-center p-3 rounded-[8px] bg-[#fbfbfb] border border-border/40 hover:shadow-md transition-shadow duration-200 text-center gap-2"
                   >
-                    <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm">
                       {card.icon}
                     </div>
                     <span className="text-[11px] text-foreground leading-tight">{card.label}</span>
@@ -138,7 +138,7 @@ function ProgressionSection() {
 
             {/* Arrow */}
             <div className="hidden lg:flex items-center justify-center">
-              <ArrowRight className="w-5 h-5 text-primary/40" />
+              <ArrowRight className="w-7 h-7 text-[#1a0b99]/40" />
             </div>
 
             {/* Column 3: The Question */}
@@ -151,7 +151,7 @@ function ProgressionSection() {
                 <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03]">
                   <span className="text-[320px] select-none leading-none -mt-12">?</span>
                 </div>
-                <p className="text-[20px] sm:text-[24px] font-serif italic text-primary leading-snug relative z-10">
+                <p className="text-[20px] sm:text-[24px] font-serif italic text-[#1a0b99] leading-snug relative z-10">
                   “What should I do <br /> next?”
                 </p>
               </div>
@@ -159,7 +159,7 @@ function ProgressionSection() {
 
             {/* Arrow */}
             <div className="hidden lg:flex items-center justify-center">
-              <ArrowRight className="w-5 h-5 text-primary/40" />
+              <ArrowRight className="w-7 h-7 text-[#1a0b99]/40" />
             </div>
 
             {/* Column 4: The Real Challenge */}
@@ -169,7 +169,7 @@ function ProgressionSection() {
               </span>
               <div className="relative overflow-hidden bg-[radial-gradient(ellipse_at_center,_#ffffff_40%,_#f6f6fc_100%)] p-6 rounded-[12px] border border-border/50 shadow-sm flex-1 flex flex-col items-center justify-center text-center min-h-[220px]">
                 {/* Concentric ovals SVG in the background */}
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.06] text-primary">
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.06] text-[#1a0b99]">
                   <svg
                     className="w-full h-full scale-[1.35]"
                     viewBox="0 0 200 300"
@@ -197,8 +197,8 @@ function ProgressionSection() {
                     <br />
                     abundant.
                   </div>
-                  <div className="w-6 h-[2px] bg-primary/40 rounded-full" />
-                  <div className="text-[14px] sm:text-[15px] text-primary leading-[1.6]">
+                  <div className="w-6 h-[2px] bg-[#1a0b99]/40 rounded-full" />
+                  <div className="text-[14px] sm:text-[15px] text-[#1a0b99] leading-[1.6]">
                     Clarity
                     <br />
                     became
@@ -229,7 +229,7 @@ function ProgressionSection() {
             <div className="flex-1 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 border-t lg:border-t-0 border-border/50">
               {/* Item 1 */}
               <div className="flex flex-col items-center justify-start text-center px-4 py-6 sm:py-8 lg:py-12 border-r border-b border-border/50 lg:border-b-0 lg:border-r">
-                <Compass className="w-7 h-7 sm:w-8 sm:h-8 text-primary mb-4 sm:mb-6" strokeWidth={1.5} />
+                <Compass className="w-9 h-9 sm:w-10 sm:h-10 text-[#1a0b99] mb-4 sm:mb-6" strokeWidth={1.5} />
                 <p className="text-[12.5px] sm:text-[13px] text-foreground leading-relaxed max-w-[180px]">
                   Better careers
                   <br />
@@ -237,12 +237,12 @@ function ProgressionSection() {
                   <br />
                   decisions.
                 </p>
-                <div className="w-8 h-[2px] bg-primary mt-4 sm:mt-6 rounded-full" />
+                <div className="w-8 h-[2px] bg-[#1a0b99] mt-4 sm:mt-6 rounded-full" />
               </div>
 
               {/* Item 2 */}
               <div className="flex flex-col items-center justify-start text-center px-4 py-6 sm:py-8 lg:py-12 border-b border-border/50 lg:border-b-0 lg:border-r">
-                <Brain className="w-7 h-7 sm:w-8 sm:h-8 text-primary mb-4 sm:mb-6" strokeWidth={1.5} />
+                <Brain className="w-9 h-9 sm:w-10 sm:h-10 text-[#1a0b99] mb-4 sm:mb-6" strokeWidth={1.5} />
                 <p className="text-[12.5px] sm:text-[13px] text-foreground leading-relaxed max-w-[180px]">
                   Technology should
                   <br />
@@ -257,7 +257,7 @@ function ProgressionSection() {
 
               {/* Item 3 */}
               <div className="flex flex-col items-center justify-start text-center px-4 py-6 sm:py-8 lg:py-12 border-r border-b md:border-b-0 border-border/50 lg:border-r">
-                <CheckCircle2 className="w-7 h-7 sm:w-8 sm:h-8 text-primary mb-4 sm:mb-6" strokeWidth={1.5} />
+                <CheckCircle2 className="w-9 h-9 sm:w-10 sm:h-10 text-[#1a0b99] mb-4 sm:mb-6" strokeWidth={1.5} />
                 <p className="text-[12.5px] sm:text-[13px] text-foreground leading-relaxed max-w-[180px]">
                   Advice without
                   <br />
@@ -272,7 +272,7 @@ function ProgressionSection() {
 
               {/* Item 4 */}
               <div className="flex flex-col items-center justify-start text-center px-4 py-6 sm:py-8 lg:py-12 border-b md:border-b-0 border-border/50 lg:border-r">
-                <MountainSnow className="w-7 h-7 sm:w-8 sm:h-8 text-primary mb-4 sm:mb-6" strokeWidth={1.5} />
+                <MountainSnow className="w-9 h-9 sm:w-10 sm:h-10 text-[#1a0b99] mb-4 sm:mb-6" strokeWidth={1.5} />
                 <p className="text-[12.5px] sm:text-[13px] text-foreground leading-relaxed max-w-[180px]">
                   Every career
                   <br />
@@ -289,13 +289,13 @@ function ProgressionSection() {
 
               {/* Item 5 */}
               <div className="col-span-2 md:col-span-1 flex flex-col items-center justify-start text-center px-4 py-6 sm:py-8 lg:py-12">
-                <div className="relative w-7 h-7 sm:w-8 sm:h-8 mb-4 sm:mb-6 mx-auto text-primary">
+                <div className="relative w-9 h-9 sm:w-10 sm:h-10 mb-4 sm:mb-6 mx-auto text-[#1a0b99]">
                   <Star
-                    className="w-[12px] h-[12px] sm:w-[14px] sm:h-[14px] absolute top-[2px] left-1/2 -translate-x-1/2"
+                    className="w-[16px] h-[16px] sm:w-[18px] sm:h-[18px] absolute top-[2px] left-1/2 -translate-x-1/2"
                     strokeWidth={2}
                   />
                   <svg
-                    className="w-7 h-7 sm:w-8 sm:h-8 absolute inset-0"
+                    className="w-9 h-9 sm:w-10 sm:h-10 absolute inset-0"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -347,11 +347,11 @@ function ProgressionSection() {
           <div className="w-full lg:w-[72%] flex flex-col">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {/* Card 1 */}
-              <div className="bg-[#f8f7fd] rounded-[16px] p-6 lg:p-8 flex flex-col justify-center">
+              <div className="bg-[#fcfbfd] rounded-[16px] p-6 lg:p-8 flex flex-col justify-center">
                 <div className="flex items-center gap-5">
-                  <div className="w-[84px] h-[84px] flex-shrink-0 bg-[#f0ebfe] rounded-full flex items-center justify-center text-[#4922ca]">
+                  <div className="w-[96px] h-[96px] flex-shrink-0 bg-[#f5f3ff] rounded-full flex items-center justify-center text-[#1a0b99]">
                     <svg
-                      className="w-12 h-12"
+                      className="w-14 h-14"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -366,7 +366,7 @@ function ProgressionSection() {
                     </svg>
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-[14px] text-[#4922ca] mb-1">Better Decisions</h3>
+                    <h3 className="text-[14px] text-[#1a0b99] mb-1">Better Decisions</h3>
                     <p className="text-[13px] text-foreground/80 leading-[1.5]">
                       People gain clarity about their direction and next steps.
                     </p>
@@ -377,9 +377,9 @@ function ProgressionSection() {
               {/* Card 2 */}
               <div className="bg-[#f6faf7] rounded-[16px] p-6 lg:p-8 flex flex-col justify-center">
                 <div className="flex items-center gap-5">
-                  <div className="w-[84px] h-[84px] flex-shrink-0 bg-[#ecf7ef] rounded-full flex items-center justify-center text-[#2e6d4c]">
+                  <div className="w-[96px] h-[96px] flex-shrink-0 bg-[#ecf7ef] rounded-full flex items-center justify-center text-[#2e6d4c]">
                     <svg
-                      className="w-12 h-12"
+                      className="w-14 h-14"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -408,8 +408,8 @@ function ProgressionSection() {
               {/* Card 3 */}
               <div className="bg-[#fdf8f4] rounded-[16px] p-6 lg:p-8 flex flex-col justify-center">
                 <div className="flex items-center gap-5">
-                  <div className="w-[84px] h-[84px] flex-shrink-0 bg-[#fceee4] rounded-full flex items-center justify-center text-[#a85923]">
-                    <Rocket className="w-10 h-10" strokeWidth={1.2} />
+                  <div className="w-[96px] h-[96px] flex-shrink-0 bg-[#fceee4] rounded-full flex items-center justify-center text-[#a85923]">
+                    <Rocket className="w-12 h-12" strokeWidth={1.2} />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-[14px] text-[#a85923] mb-1">Meaningful Careers</h3>
@@ -447,7 +447,7 @@ function ProgressionSection() {
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-2 sm:gap-0">
               {/* Promise 1 */}
               <div className="flex flex-col px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-0 border-r border-b lg:border-r-0 lg:border-b-0 lg:border-l border-white/10">
-                <ShieldCheck className="w-7 h-7 sm:w-8 sm:h-8 text-[#987bf5] mb-4 sm:mb-6" strokeWidth={1.5} />
+                <ShieldCheck className="w-9 h-9 sm:w-10 sm:h-10 text-[#8f82ff] mb-4 sm:mb-6" strokeWidth={1.5} />
                 <h3 className="text-[13px] sm:text-[14px] text-white mb-3 sm:mb-4 leading-[1.5]">
                   We promise to
                   <br />
@@ -460,7 +460,7 @@ function ProgressionSection() {
 
               {/* Promise 2 */}
               <div className="flex flex-col px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-0 border-b lg:border-b-0 lg:border-l border-white/10">
-                <Heart className="w-7 h-7 sm:w-8 sm:h-8 text-[#987bf5] mb-4 sm:mb-6" strokeWidth={1.5} />
+                <Heart className="w-9 h-9 sm:w-10 sm:h-10 text-[#8f82ff] mb-4 sm:mb-6" strokeWidth={1.5} />
                 <h3 className="text-[13px] sm:text-[14px] text-white mb-3 sm:mb-4 leading-[1.5]">
                   We promise to
                   <br />
@@ -477,7 +477,7 @@ function ProgressionSection() {
 
               {/* Promise 3 */}
               <div className="flex flex-col px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-0 border-r lg:border-r-0 lg:border-b-0 lg:border-l border-white/10">
-                <Handshake className="w-7 h-7 sm:w-8 sm:h-8 text-[#987bf5] mb-4 sm:mb-6" strokeWidth={1.5} />
+                <Handshake className="w-9 h-9 sm:w-10 sm:h-10 text-[#8f82ff] mb-4 sm:mb-6" strokeWidth={1.5} />
                 <h3 className="text-[13px] sm:text-[14px] text-white mb-3 sm:mb-4 leading-[1.5]">
                   We promise to
                   <br />
@@ -494,7 +494,7 @@ function ProgressionSection() {
 
               {/* Promise 4 */}
               <div className="flex flex-col px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-0 lg:border-l border-white/10">
-                <InfinityIcon className="w-7 h-7 sm:w-8 sm:h-8 text-[#987bf5] mb-4 sm:mb-6" strokeWidth={1.5} />
+                <InfinityIcon className="w-9 h-9 sm:w-10 sm:h-10 text-[#8f82ff] mb-4 sm:mb-6" strokeWidth={1.5} />
                 <h3 className="text-[13px] sm:text-[14px] text-white mb-3 sm:mb-4 leading-[1.5]">
                   We promise to remain
                   <br />a long-term career
@@ -537,7 +537,7 @@ function ProgressionSection() {
                 >
                   "They helped me make better decisions."
                 </p>
-                <div className="w-8 h-[2px] bg-[#4922ca]/60 mt-6" />
+                <div className="w-8 h-[2px] bg-[#1a0b99]/60 mt-6" />
               </div>
 
               {/* Paper Card 2 */}
@@ -548,7 +548,7 @@ function ProgressionSection() {
                 >
                   "I finally understood what direction to take."
                 </p>
-                <div className="w-8 h-[2px] bg-[#4922ca]/60 mt-6" />
+                <div className="w-8 h-[2px] bg-[#1a0b99]/60 mt-6" />
               </div>
 
               {/* Paper Card 3 */}
@@ -559,7 +559,7 @@ function ProgressionSection() {
                 >
                   "They cared about my career, not just my next offer."
                 </p>
-                <div className="w-8 h-[2px] bg-[#4922ca]/60 mt-6" />
+                <div className="w-8 h-[2px] bg-[#1a0b99]/60 mt-6" />
               </div>
 
               {/* Paper Card 4 */}
@@ -570,7 +570,7 @@ function ProgressionSection() {
                 >
                   "I became more confident because someone genuinely believed in me."
                 </p>
-                <div className="w-8 h-[2px] bg-[#4922ca]/60 mt-6" />
+                <div className="w-8 h-[2px] bg-[#1a0b99]/60 mt-6" />
               </div>
 
               {/* Paper Card 5 */}
@@ -581,7 +581,7 @@ function ProgressionSection() {
                 >
                   "I still rely on HireLeap years after my first opportunity."
                 </p>
-                <div className="w-8 h-[2px] bg-[#4922ca]/60 mt-6" />
+                <div className="w-8 h-[2px] bg-[#1a0b99]/60 mt-6" />
               </div>
             </div>
           </div>
@@ -602,7 +602,7 @@ function ProgressionSection() {
           {/* Icon */}
           <div className="flex-shrink-0 md:mt-2">
             <div className="w-[120px] h-[120px] rounded-full border border-white/30 flex items-center justify-center">
-              <MountainSnow className="w-[50px] h-[50px] text-white/80" strokeWidth={1} />
+              <MountainSnow className="w-[64px] h-[64px] text-white/80" strokeWidth={1} />
             </div>
           </div>
 
@@ -626,10 +626,10 @@ function ProgressionSection() {
             <div>
               <Link
                 to="/plan-your-next-leap"
-                className="inline-flex bg-[#4922ca] hover:bg-[#3b1ba8] text-white px-8 py-4 rounded-[6px] transition-colors items-center gap-3"
+                className="inline-flex bg-[#1a0b99] hover:bg-[#140a7a] text-white px-8 py-4 rounded-[6px] transition-colors items-center gap-3"
               >
                 Start Your Career Journey
-                <ArrowRight className="w-5 h-5" />
+                <ArrowRight className="w-6 h-6" />
               </Link>
             </div>
           </div>

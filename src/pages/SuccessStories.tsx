@@ -42,7 +42,7 @@ function Hero() {
     <section className="grid w-full items-center gap-0 lg:grid-cols-[45fr_55fr] bg-[#0A102A] text-white">
       {/* Left Text */}
       <div className="px-5 py-12 sm:px-6 sm:py-16 lg:py-20 lg:pl-10 xl:pl-20 flex flex-col justify-center h-full">
-        <div className="mb-5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#7161fa]">
+        <div className="mb-5 text-[11px] font-bold uppercase tracking-[0.2em] text-[#8f82ff]">
           CAREER TRANSFORMATION JOURNEYS
         </div>
         <h1 className="text-[36px] font-normal leading-[1.08] tracking-tight text-white sm:text-[48px] lg:text-[24px] xl:text-[30px] 2xl:text-[40px] min-[1920px]:text-[52px] mb-6">
@@ -52,7 +52,7 @@ function Hero() {
           <br />
           begins with a moment
           <br />
-          that <span className="text-[#7161fa]">almost nobody sees.</span>
+          that <span className="text-[#8f82ff]">almost nobody sees.</span>
         </h1>
 
         {/* Thin divider line */}
@@ -67,7 +67,7 @@ function Hero() {
         <div>
           <Link
             to="/career-journeys"
-            className="inline-flex items-center justify-center space-x-2 rounded-[6px] bg-[#3b2dd0] px-7 py-3 font-bold text-white transition-transform hover:scale-105 hover:bg-[#2f22a8] shadow-lg"
+            className="inline-flex items-center justify-center space-x-2 rounded-[6px] bg-[#1a0b99] px-7 py-3 font-bold text-white transition-transform hover:scale-105 hover:bg-[#1a0b99]/90 shadow-lg"
           >
             <span className="text-[14px]">Start Your Career Journey</span>
             <ArrowRight className="h-4 w-4" />
@@ -171,7 +171,7 @@ function ChaptersSection() {
   return (
     <section className="w-full bg-white border-t border-gray-100 px-5 sm:px-6 lg:px-10 xl:px-20 pt-16 sm:pt-20 pb-4 sm:pb-6 flex flex-col items-start">
       <div className="max-w-[800px] mb-6">
-        <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#3b2dd0] mb-3">
+        <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1a0b99] mb-3">
           WHAT CHAPTER ARE YOU LIVING TODAY?
         </div>
         <h2 className="text-[#0A102A] text-[28px] sm:text-[34px] lg:text-[40px] font-serif font-normal leading-[1.2]">
@@ -193,9 +193,6 @@ function ChaptersSection() {
                 alt="Illustration"
                 className="h-24 w-auto object-contain p-2"
               />
-            </div>
-            <div className="text-[14px] font-sans font-medium text-[#7161fa] mb-2">
-              {chapter.number}
             </div>
             <h3 className="text-[#0A102A] text-[17px] font-serif font-bold leading-snug mb-3">
               {chapter.title}
@@ -251,9 +248,9 @@ function PathSection() {
   ];
 
   return (
-    <section className="w-full bg-[#fbfbfb] border-t border-gray-100 px-5 sm:px-6 lg:px-10 xl:px-20 pt-6 sm:pt-8 pb-6 sm:pb-8 flex flex-col items-start relative overflow-hidden">
+    <section className="w-full bg-[#f8f6ff] border-t border-gray-100 px-5 sm:px-6 lg:px-10 xl:px-20 pt-6 sm:pt-8 pb-6 sm:pb-8 flex flex-col items-start relative overflow-hidden">
       <div className="max-w-[800px] mb-8">
-        <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#3b2dd0] mb-3">
+        <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1a0b99] mb-3">
           TRANSFORMATION ISN'T LUCK.
         </div>
         <h2 className="text-[#0A102A] text-[28px] sm:text-[34px] lg:text-[40px] font-serif font-normal leading-[1.2]">
@@ -274,7 +271,7 @@ function PathSection() {
                 <div
                   className={`w-20 h-20 rounded-full flex items-center justify-center mb-6 shadow-sm border ${
                     step.highlight
-                      ? "bg-[#3b2dd0] border-[#3b2dd0] text-white"
+                      ? "bg-[#1a0b99] border-[#1a0b99] text-white"
                       : "bg-white border-gray-100 text-[#0A102A]"
                   }`}
                 >
@@ -327,7 +324,7 @@ function ComparisonSection() {
   return (
     <section className="w-full bg-white border-t border-gray-100 px-5 sm:px-6 lg:px-10 xl:px-20 pt-6 pb-16 sm:pt-8 sm:pb-20 flex flex-col items-start relative">
       <div className="max-w-[800px] mb-12">
-        <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#3b2dd0] mb-3">
+        <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1a0b99] mb-3">
           WHAT REALLY CHANGES?
         </div>
         <h2 className="text-[#0A102A] text-[28px] sm:text-[34px] lg:text-[40px] font-serif font-normal leading-[1.2]">
@@ -338,7 +335,7 @@ function ComparisonSection() {
       <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-0 relative">
         {/* Central arrow button (only visible on desktop, overlapping the gap) */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white border border-gray-100 shadow-lg flex items-center justify-center z-20 hidden lg:flex">
-          <ArrowRight className="h-6 w-6 text-[#3b2dd0]" />
+          <ArrowRight className="h-6 w-6 text-[#1a0b99]" />
         </div>
 
         {/* BEFORE Card */}
@@ -385,13 +382,13 @@ function ComparisonSection() {
 
           {/* Content */}
           <div className="relative z-10 p-6 sm:p-8 w-full max-w-[340px] flex flex-col items-start">
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#3b2dd0] mb-4">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1a0b99] mb-4">
               AFTER
             </span>
             <ul className="space-y-3">
               {afterItems.map((item, idx) => (
                 <li key={idx} className="flex items-center space-x-3 text-[#0A102A]">
-                  <div className="w-4 h-4 rounded-full bg-[#3b2dd0] flex items-center justify-center shrink-0">
+                  <div className="w-4 h-4 rounded-full bg-[#1a0b99] flex items-center justify-center shrink-0">
                     <Check className="h-2.5 w-2.5 text-white" />
                   </div>
                   <span className="text-[13px] font-sans font-medium">{item}</span>
@@ -410,20 +407,17 @@ function AlumniMentorsSection() {
     {
       title: "Aspirant",
       description: "Seeking clarity and the right guidance.",
-      illustration:
-        "https://raw.githubusercontent.com/balazser/undraw-svg-collection/refs/heads/main/svgs/education.svg",
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
     },
     {
       title: "Professional",
       description: "Achieving goals and creating impact.",
-      illustration:
-        "https://raw.githubusercontent.com/balazser/undraw-svg-collection/refs/heads/main/svgs/programming.svg",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
     },
     {
       title: "Mentor",
       description: "Inspiring and guiding the next generation.",
-      illustration:
-        "https://raw.githubusercontent.com/balazser/undraw-svg-collection/refs/heads/main/svgs/collaboration.svg",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80",
     },
   ];
 
@@ -431,7 +425,7 @@ function AlumniMentorsSection() {
     <section className="w-full bg-[#fbfbfb] border-t border-gray-100 px-5 sm:px-6 lg:px-10 xl:px-20 pt-10 sm:pt-12 pb-12 sm:pb-16 flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 lg:gap-16">
       {/* Left Column: Text */}
       <div className="w-full lg:w-[35%] flex flex-col items-start text-left lg:pt-4">
-        <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#3b2dd0] mb-3">
+        <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1a0b99] mb-3">
           ONE DAY...
         </div>
         <h2 className="text-[#0A102A] text-[24px] sm:text-[28px] lg:text-[32px] font-serif font-normal leading-[1.25]">
@@ -463,15 +457,14 @@ function AlumniMentorsSection() {
           >
             {/* Round illustration card */}
             <div className="w-36 h-36 rounded-full bg-white border border-gray-100 shadow-sm flex items-center justify-center overflow-hidden mb-5 relative">
-              <div className="absolute inset-0 bg-[#eff6ff]/35" />
               <img loading="lazy"
-                src={step.illustration}
+                src={step.image}
                 alt={step.title}
-                className="h-24 w-auto object-contain p-2 relative z-10"
+                className="w-full h-full object-cover relative z-10"
               />
             </div>
             {/* Title */}
-            <h3 className="text-[#3b2dd0] text-[14px] font-sans font-bold mb-2">{step.title}</h3>
+            <h3 className="text-[#1a0b99] text-[14px] font-sans font-bold mb-2">{step.title}</h3>
             {/* Description */}
             <p className="text-[#52525b] text-[12px] font-sans font-normal leading-relaxed max-w-[160px] mx-auto">
               {step.description}
@@ -562,7 +555,7 @@ function CtaBannerSection() {
           <div className="w-full md:w-auto flex flex-col items-start md:items-start justify-center shrink-0 z-10 md:mr-4">
             <Link
               to="/career-journeys"
-              className="inline-flex items-center justify-center px-6 py-2.5 rounded-[6px] bg-[#4f46e5] text-white font-sans text-[13px] font-medium tracking-wide hover:bg-[#4338ca] transition-colors mb-2.5"
+              className="inline-flex items-center justify-center px-6 py-2.5 rounded-[6px] bg-[#1a0b99] text-white font-sans text-[13px] font-medium tracking-wide hover:bg-[#1a0b99]/90 transition-colors mb-2.5"
             >
               Start Your Career Journey
               <ArrowRight className="ml-2 w-4 h-4 font-normal" />

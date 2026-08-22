@@ -182,7 +182,7 @@ export function Footer() {
                 { name: "Career Intelligence", path: "/career-intelligence" },
                 { name: "Career Hub", path: "/career-hub" },
                 { name: "Success Stories", path: "/success-stories" },
-                { name: "Pricing", path: "/career-investment" },
+                { name: "Career Investment", path: "/career-investment" },
                 { name: "About Us", path: "/about-us" },
               ].map((item) => (
                 <li key={item.name}>

@@ -23,16 +23,29 @@ import { NotFound } from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const lenis = useLenis();
 
   useEffect(() => {
-    if (lenis) {
-      lenis.scrollTo(0, { immediate: true });
+    if (hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash.substring(1));
+        if (element) {
+          if (lenis) {
+            lenis.scrollTo(element);
+          } else {
+            element.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      }, 100);
     } else {
-      window.scrollTo(0, 0);
+      if (lenis) {
+        lenis.scrollTo(0, { immediate: true });
+      } else {
+        window.scrollTo(0, 0);
+      }
     }
-  }, [pathname, lenis]);
+  }, [pathname, hash, lenis]);
 
   return null;
 }

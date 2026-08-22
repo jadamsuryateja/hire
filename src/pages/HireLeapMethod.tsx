@@ -37,11 +37,11 @@ function GoalsSection() {
   return (
     <section className="pt-2 sm:pt-4 pb-8 sm:pb-12 bg-white w-full">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
-        <div className="text-[12px] font-bold uppercase tracking-widest text-primary mb-4 text-center">
+        <div className="text-[12px] font-bold uppercase tracking-widest text-[#1a0b99] mb-4 text-center">
           WHAT ARE YOU TRYING TO ACHIEVE?
         </div>
         <h2 className="text-[32px] sm:text-[40px] font-extrabold text-[#0A102A] text-center mb-6">
-          We help you reach <i className="text-primary">your career goals.</i>
+          We help you reach <i className="text-[#1a0b99]">your career goals.</i>
         </h2>
 
         {/* 8 Cards */}
@@ -72,7 +72,7 @@ function GoalsSection() {
             <p className="text-[14px] lg:text-[15px] text-gray-600 leading-relaxed mb-4 font-medium">
               Every career journey is unique. The destination may be different, but the principles behind lasting career success are the same.
             </p>
-            <p className="text-[16px] font-extrabold text-primary leading-snug">
+            <p className="text-[16px] font-extrabold text-[#1a0b99] leading-snug">
               That's why every journey at HireLeap<br className="hidden sm:block" />is guided by The HireLeap Method™.
             </p>
           </div>
@@ -87,11 +87,11 @@ function Hero() {
     <section className="grid w-full items-center gap-8 lg:grid-cols-[4fr_6fr] xl:grid-cols-[4fr_6fr] lg:gap-10">
       {/* Text Content */}
       <div className="px-5 py-8 sm:px-6 sm:py-10 lg:py-14 lg:pl-10 xl:pl-20 flex flex-col justify-center h-full">
-        <div className="mb-5 text-[12px] font-bold uppercase tracking-widest text-primary">
+        <div className="mb-5 text-[12px] font-bold uppercase tracking-widest text-[#1a0b99]">
           THE HIRELEAP METHOD™
         </div>
-        <h1 className="text-[40px] font-normal leading-[1.08] tracking-tight text-[#0A102A] sm:text-[48px] lg:text-[42px] xl:text-[52px]">
-          Whatever your career goal, we have a system to help you <i className="text-primary">achieve it.</i>
+        <h1 className="font-serif text-[40px] font-normal leading-[1.08] tracking-tight text-[#0A102A] sm:text-[48px] lg:text-[42px] xl:text-[52px]">
+          Whatever your career goal, we have a system to help you <i className="text-[#1a0b99]">achieve it.</i>
         </h1>
         
         <p className="mt-8 text-[16px] leading-relaxed text-gray-700 max-w-[480px]">
@@ -100,21 +100,21 @@ function Hero() {
 
         <div className="mt-8 sm:mt-12 grid grid-cols-2 sm:flex sm:flex-row justify-start sm:justify-between items-start sm:items-center gap-6 sm:gap-4 lg:gap-6 text-[13px] font-semibold text-gray-600 w-full overflow-hidden sm:overflow-visible">
           <div className="flex items-start gap-2 lg:gap-3 whitespace-nowrap">
-            <ShieldCheck className="h-5 w-5 text-primary shrink-0" />
+            <ShieldCheck className="h-5 w-5 text-[#1a0b99] shrink-0" />
             <div className="flex flex-col">
               <span className="text-[#0A102A] font-bold text-[13px] lg:text-[14px]">Proven Framework</span>
               <span className="text-gray-500 text-[11px] lg:text-[12px] font-medium">Trusted by thousands</span>
             </div>
           </div>
           <div className="flex items-start gap-2 lg:gap-3 whitespace-nowrap">
-            <UserCheck className="h-5 w-5 text-primary shrink-0" />
+            <UserCheck className="h-5 w-5 text-[#1a0b99] shrink-0" />
             <div className="flex flex-col">
               <span className="text-[#0A102A] font-bold text-[13px] lg:text-[14px]">Expert Guidance</span>
               <span className="text-gray-500 text-[11px] lg:text-[12px] font-medium">Human experts + AI</span>
             </div>
           </div>
           <div className="flex items-start gap-2 lg:gap-3 whitespace-nowrap">
-            <Target className="h-5 w-5 text-primary shrink-0" />
+            <Target className="h-5 w-5 text-[#1a0b99] shrink-0" />
             <div className="flex flex-col">
               <span className="text-[#0A102A] font-bold text-[13px] lg:text-[14px]">Measurable Results</span>
               <span className="text-gray-500 text-[11px] lg:text-[12px] font-medium">Outcomes that matter</span>
@@ -205,11 +205,11 @@ function FrameworkSection() {
         
         {/* Header */}
         <div className="text-center mb-10">
-          <div className="text-[12px] font-bold uppercase tracking-widest text-primary mb-2">
+          <div className="text-[12px] font-bold uppercase tracking-widest text-[#1a0b99] mb-2">
             THE HIRELEAP METHOD™
           </div>
           <h2 className="text-[32px] sm:text-[40px] font-extrabold text-[#0A102A]">
-            A proven 5-step framework for building <i className="text-primary">meaningful career success.</i>
+            A proven 5-step framework for building <i className="text-[#1a0b99]">meaningful career success.</i>
           </h2>
         </div>
 
@@ -223,9 +223,9 @@ function FrameworkSection() {
                 
                 {/* Arrow to next step (hidden on last step and mobile) */}
                 {index !== steps.length - 1 && (
-                  <div className="hidden md:block absolute top-1/2 left-[calc(50%+60px)] w-[calc(100%-120px)] h-[2px] -translate-y-1/2 z-0">
-                    <div className={`w-full h-full border-t-2 border-dashed ${step.color.replace('text-', 'border-').replace('600', '300')} opacity-50 relative`}>
-                      <div className={`absolute right-0 top-[calc(50%-4px)] w-2 h-2 border-t-2 border-r-2 ${step.color.replace('text-', 'border-').replace('600', '300')} transform rotate-45`}></div>
+                  <div className="hidden md:block absolute top-1/2 left-[calc(50%+54px)] w-[calc(100%-108px)] h-[2px] -translate-y-1/2 z-0">
+                    <div className={`w-full h-full border-t-2 border-solid ${step.color.replace('text-', 'border-').replace('600', '400')} relative`}>
+                      <div className={`absolute right-0 top-[-5px] w-2 h-2 border-t-2 border-r-2 ${step.color.replace('text-', 'border-').replace('600', '400')} transform rotate-45`}></div>
                     </div>
                   </div>
                 )}
@@ -287,13 +287,13 @@ function AdaptsToYouSection() {
     {
       icon: Lightbulb,
       title: "Clarity",
-      color: "text-blue-600",
+      color: "text-[#1a0b99]",
       desc: "Understand your unique value and ideal career path."
     },
     {
       icon: Target,
       title: "Readiness",
-      color: "text-indigo-600",
+      color: "text-[#1a0b99]",
       desc: "Prepare to stand out and perform in every interview."
     },
     {
@@ -305,7 +305,7 @@ function AdaptsToYouSection() {
     {
       icon: TrendingUp,
       title: "Momentum",
-      color: "text-blue-700",
+      color: "text-[#1a0b99]",
       desc: "Accelerate your job search with actionable strategies."
     },
     {
@@ -323,11 +323,11 @@ function AdaptsToYouSection() {
           
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="text-[12px] font-bold uppercase tracking-widest text-primary mb-2">
+            <div className="text-[12px] font-bold uppercase tracking-widest text-[#1a0b99] mb-2">
               ONE FRAMEWORK. EVERY JOURNEY.
             </div>
             <h2 className="text-[28px] sm:text-[36px] font-extrabold text-[#0A102A]">
-              The HireLeap Method™ <i className="text-primary">adapts to you.</i>
+              The HireLeap Method™ <i className="text-[#1a0b99]">adapts to you.</i>
             </h2>
           </div>
 
@@ -398,21 +398,29 @@ function SuccessLooksLikeSection() {
         {/* Top 5 Steps */}
         <div className="mb-8">
           <div className="text-center mb-8">
-            <div className="text-[10px] sm:text-[12px] font-bold uppercase tracking-widest text-primary mb-2">
+            <div className="text-[10px] sm:text-[12px] font-bold uppercase tracking-widest text-[#1a0b99] mb-2">
               WHAT SUCCESS LOOKS LIKE WITH HIRELEAP
             </div>
             <h2 className="text-[24px] sm:text-[32px] font-extrabold text-[#0A102A]">
-              A clearer path from where <i className="text-primary font-serif italic">you are</i> to where you want to be.
+              A clearer path from where <i className="text-[#1a0b99] font-serif italic">you are</i> to where you want to be.
             </h2>
           </div>
 
           <div className="grid grid-cols-2 md:flex md:flex-row justify-between items-start relative max-w-6xl mx-auto gap-y-8 md:gap-y-0">
-            {/* Hidden dotted line connecting circles on desktop */}
-            <div className="hidden md:block absolute top-[36px] left-[10%] right-[10%] h-[2px] border-t-2 border-dashed border-gray-200 z-0"></div>
             
             {steps.map((step, index) => (
               <div key={index} className={`flex flex-col items-center text-center w-full md:w-1/5 relative z-10 px-2 ${index === steps.length - 1 ? 'col-span-2 md:col-span-1' : ''}`}>
-                <div className={`w-[72px] h-[72px] bg-white rounded-full border-2 ${step.borderColor} flex items-center justify-center mb-4 shadow-sm`}>
+                
+                {/* Arrow to next step (hidden on last step and mobile) */}
+                {index !== steps.length - 1 && (
+                  <div className="hidden md:block absolute top-[36px] left-[calc(50%+42px)] w-[calc(100%-84px)] h-[2px] z-0">
+                    <div className={`w-full h-full border-t-2 border-dashed ${step.color.replace('text-', 'border-').replace('600', '300').replace('500', '300')} opacity-80 relative`}>
+                      <div className={`absolute right-0 top-[-5px] w-2 h-2 border-t-2 border-r-2 ${step.color.replace('text-', 'border-').replace('600', '300').replace('500', '300')} transform rotate-45`}></div>
+                    </div>
+                  </div>
+                )}
+
+                <div className={`w-[72px] h-[72px] bg-white rounded-full border-2 ${step.borderColor} flex items-center justify-center mb-4 shadow-sm relative z-10`}>
                   <step.icon className={`w-8 h-8 ${step.color}`} strokeWidth={1.5} />
                 </div>
                 <h4 className="text-[14px] font-bold text-[#0A102A] mb-1">{step.title}</h4>
@@ -453,7 +461,7 @@ function SuccessLooksLikeSection() {
               The HireLeap Method™ gives you the structure, expert guidance, and execution support you need to achieve meaningful and lasting career success.
             </p>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
-              <Link to="/consultation" className="bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-xl flex items-center justify-center transition-colors text-[14px]">
+              <Link to="/plan-your-next-leap" className="bg-[#1a0b99] hover:bg-[#1a0b99]/90 text-white font-bold py-2.5 px-6 rounded-xl flex items-center justify-center transition-colors text-[13px]">
                 Start Your Career Journey
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
@@ -469,29 +477,29 @@ function SuccessLooksLikeSection() {
             
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
               <div className="flex flex-col items-center text-center">
-                <div className="w-12 h-12 rounded-full bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mb-3">
-                  <Users className="w-5 h-5 text-teal-400" />
+                <div className="w-16 h-16 rounded-full bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mb-3">
+                  <Users className="w-7 h-7 text-teal-400" />
                 </div>
                 <div className="text-white font-bold text-[20px] mb-1">5K+</div>
                 <div className="text-gray-400 text-[11px] leading-tight">Aspirants<br/>Guided</div>
               </div>
               <div className="flex flex-col items-center text-center">
-                <div className="w-12 h-12 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-3">
-                  <Smile className="w-5 h-5 text-blue-400" />
+                <div className="w-16 h-16 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mb-3">
+                  <Smile className="w-7 h-7 text-blue-400" />
                 </div>
                 <div className="text-white font-bold text-[20px] mb-1">98%</div>
                 <div className="text-gray-400 text-[11px] leading-tight">Satisfaction<br/>Rate</div>
               </div>
               <div className="flex flex-col items-center text-center">
-                <div className="w-12 h-12 rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-3">
-                  <BarChart2 className="w-5 h-5 text-indigo-400" />
+                <div className="w-16 h-16 rounded-full bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center mb-3">
+                  <BarChart2 className="w-7 h-7 text-indigo-400" />
                 </div>
                 <div className="text-white font-bold text-[20px] mb-1">3X</div>
                 <div className="text-gray-400 text-[11px] leading-tight">More Interview<br/>Calls</div>
               </div>
               <div className="flex flex-col items-center text-center">
-                <div className="w-12 h-12 rounded-full bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-3">
-                  <Target className="w-5 h-5 text-orange-400" />
+                <div className="w-16 h-16 rounded-full bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mb-3">
+                  <Target className="w-7 h-7 text-orange-400" />
                 </div>
                 <div className="text-white font-bold text-[20px] mb-1">2X</div>
                 <div className="text-gray-400 text-[11px] leading-tight">Career Growth<br/>Avg. Increase</div>

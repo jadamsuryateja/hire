@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react";
+import { useSearchParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
-import { useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -25,6 +25,8 @@ import {
   Briefcase,
   Calendar,
   Lock,
+  XCircle,
+  Heart,
 } from "lucide-react";
 import { PageShell } from "../components/PageShell";
 import planYourNextLeapImg from "../assets/Plan Your Next Leap.webp";
@@ -43,6 +45,8 @@ const formSchema = z.object({
 
 export default function PlanYourNextLeap() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [searchParams] = useSearchParams();
+  const stageParam = searchParams.get("stage");
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -57,6 +61,12 @@ export default function PlanYourNextLeap() {
       agree: false,
     },
   });
+
+  useEffect(() => {
+    if (stageParam) {
+      form.setValue("careerStage", stageParam, { shouldValidate: true });
+    }
+  }, [stageParam, form]);
 
   const scrollToForm = () => {
     const input = document.getElementById("fullNameInput");
@@ -232,7 +242,7 @@ export default function PlanYourNextLeap() {
               <div
                 key={idx}
                 onClick={() => handleCardClick(card.stageValue)}
-                className="group relative flex flex-col h-[320px] bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-all duration-300 cursor-pointer"
+                className="group relative flex flex-col bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] transition-all duration-300 cursor-pointer"
               >
                 {/* Background image area */}
                 <div className="absolute inset-x-0 bottom-0 top-1/3">
@@ -246,7 +256,7 @@ export default function PlanYourNextLeap() {
                 <div className="absolute inset-0 bg-gradient-to-b from-white from-40% via-white/80 to-transparent pointer-events-none" />
 
                 {/* Content */}
-                <div className="relative flex flex-col h-full p-6 z-10">
+                <div className="relative flex flex-col p-6 z-10">
                   <div className="w-10 h-10 rounded-full border border-primary/20 flex items-center justify-center text-primary mb-5 bg-white shadow-sm">
                     {card.icon}
                   </div>
@@ -254,8 +264,8 @@ export default function PlanYourNextLeap() {
                     {card.title}
                   </h3>
 
-                  <div className="mt-auto self-end opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="w-8 h-8 rounded-full bg-[#4922ca] flex items-center justify-center text-white shadow-md">
+                  <div className="mt-12 self-end transition-opacity">
+                    <div className="w-8 h-8 rounded-full bg-[#1a0b99] flex items-center justify-center text-white shadow-md">
                       <ArrowRight className="w-4 h-4" />
                     </div>
                   </div>
@@ -520,6 +530,82 @@ export default function PlanYourNextLeap() {
                   </div>
                 </form>
               )}
+            </div>
+          </div>
+        </section>
+        {/* Section 04 & 05 */}
+        <section className="w-full bg-white pt-2 pb-12 px-5 sm:px-6 lg:px-10">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1.2fr_1fr_0.6fr] gap-12 lg:gap-16 items-start">
+            {/* Section 04: Before we meet */}
+            <div className="flex flex-col pr-0 lg:pr-8">
+              <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1a0b99] mb-2">04</div>
+              <h2 className="text-[28px] sm:text-[32px] text-[#0a1b3f] font-serif leading-snug mb-4">
+                Before we meet,
+                <br />
+                here's what you <span className="italic text-[#1a0b99]">don't need.</span>
+              </h2>
+
+              <div className="flex flex-row items-center gap-x-4 gap-y-2 mb-4 overflow-x-auto lg:overflow-x-visible whitespace-nowrap pb-1">
+                {[
+                  "A perfect resume",
+                  "All the answers",
+                  "Years of experience",
+                  "Complete clarity",
+                  "Confidence",
+                ].map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-1.5 text-foreground/80 text-[12px] font-medium shrink-0">
+                    <span className="w-4.5 h-4.5 rounded-full border border-red-300 flex items-center justify-center text-red-500 text-[8px] shrink-0 font-bold">✕</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="relative flex flex-col items-center my-3.5">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-gray-100"></div>
+                </div>
+                <span className="relative bg-white px-4 text-[10.5px] uppercase tracking-wider text-gray-400 font-bold">
+                  You only need one thing:
+                </span>
+              </div>
+
+              <div className="flex justify-center w-full">
+                <div className="flex items-center gap-2.5 p-2.5 px-5 bg-[#f5f3ff] rounded-[6px] border border-[#1a0b99]/10 mt-1 shadow-sm">
+                  <Heart className="w-4 h-4 text-[#1a0b99] shrink-0" />
+                  <span className="text-[13px] font-bold text-[#1a0b99] tracking-wide">A willingness to take the next step.</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Section 05: Every conversation is personal */}
+            <div className="flex flex-col pl-0 lg:pl-8 lg:border-l lg:border-gray-100">
+              <div className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#1a0b99] mb-2">05</div>
+              <h2 className="text-[28px] sm:text-[32px] text-[#0a1b3f] font-serif leading-snug mb-6">
+                Every conversation is personal.
+              </h2>
+
+              <div className="space-y-3.5 text-foreground/85 text-[14px] leading-relaxed font-medium">
+                <p>No two careers are identical.</p>
+                <p className="font-bold text-[#1a0b99]">No two paths should be either.</p>
+                <p className="text-foreground/60 text-[13px] leading-relaxed mt-2">
+                  You'll speak with someone who wants to understand your goals before recommending your next step.
+                </p>
+              </div>
+            </div>
+
+            {/* 3rd Column: Cursive visual signature */}
+            <div className="flex lg:justify-end lg:mt-14">
+              <div className="text-left lg:text-right">
+                <span
+                  className="text-[36px] sm:text-[40px] text-[#1a0b99] inline-block rotate-[-2deg] select-none leading-tight"
+                  style={{ fontFamily: "'Caveat', cursive" }}
+                >
+                  We're here
+                  <br />
+                  to listen.
+                </span>
+                <div className="w-16 h-[1.5px] bg-[#1a0b99]/30 ml-0 lg:ml-auto mt-1 rounded-full" />
+              </div>
             </div>
           </div>
         </section>
